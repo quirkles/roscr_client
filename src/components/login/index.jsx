@@ -1,6 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
 export const unconnected_login_component = () =>
 
@@ -8,17 +9,16 @@ export const unconnected_login_component = () =>
   <div className="padding">
     <div className="navbar">
       <div className="pull-center">
-        <a href="index.html" className="navbar-brand">
-          <div data-ui-include="'images/logo.svg'"></div>
+        <Link to="/" className="navbar-brand">
           <span className="hidden-folded inline">Roscr</span>
-        </a>
+        </Link>
       </div>
     </div>
   </div>
   <div className="b-t">
     <div className="center-block w-xxl w-auto-xs p-y-md text-center">
       <div className="p-a-md">
-        <form name="form" action="home.html">
+        <form name="form">
           <div className="form-group">
             <input type="email" className="form-control" placeholder="Email" required="" />
           </div>
@@ -32,18 +32,18 @@ export const unconnected_login_component = () =>
                 Keep me signed in
             </label>
           </div>
-          <button type="submit" className="btn btn-lg black p-x-lg">Sign in</button>
+          <button className="btn btn-lg black p-x-lg">Sign in</button>
         </form>
         <div className="m-y">
           <a href="forgot-password.html" className="_600">Forgot password?</a>
         </div>
         <div>
-          Do not have an account?
-          <a href="signup.html" className="text-primary _600">Sign up</a>
+          <span className="padding-right-half">Do not have an account?</span>
+          <Link to="/signup" className="text-primary _600">Sign up</Link>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div>;
 
 export default connect()(unconnected_login_component);
