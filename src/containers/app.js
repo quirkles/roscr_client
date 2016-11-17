@@ -4,6 +4,7 @@ import {Route, Router} from 'react-router';
 import Todos from '../components/todos';
 import About from '../components/about';
 import NotFound from '../components/notFound';
+import Login from '../components/login';
 import Shell from '../components/shell';
 
 const routes =
@@ -13,6 +14,7 @@ const routes =
       <Route path='/todos/:filter' component={Todos} />
       <Route path='/' component={About}></Route>
     </Route>
+    <Route path='/login' component={Login}></Route>
     <Route path='*' component={NotFound}/>
   </Router>;
 
