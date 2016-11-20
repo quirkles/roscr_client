@@ -5,7 +5,7 @@ import {
   DELETE_TODO,
   START_EDITING_TODO,
   STOP_EDITING_TODO
-} from '../constants/todosConstants';
+} from '../constants/todos_constants';
 
 import cuid from 'cuid';
 

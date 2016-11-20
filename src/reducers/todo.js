@@ -5,7 +5,7 @@ import {
 	TOGGLE_TODO_COMPLETED_STATE,
 	START_EDITING_TODO,
 	STOP_EDITING_TODO
-} from '../constants/todosConstants';
+} from '../constants/todos_constants';
 
 
 const initial_state = Map({});

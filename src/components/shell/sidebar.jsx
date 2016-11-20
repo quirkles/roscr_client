@@ -1,6 +1,22 @@
 import React from 'react';
 
-export default () =>
+import SidebarItem from './sidebar_item';
+
+const get_sidebar_items = () =>
+[
+  {
+    text: 'Home',
+    link: '/',
+    icon_class: 'fa fa-home'
+  },
+  {
+    text: 'Login',
+    link: '/login',
+    icon_class: 'fa fa-sign-in'
+  }
+];
+
+export default ({active_route}) =>
 <div id="aside" className="app-aside fade nav-dropdown black ">
   <div className="navside dk" data-layout="column">
     <div className="navbar no-radius">
@@ -11,17 +27,12 @@ export default () =>
     <div data-flex="" className="hide-scroll">
       <nav className="scroll nav-stacked nav-stacked-rounded nav-color">
         <ul className="nav" data-ui-nav="">
-          <li>
-            <a>
-              <span className="nav-caret">
-                <i className="fa fa-caret-down"></i>
-              </span>
-              <span className="nav-icon">
-                <i className="ion-plus-circled"></i>
-              </span>
-              <span className="nav-text">Menu Item</span>
-            </a>
-          </li>
+          {get_sidebar_items().map((item, i) =>
+            <SidebarItem
+              key={i}
+              active_route = {active_route}
+              {...item} />
+          )}
         </ul>
       </nav>
     </div>

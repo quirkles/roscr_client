@@ -2,11 +2,11 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import * as todos_actions from '../../actions/todosActions';
+import * as todos_actions from '../../actions/todos_actions';
 
-import TodoForm from './todoForm';
-import TodoList from './todoList';
-import TodoFilter from './todoFilter';
+import TodoForm from './todo_form';
+import TodoList from './todo_list';
+import TodoFilter from './todo_filter';
 
 import './todos.scss';
 
