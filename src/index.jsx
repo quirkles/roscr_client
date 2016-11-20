@@ -38,7 +38,7 @@ render(
   <AppContainer>
     <Root store={store}/>
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('app')
 );
 
 if (module.hot) {
@@ -48,7 +48,7 @@ if (module.hot) {
       <AppContainer>
         <RootContainer store={store}/>
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('app')
     );
   });
 }
