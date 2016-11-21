@@ -4,12 +4,11 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
 export const unconnected_login_component = () =>
-
 <div className="app" id="app">
-  <div className="padding">
+  <div className="padding white">
     <div className="navbar">
       <div className="pull-center">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand text-black">
           <span className="hidden-folded inline">Roscr</span>
         </Link>
       </div>

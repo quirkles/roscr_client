@@ -13,6 +13,11 @@ const get_sidebar_items = () =>
     text: 'Login',
     link: '/login',
     icon_class: 'fa fa-sign-in'
+  },
+  {
+    text: 'Signup',
+    link: '/signup',
+    icon_class: 'fa fa-user-plus'
   }
 ];
 

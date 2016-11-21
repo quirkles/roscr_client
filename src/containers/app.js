@@ -13,10 +13,10 @@ const routes =
     <Route component={Shell}>
       <Route path='/todos' component={Todos} />
       <Route path='/todos/:filter' component={Todos} />
+      <Route path='/login' component={Login}></Route>
+      <Route path='/signup' component={Signup}></Route>
       <Route path='/' component={About}></Route>
     </Route>
-    <Route path='/login' component={Login}></Route>
-    <Route path='/signup' component={Signup}></Route>
     <Route path='*' component={NotFound}/>
   </Router>;
 
