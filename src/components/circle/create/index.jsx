@@ -5,6 +5,12 @@ import D from 'date-fp';
 
 import * as circle_actions from '../../../actions/circle_actions';
 
+const get_contribution_value = (withdrawal_value, participant_count) => {
+  const contribution_value = parseFloat(withdrawal_value, 10) / parseInt(participant_count, 10);
+  return Number.isNaN(contribution_value) ?
+    'Contribution value is calculated from the withdrawal value and number of particiapnts' :
+    `$${contribution_value.toFixed(2)}`;
+};
 
 export const unconnected_create_circle_component = ({
   new_circle,
@@ -12,14 +18,14 @@ export const unconnected_create_circle_component = ({
   edit_circle_attr
 }) =>
 <div className='row'>
-  <div className='col-sm-12'>
-    <form data-ui-jp='parsley'>
+  <div className='col-lg-12 col-xl-6'>
+    <form>
       <div className='box'>
-        <div className='box-header'>
-          <h2>Create Circle</h2>
+        <div className='box-header indigo'>
+          <h2 className='padding'>Create Circle</h2>
         </div>
         <div className='box-body'>
-          <p className='text-muted'>Enter Circle Data</p>
+          <p className='text-muted'>Enter the information you want to use to create this circle with below.</p>
           <div className='form-group'>
             <label>Circle Name</label>
             <input
@@ -48,18 +54,18 @@ export const unconnected_create_circle_component = ({
             </select>
           </div>
           <div className='form-group'>
-            <label className='control-label'>Desired withdrawal value</label>
+            <label className='control-label'>Desired Withdrawal Value</label>
             <input
               type = 'number'
               className = 'form-control'
               placeholder = '$100'
-              value = {new_circle.get('withdrawal_amount')}
+              value = {new_circle.get('withdrawal_amount') || ''}
               onChange = {edit_circle_attr('withdrawal_amount')}
               step = '10'
             />
           </div>
           <div className='form-group'>
-            <label className='control-label'>Savings cycle length</label>
+            <label className='control-label'>Savings Cycle Length</label>
             <select
               className='form-control'
               value = {new_circle.get('cycle_period')}
@@ -91,6 +97,7 @@ export const unconnected_create_circle_component = ({
               type='text'
               readOnly
               className='form-control'
+              value={get_contribution_value(new_circle.get('withdrawal_amount'), new_circle.get('participant_count'))}
             />
           </div>
           <div className='button-list'>
@@ -99,6 +106,43 @@ export const unconnected_create_circle_component = ({
         </div>
       </div>
     </form>
+  </div>
+  <div className='col-lg-12 col-xl-6'>
+    <div className='box'>
+      <div className='box-header indigo'>
+        <h2 className='panel-title padding'>
+          <i className='fa fa-info-circle padding-right-one'></i>
+          Creating A circle
+        </h2>
+      </div>
+      <div className='box-body'>
+        <p>Use this form to create a new savings circle, after you've created the circle, you will be added to it and, as the chircle chair will be able to add more users to it.</p>
+        <div className='padding-half indigo-50'>
+          <h5 className='text-info font-bold'>Circle Name</h5>
+          <p>Just a simple identifier for the circle.</p>
+        </div>
+        <div className='padding-half'>
+          <h5 className='text-info font-bold'>Participant Count</h5>
+          <p>The number of people, including yourself, that you want to be in this circle. Circles must have at least four, but no more than twelve participants.</p>
+        </div>
+        <div className='padding-half'>
+          <h5 className='text-info font-bold'>Desired Withdrawal Value</h5>
+          <p>The dollar amount you wish to the circle to pay out at the ned of each savings cycle.</p>
+        </div>
+        <div className='padding-half'>
+          <h5 className='text-info font-bold'>Savings Cycle Length</h5>
+          <p>The period of time between each payout event.</p>
+        </div>
+        <div className='padding-half'>
+          <h5 className='text-info font-bold'>Start Date</h5>
+          <p>The date at which the circle will start.</p>
+        </div>
+        <div className='padding-half'>
+          <h5 className='text-info font-bold'>Contribution amount</h5>
+          <p>The dollar amount that each circle member is required ot pay into the circle each savings cycle. This is calcualted from the withdrawal value and number of participants, it includes the ROSCr fees.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>;
 
