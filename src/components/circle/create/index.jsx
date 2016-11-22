@@ -1,12 +1,14 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import D from 'date-fp';
 
 import * as circle_actions from '../../../actions/circle_actions';
 
 
 export const unconnected_create_circle_component = ({
   new_circle,
+  edit_circle,
   edit_circle_attr
 }) =>
 <div className='row'>
@@ -60,8 +62,10 @@ export const unconnected_create_circle_component = ({
             <label className='control-label'>Savings cycle length</label>
             <select
               className='form-control'
+              value = {new_circle.get('cycle_period')}
+              onChange = {edit_circle_attr('cycle_period')}
             >
-              <option disabled selected>-- Select Cycle Length --</option>
+              <option disabled>-- Select Cycle Length --</option>
               <option value='weekly'>Weekly</option>
               <option value='bi-weekly'>Bi-Weekly</option>
               <option value='monthly'>Monthly</option>
@@ -72,6 +76,13 @@ export const unconnected_create_circle_component = ({
             <input
               type='date'
               className='form-control'
+              value={D.format('YYYY-MM-DD', new_circle.get('start_date'))}
+              onChange = {e => edit_circle({
+                circle_id: 'new_circle',
+                circle_data: {
+                  start_date: new Date(e.target.value)
+                }
+              })}
             />
           </div>
           <div className='form-group'>
@@ -89,20 +100,25 @@ export const unconnected_create_circle_component = ({
       </div>
     </form>
   </div>
-</div>
+</div>;
 
 // state -> pick circles -> get 'new_circle'
 const map_state_to_props = ({circles}) => ({new_circle: circles.get('new_circle')});
 
-const map_dispatch_to_props = dispatch => ({
-  edit_circle_attr: attr => e => {
-    const circle_data = {};
-    circle_data[attr] = e.target.value;
-    bindActionCreators(circle_actions.edit_circle, dispatch)({
-      circle_id: 'new_circle',
-      circle_data
-    });
-  }
-});
+const map_dispatch_to_props = dispatch => {
+  const edit_circle = bindActionCreators(circle_actions.edit_circle, dispatch);
+
+  return {
+    edit_circle,
+    edit_circle_attr: attr => e => {
+      const circle_data = {};
+      circle_data[attr] = e.target.value;
+      edit_circle({
+        circle_id: 'new_circle',
+        circle_data
+      });
+    }
+  };
+};
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_create_circle_component);
