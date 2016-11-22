@@ -4,10 +4,21 @@ import {connect} from 'react-redux';
 
 import * as circle_actions from '../../../actions/circle_actions';
 
+
 export const unconnected_create_circle_component = ({
   new_circle,
   edit_circle
 }) => {
+
+  const edit_circle_attr = attr => e => {
+    const circle_data = {};
+    circle_data[attr] = e.target.value;
+    edit_circle({
+      circle_id: 'new_circle',
+      circle_data
+    });
+  };
+
   return (
     <div className='row'>
       <div className='col-sm-12'>
@@ -23,7 +34,7 @@ export const unconnected_create_circle_component = ({
                 <input
                   type = 'text'
                   className = 'form-control'
-                  value = {new_circle.get('name')}
+                  value = {new_circle.get('circle_name')}
                   placeholder = 'My New Circle'
                 />
               </div>
@@ -32,12 +43,7 @@ export const unconnected_create_circle_component = ({
                 <select
                   className='form-control'
                   value={new_circle.get('participant_count')}
-                  onChange = {e => edit_circle({
-                    circle_id: 'new_circle',
-                    circle_data: {
-                      participant_count: e.target.value
-                    }
-                  })}
+                  onChange = {edit_circle_attr('participant_count')}
                 >
                   {Array
                   .from({length: 9}, (v, k) => k + 4)
