@@ -23,6 +23,6 @@ const map_state_to_props = state => ({
   active_route: state.routing.locationBeforeTransitions.pathname
 });
 
-const map_dispatch_to_props = dispatch =>({dispatch});
+const map_dispatch_to_props = dispatch => ({dispatch});
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, Router} from 'react-router';
 
-import Todos from '../components/todos';
 import About from '../components/about';
 import NotFound from '../components/notFound';
 import Login from '../components/login';
@@ -13,8 +12,6 @@ import CreateCircle from '../components/circle/create';
 const routes =
   <Router>
     <Route component={Shell}>
-      <Route path='/todos' component={Todos} />
-      <Route path='/todos/:filter' component={Todos} />
       <Route path='/login' component={Login}></Route>
       <Route path='/signup' component={Signup}></Route>
       <Route path='/circle/create' component={CreateCircle}></Route>

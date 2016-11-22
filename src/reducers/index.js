@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 import {routerReducer} from 'react-router-redux';
+import circles from './circles_reducer';
 
-import todos from './todos';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  todos
+  circles
 });
 
 export default rootReducer;
