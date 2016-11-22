@@ -18,6 +18,18 @@ const get_sidebar_items = () =>
     text: 'Signup',
     link: '/signup',
     icon_class: 'fa fa-user-plus'
+  },
+  {
+    text: 'Create Circle',
+    link: '/circle/create',
+    icon_class: 'fa fa-plus-circle'
+
+  },
+  {
+    text: 'View a Circle',
+    link: '/circle/test-circle-id',
+    icon_class: 'fa fa-circle'
+
   }
 ];
 

@@ -12,7 +12,9 @@ export const unconnected_shell_component = ({
   <div id="content" className='app-content'>
     <Header />
     <div className="app-body">
-      {React.cloneElement(children)}
+      <div className='padding'>
+        {React.cloneElement(children)}
+      </div>
     </div>
   </div>
 </div>;
