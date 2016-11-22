@@ -20,7 +20,7 @@ export const unconnected_shell_component = ({
 </div>;
 
 const map_state_to_props = state => ({
-  active_route: state.routing.locationBeforeTransitions.pathname
+  active_route: state.routing.locationBeforeTransitions && state.routing.locationBeforeTransitions.pathname
 });
 
 const map_dispatch_to_props = dispatch => ({dispatch});
