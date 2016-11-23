@@ -123,5 +123,4 @@ export default ({
         </div>
       </div>
     </div>
-  </form>
-
+  </form>;

@@ -4,7 +4,9 @@ import {EDIT_CIRCLE} from '../constants/circle_constants';
 import circle_reducer from './circle_reducer';
 
 const default_state = fromJS({
-  new_circle: {
+  'test-circle-id'  : {
+    circle_name: 'Test Circle Name',
+    withdrawal_amount: '300',
     participant_count: 12,
     cycle_period: 'monthly',
     start_date: new Date()
