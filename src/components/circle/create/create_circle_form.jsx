@@ -16,7 +16,10 @@ export default ({
   <form>
     <div className='box'>
       <div className='box-header indigo'>
-        <h2 className='padding'>Create Circle</h2>
+        <h2 className='padding'>
+          <i className='fa fa-plus-circle padding-right-one'></i>
+          Create Circle
+        </h2>
       </div>
       <div className='box-body'>
         <p className='text-muted'>Enter the information you want to use to create this circle with below.</p>

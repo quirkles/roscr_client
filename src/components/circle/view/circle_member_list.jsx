@@ -13,7 +13,7 @@ export default ({circle_members}) =>
     {circle_members.map(member =>
       <div key={member.get('id')}>
         <Link
-          to={`/member/${member.get('id')}`}
+          to={`/user/${member.get('id')}`}
         >
           {member.get('firstname')} {member.get('lastname')}
         </Link>

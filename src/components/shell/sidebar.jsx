@@ -30,6 +30,12 @@ const get_sidebar_items = () =>
     link: '/circle/test-circle-id',
     icon_class: 'fa fa-circle'
 
+  },
+  {
+    text: 'View a User',
+    link: '/user/1',
+    icon_class: 'fa fa-user'
+
   }
 ];
 

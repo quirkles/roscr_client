@@ -11,7 +11,10 @@ const get_contribution_value = (withdrawal_value, participant_count) => {
 export default ({circle_to_display}) =>
 <div className='box'>
   <div className='box-header blue-grey'>
-    <h2 className='padding'>{circle_to_display.get('circle_name')}</h2>
+    <h2 className='padding'>
+      <i className='fa fa-circle-o padding-right-one'></i>
+      {circle_to_display.get('circle_name')}
+    </h2>
   </div>
   <div className='box-body'>
     <table className="table">

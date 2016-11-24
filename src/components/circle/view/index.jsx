@@ -26,11 +26,11 @@ export const unconnected_create_circle_component = ({
   </div>;
 
 // state -> pick circles -> get 'new_circle'
-const map_state_to_props = ({circles, members}, own_props) => {
+const map_state_to_props = ({circles, users}, own_props) => {
   const circle_to_display = circles.get(own_props.params.circle_id);
   const circle_members = circle_to_display
     .get('members')
-    .map(m => members.get(m, Map({needs_to_be_fetched: true}))
+    .map(m => users.get(m, Map({needs_to_be_fetched: true}))
       .set('id', m));
   return {
     circle_to_display,

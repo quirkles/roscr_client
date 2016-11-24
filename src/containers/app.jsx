@@ -8,7 +8,7 @@ import Signup from '../components/signup';
 import Shell from '../components/shell';
 import CreateCircle from '../components/circle/create';
 import ViewCircle from '../components/circle/view';
-
+import ViewUser from '../components/user/view';
 
 const routes =
   <Router>
@@ -17,6 +17,7 @@ const routes =
       <Route path='/signup' component={Signup}></Route>
       <Route path='/circle/create' component={CreateCircle}></Route>
       <Route path='/circle/:circle_id' component={ViewCircle}></Route>
+      <Route path='/user/:user_id' component={ViewUser}></Route>
       <Route path='/' component={About}></Route>
     </Route>
     <Route path='*' component={NotFound}/>
