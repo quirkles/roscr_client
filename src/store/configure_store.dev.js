@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 import createLogger from 'redux-logger';
-import DevTools from '../containers/devTools';
+import DevTools from '../containers/dev_tools';
 
 const logger = createLogger();
 

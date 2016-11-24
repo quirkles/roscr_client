@@ -39,13 +39,28 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['babel'],
-      exclude: /node_modules/
-    },{
-      test: /\.scss$/,
-      loader: 'style!css!sass'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }
+    ]
   }
 };

@@ -1,12 +1,14 @@
 {
   "name": "react-redux-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client side roscr code",
+  "repository": "https://github.com/quirkles/roscr_client",
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && npm run build:webpack && npm run copydist",
     "copydist": ".\\node_modules\\.bin\\copy .\\src\\static\\* .\\dist\\",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "lint": "eslint src",
     "start": "node server.js",
     "start:prod": "cross-env NODE_ENV=production node server.js",
     "test": "mocha --compilers js:babel-core/register --require ./src/test/test_helper.js --require ignore-styles \"src/test/**/*@(.js|.jsx)\"",
