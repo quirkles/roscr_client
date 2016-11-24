@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import {fromJS} from 'immutable';
 
 import configureStore from './store/configure_store';
 import Root from './containers/root';
