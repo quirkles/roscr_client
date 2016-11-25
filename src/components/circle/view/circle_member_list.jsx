@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router';
 
-export default ({circle_members}) =>
+import CircleMemberListItem from './circle_member_list_item';
+
+const circle_member_list_component = ({circle_members}) =>
 <div className='box circle-member-list-pane'>
   <div className='box-header blue-grey'>
     <h2 className='padding'>
@@ -10,14 +11,15 @@ export default ({circle_members}) =>
     </h2>
   </div>
   <div className='box-body'>
-    {circle_members.map(member =>
-      <div key={member.get('id')}>
-        <Link
-          to={`/user/${member.get('id')}`}
-        >
-          {member.get('firstname')} {member.get('lastname')}
-        </Link>
-      </div>
-    )}
+    <ul className="list">
+      {circle_members.map(member =>
+        <CircleMemberListItem
+          key = {member.get('id')}
+          circle_member = {member}
+        />
+      )}
+    </ul>
   </div>
 </div>;
+
+export default circle_member_list_component;

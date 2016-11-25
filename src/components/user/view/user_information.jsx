@@ -23,7 +23,7 @@ const user_information_component = ({user_to_display}) =>
           </tr>
           <tr>
             <td>Joined ROSCr</td>
-            <td className='font-weight-600'>{D.format('YYYY-MM-DD', user_to_display.get('date_created'))}</td>
+            <td className='font-weight-600'>{D.format('YYYY MM DD', user_to_display.get('date_created'))}</td>
           </tr>
           <tr>
             <td>Trust Score</td>

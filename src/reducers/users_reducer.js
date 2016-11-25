@@ -17,11 +17,22 @@ const default_state = from_js({
     lastname: 'smith',
     email_address: 'alan.smith@gmail.com',
     avatar_url: 'https://api.adorable.io/avatars/285/alansmith@adorable.io.png',
-    created: new Date(),
-    lastModified: new Date(),
-    trustScore: 80,
-    circlesCreated: ['2'],
-    circlesAsMember: ['1', 'test-circle-id']
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    trust_score: 99,
+    circles_created: ['2'],
+    circles_as_member: ['1', 'test-circle-id']
+  },
+  '3': {
+    firstname: 'Francis',
+    lastname: 'Archer',
+    email_address: 'archer@gmail.com',
+    avatar_url: 'https://api.adorable.io/avatars/285/francisarcher@adorable.io.png',
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    trust_score: 75,
+    circles_created: [],
+    circles_as_member: ['1', '2']
   }
 });
 
