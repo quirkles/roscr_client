@@ -43,6 +43,17 @@ List
 	}
 }
 
+.list-right{
+	float: right;
+	> span{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	~ .list-body{
+		margin-right: 56px;
+	}
+}
+
 .list-body{
 	h3{
 		font-size: 16px;

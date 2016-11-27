@@ -2078,6 +2078,8 @@ List
     vertical-align: middle; }
   .list-left + .list-body {
     margin-left: 56px; }
+  .list-right + .list-body {
+  margin-right: 56px; }
 
 .list-body h3 {
   font-size: 16px;

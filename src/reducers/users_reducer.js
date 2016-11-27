@@ -8,7 +8,7 @@ const default_state = from_js({
     avatar_url: 'https://api.adorable.io/avatars/285/peterjones@adorable.io.png',
     date_created: new Date(),
     date_last_modified: new Date(),
-    trust_score: 80,
+    trust_score: 65,
     circles_created: ['1'],
     circles_as_member: ['2', 'test-circle-id']
   },
@@ -19,7 +19,7 @@ const default_state = from_js({
     avatar_url: 'https://api.adorable.io/avatars/285/alansmith@adorable.io.png',
     date_created: new Date(),
     date_last_modified: new Date(),
-    trust_score: 99,
+    trust_score: 80,
     circles_created: ['2'],
     circles_as_member: ['1', 'test-circle-id']
   },
@@ -30,7 +30,7 @@ const default_state = from_js({
     avatar_url: 'https://api.adorable.io/avatars/285/francisarcher@adorable.io.png',
     date_created: new Date(),
     date_last_modified: new Date(),
-    trust_score: 75,
+    trust_score: 99,
     circles_created: [],
     circles_as_member: ['1', '2']
   }
