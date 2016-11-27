@@ -2,8 +2,6 @@ import React from 'react';
 import {Link} from 'react-router';
 import classnames from 'classnames';
 
-import cuid from 'cuid';
-
 const get_trust_score_font_class = trust_score =>
   parseInt(trust_score, 10) < 75 ? 'red-500' :
   parseInt(trust_score, 10) < 85 ? 'yellow-500' :

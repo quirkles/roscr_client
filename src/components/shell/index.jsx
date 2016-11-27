@@ -13,9 +13,14 @@ export const unconnected_shell_component = ({
 <div>
   <Tooltips tooltips={tooltips}/>
   <Sidebar active_route = {active_route} />
-  <div id="content" className='app-content'>
+  <div
+    id="content"
+    className='app-content'
+  >
     <Header />
-    <div className="app-body">
+    <div
+      className="app-body"
+    >
       <div className='padding'>
         {React.cloneElement(children)}
       </div>

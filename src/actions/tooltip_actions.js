@@ -1,11 +1,15 @@
-import {SHOW_TOOLTIP_AT_ELEMENT, DESTROY_TOOLTIP} from '../constants/tooltip_constants';
+import {
+  SHOW_TOOLTIP_AT_ELEMENT,
+  DESTROY_TOOLTIP,
+  DESTROY_ALL_TOOLTIPS
+} from '../constants/tooltip_constants';
 import cuid from 'cuid';
 import {Map} from 'immutable';
 
 export const show_tooltip = (tooltip, anchor_element) => {
   const {id, ...tooltip_data} = tooltip;
   const el_viewport_offset = anchor_element.getBoundingClientRect();
-  console.log(el_viewport_offset);
+
   return {
     type: SHOW_TOOLTIP_AT_ELEMENT,
     tooltip_id: id || cuid(),
@@ -20,4 +24,8 @@ export const show_tooltip = (tooltip, anchor_element) => {
 export const destroy_tooltip = tooltip_id => ({
   type: DESTROY_TOOLTIP,
   tooltip_id
+});
+
+export const destroy_all_tooltips = () => ({
+  type: DESTROY_ALL_TOOLTIPS
 });

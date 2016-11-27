@@ -16,7 +16,6 @@ export default (state = default_state, action) => {
         state.merge(action.circle_data) :
         state;
     case SET_HOVER_HINT:
-      console.log(`setting hover hint: ${action.hover_hint}`);
       return state.set('hover_hint', action.hover_hint);
     default:
       return state;
