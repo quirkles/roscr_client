@@ -21,7 +21,7 @@ export const unconnected_shell_component = ({
     <div
       className="app-body"
     >
-      <div className='padding'>
+      <div>
         {React.cloneElement(children)}
       </div>
     </div>

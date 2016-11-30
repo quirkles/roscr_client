@@ -10,7 +10,11 @@ const default_state = from_js({
     date_last_modified: new Date(),
     trust_score: 65,
     circles_created: ['1'],
-    circles_as_member: ['2', 'test-circle-id']
+    circles_as_member: ['2', 'test-circle-id'],
+    about_me: 'Here\'s my about me!',
+    city: 'Toronto',
+    country: 'Canada',
+    profession: 'Server'
   },
   '2': {
     firstname: 'alice',
