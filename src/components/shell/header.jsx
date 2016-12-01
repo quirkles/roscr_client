@@ -4,13 +4,17 @@ import classnames from 'classnames';
 
 export default ({
   session_user,
-  header_dropdown_open
+  header_dropdown_open,
+  open_header_dropdown
 }) =>
 <div className="app-header white bg b-b">
   <div className="navbar">
     <ul className="nav navbar-nav pull-right">
       <li className={classnames('nav-item', 'dropdown', {open: header_dropdown_open})}>
-        <a className="nav-link clear">
+        <a
+          className="nav-link clear"
+          onClick={open_header_dropdown}
+        >
           <span className="avatar w-32">
             <img src={session_user.get('avatar_url')} className="w-full rounded"/>
           </span>

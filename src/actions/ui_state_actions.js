@@ -1,7 +1,8 @@
 import {
   SHOW_TOOLTIP_AT_ELEMENT,
   DESTROY_TOOLTIP,
-  DESTROY_ALL_TOOLTIPS
+  DESTROY_ALL_TOOLTIPS,
+  OPEN_HEADER_DROPDOWN
 } from '../constants/ui_state_constants';
 import cuid from 'cuid';
 import {Map} from 'immutable';
@@ -28,4 +29,8 @@ export const destroy_tooltip = tooltip_id => ({
 
 export const destroy_all_tooltips = () => ({
   type: DESTROY_ALL_TOOLTIPS
+});
+
+export const open_header_dropdown = () => ({
+  type: OPEN_HEADER_DROPDOWN
 });

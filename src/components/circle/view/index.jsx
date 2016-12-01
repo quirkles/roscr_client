@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Map} from 'immutable';
 
-import {show_tooltip, destroy_tooltip} from '../../../actions/tooltip_actions';
+import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 
 import CircleMemberList from './circle_member_list';
 import CircleInformation from './circle_information';
