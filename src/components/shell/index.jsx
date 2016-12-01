@@ -8,7 +8,9 @@ import Tooltips from '../tooltips';
 export const unconnected_shell_component = ({
   children,
   active_route,
-  tooltips
+  tooltips,
+  session_user,
+  header_dropdown_open
 }) =>
 <div>
   <Tooltips tooltips={tooltips}/>
@@ -17,7 +19,10 @@ export const unconnected_shell_component = ({
     id="content"
     className='app-content'
   >
-    <Header />
+    <Header
+      session_user={session_user}
+      header_dropdown_open={header_dropdown_open}
+    />
     <div
       className="app-body"
     >
@@ -28,9 +33,11 @@ export const unconnected_shell_component = ({
   </div>
 </div>;
 
-const map_state_to_props = state => ({
-  active_route: state.routing.locationBeforeTransitions && state.routing.locationBeforeTransitions.pathname,
-  tooltips: state.tooltips
+const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
+  active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
+  session_user: users.get(session_user_id),
+  header_dropdown_open: ui_state.get('header_dropdown_open'),
+  tooltips: ui_state.get('tooltips')
     .map((tooltip, tooltip_id) => tooltip.set('id', tooltip_id))
     .toList()
 });

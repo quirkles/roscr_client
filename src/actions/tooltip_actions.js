@@ -2,7 +2,7 @@ import {
   SHOW_TOOLTIP_AT_ELEMENT,
   DESTROY_TOOLTIP,
   DESTROY_ALL_TOOLTIPS
-} from '../constants/tooltip_constants';
+} from '../constants/ui_state_constants';
 import cuid from 'cuid';
 import {Map} from 'immutable';
 

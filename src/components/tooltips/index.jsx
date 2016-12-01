@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import './tooltip_styles.scss';
 
@@ -8,7 +7,7 @@ const get_tooltip_style = tooltip => ({
   left: `${tooltip.get('x_coordinate') - 10}px`
 });
 
-const unconnected_tooltips_component = ({
+const tooltip_component = ({
   tooltips
 }) =>
 
@@ -29,7 +28,5 @@ const unconnected_tooltips_component = ({
     </div>
   )}
 </div>;
-
-const tooltip_component = connect()(unconnected_tooltips_component);
 
 export default tooltip_component;

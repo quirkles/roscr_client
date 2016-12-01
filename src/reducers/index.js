@@ -5,7 +5,7 @@ import {routerReducer} from 'react-router-redux';
 import circles from './circles_reducer';
 import new_circle from './new_circle_reducer';
 import users from './users_reducer';
-import tooltips from './tooltips_reducer';
+import ui_state from './ui_state_reducer';
 import session_user_id from './session_user_id_reducer';
 
 const rootReducer = combineReducers({
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   users,
   circles,
   new_circle,
-  tooltips,
+  ui_state,
   session_user_id
 });
 
