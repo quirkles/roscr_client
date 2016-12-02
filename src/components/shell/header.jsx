@@ -1,11 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 import classnames from 'classnames';
 
 export default ({
   session_user,
   header_dropdown_open,
-  open_header_dropdown
+  open_header_dropdown,
+  close_header_dropdown
 }) =>
 <div className="app-header white bg b-b">
   <div className="navbar">
@@ -20,9 +22,12 @@ export default ({
           </span>
         </a>
         <div className="dropdown-menu w dropdown-menu-scale pull-right">
-          <a className="dropdown-item" href="profile.html">
+          <Link
+            className="dropdown-item"
+            to={`/user/${session_user.get('id')}`}
+          >
             <span>Profile</span>
-          </a>
+          </Link>
           <a className="dropdown-item" href="setting.html">
             <span>Settings</span>
           </a>
@@ -39,6 +44,10 @@ export default ({
           <a className="dropdown-item" href="signin.html">Sign out</a>
         </div>
       </li>
+      <div
+        className="header-dropdown-overlay"
+        onClick={close_header_dropdown}
+      ></div>
     </ul>
   </div>
 </div>;

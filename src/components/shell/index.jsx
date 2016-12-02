@@ -6,7 +6,12 @@ import Header from './header';
 import {connect} from 'react-redux';
 
 import Tooltips from '../tooltips';
-import {open_header_dropdown as open_header_dropdown_action} from '../../actions/ui_state_actions';
+import {
+  open_header_dropdown as open_header_dropdown_action,
+  close_header_dropdown as close_header_dropdown_action
+} from '../../actions/ui_state_actions';
+
+import './shell_styles.scss';
 
 export const unconnected_shell_component = ({
   children,
@@ -14,7 +19,8 @@ export const unconnected_shell_component = ({
   tooltips,
   session_user,
   header_dropdown_open,
-  open_header_dropdown
+  open_header_dropdown,
+  close_header_dropdown
 }) =>
 <div>
   <Tooltips tooltips={tooltips}/>
@@ -27,6 +33,7 @@ export const unconnected_shell_component = ({
       session_user={session_user}
       header_dropdown_open={header_dropdown_open}
       open_header_dropdown={open_header_dropdown}
+      close_header_dropdown={close_header_dropdown}
     />
     <div
       className="app-body"
@@ -40,7 +47,7 @@ export const unconnected_shell_component = ({
 
 const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
   active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
-  session_user: users.get(session_user_id),
+  session_user: users.get(session_user_id).set('id', session_user_id),
   header_dropdown_open: ui_state.get('header_dropdown_open'),
   tooltips: ui_state.get('tooltips')
     .map((tooltip, tooltip_id) => tooltip.set('id', tooltip_id))
@@ -48,7 +55,8 @@ const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
 });
 
 const map_dispatch_to_props = dispatch => ({
-  open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch)
+  open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
+  close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch)
 });
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);

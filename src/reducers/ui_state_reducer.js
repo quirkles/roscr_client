@@ -3,7 +3,8 @@ import {
   SHOW_TOOLTIP_AT_ELEMENT,
   DESTROY_TOOLTIP,
   DESTROY_ALL_TOOLTIPS,
-  OPEN_HEADER_DROPDOWN
+  OPEN_HEADER_DROPDOWN,
+  CLOSE_HEADER_DROPDOWN
 } from '../constants/ui_state_constants';
 
 const default_state = from_js({
@@ -20,7 +21,9 @@ const ui_state_reducer = (state = default_state, action) => {
     case DESTROY_ALL_TOOLTIPS:
       return default_state;
     case OPEN_HEADER_DROPDOWN:
-      return state.set('header_dropdown_open', true)
+      return state.set('header_dropdown_open', true);
+    case CLOSE_HEADER_DROPDOWN:
+      return state.set('header_dropdown_open', false);
     default:
       return state;
   }
