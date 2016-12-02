@@ -9,8 +9,9 @@ export default ({
   open_header_dropdown,
   close_header_dropdown
 }) =>
-<div className="app-header white bg b-b">
+<div className="app-header bg b-b">
   <div className="navbar">
+    <div className="navbar-item pull-left h5">Roscr</div>
     <ul className="nav navbar-nav pull-right">
       <li className={classnames('nav-item', 'dropdown', {open: header_dropdown_open})}>
         <a
@@ -28,20 +29,6 @@ export default ({
           >
             <span>Profile</span>
           </Link>
-          <a className="dropdown-item" href="setting.html">
-            <span>Settings</span>
-          </a>
-          <a className="dropdown-item" href="app.inbox.html">
-            <span>Inbox</span>
-          </a>
-          <a className="dropdown-item" href="app.message.html">
-            <span>Message</span>
-          </a>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="docs.html">
-            Need help?
-          </a>
-          <a className="dropdown-item" href="signin.html">Sign out</a>
         </div>
       </li>
       <div
