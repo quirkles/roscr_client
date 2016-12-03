@@ -9,7 +9,7 @@ export default ({
   open_header_dropdown,
   close_header_dropdown
 }) =>
-<div className="app-header bg b-b">
+<div className="app-header white bg b-b">
   <div className="navbar">
     <div className="navbar-item pull-left h5">Roscr</div>
     <ul className="nav navbar-nav pull-right">

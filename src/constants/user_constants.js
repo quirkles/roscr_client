@@ -1,0 +1,1 @@
+export const OPEN_EDIT_USER_PANEL = 'OPEN_EDIT_USER_PANEL';

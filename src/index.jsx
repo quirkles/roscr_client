@@ -12,7 +12,7 @@ import Root from './containers/root';
 import './styles/main.scss';
 
 
-// TODO do this if prod
+// TODO detect env and do this if prod
 
 // const get_state_from_local_storage = () => {
 //   const json_state = JSON.parse(localStorage.getItem('stringified_state'));

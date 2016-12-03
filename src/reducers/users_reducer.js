@@ -1,5 +1,9 @@
 import {fromJS as from_js} from 'immutable';
 
+import user_reducer from './user_reducer';
+
+import {OPEN_EDIT_USER_PANEL} from '../constants/user_constants';
+
 const default_state = from_js({
   '1': {
     firstname: 'peter',
@@ -42,7 +46,10 @@ const default_state = from_js({
 
 const member_reducer = (state = default_state, action) => {
   switch (action.type) {
-    //case EDIT_CIRCLE:
+    case OPEN_EDIT_USER_PANEL:
+      return action.user_id && state.get(action.user_id) ?
+        state.update(action.user_id, user => user_reducer(user, action)) :
+        state;
     default:
       return state;
   }

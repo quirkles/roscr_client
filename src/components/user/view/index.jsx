@@ -1,12 +1,17 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 import {Map} from 'immutable';
 import D from 'date-fp';
+
+import {open_editing_panel_for_user} from '../../../actions/user_actions';
 
 import './view_user_styles.scss';
 
 const unconnected_view_user_component = ({
-  user_to_display
+  user_to_display,
+  open_editing_panel_for_user_with_id
 }) =>
   <div className="item">
     <div className="item-bg">
@@ -63,11 +68,16 @@ const unconnected_view_user_component = ({
           <p>Trusted user since {D.format('MMMM D YYYY', new Date(user_to_display.get('date_created')))}</p>
           <button
             className="btn btn-sm rounded btn-outline b-success"
-            data-toggle="collapse"
-            data-target="#editor"
+            onClick={open_editing_panel_for_user_with_id(user_to_display.get('id'))}
           >Edit</button>
         </div>
       </div>
+    </div>
+    <div
+      className = {classnames('user-edit-panel', {
+        open: user_to_display.get('is_edit_detail_panel_open')
+      })}
+    >
     </div>
   </div>;
 
@@ -80,6 +90,12 @@ const map_state_to_props = ({users}, own_props) => {
   };
 };
 
-const map_dispatch_to_props = dispatch => ({dispatch});
+const map_dispatch_to_props = dispatch => {
+  const open_editing_panel_for_user_action = bindActionCreators(open_editing_panel_for_user, dispatch);
+  const open_editing_panel_for_user_with_id = user_id => () => open_editing_panel_for_user_action(user_id);
+  return {
+    open_editing_panel_for_user_with_id
+  };
+};
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_view_user_component);
