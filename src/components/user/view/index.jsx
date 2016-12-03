@@ -5,15 +5,16 @@ import classnames from 'classnames';
 import {Map} from 'immutable';
 import D from 'date-fp';
 
-import {open_editing_panel_for_user} from '../../../actions/user_actions';
+import {open_editing_panel_for_user, close_editing_panel_for_user} from '../../../actions/user_actions';
 
 import './view_user_styles.scss';
 
 const unconnected_view_user_component = ({
   user_to_display,
-  open_editing_panel_for_user_with_id
+  open_editing_panel_for_user_with_id,
+  close_editing_panel_for_user_with_id
 }) =>
-  <div className="item">
+  <div className="item view-user-component">
     <div className="item-bg">
       <img
         src={user_to_display.get('avatar_url')}
@@ -78,7 +79,15 @@ const unconnected_view_user_component = ({
         open: user_to_display.get('is_edit_detail_panel_open')
       })}
     >
+      <div
+        className='edit-panel-close-box bg-danger'
+        onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
+      ></div>
     </div>
+    <div
+      className="user-edit-panel-overlay"
+      onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
+    ></div>
   </div>;
 
 const map_state_to_props = ({users}, own_props) => {
@@ -93,8 +102,13 @@ const map_state_to_props = ({users}, own_props) => {
 const map_dispatch_to_props = dispatch => {
   const open_editing_panel_for_user_action = bindActionCreators(open_editing_panel_for_user, dispatch);
   const open_editing_panel_for_user_with_id = user_id => () => open_editing_panel_for_user_action(user_id);
+
+  const close_editing_panel_for_user_action = bindActionCreators(close_editing_panel_for_user, dispatch);
+  const close_editing_panel_for_user_with_id = user_id => () => close_editing_panel_for_user_action(user_id);
+
   return {
-    open_editing_panel_for_user_with_id
+    open_editing_panel_for_user_with_id,
+    close_editing_panel_for_user_with_id
   };
 };
 
