@@ -19,24 +19,55 @@ const user_info_panel = ({
     onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
   ></div>
   <h2>Edit details for {get_full_name(user_to_display)}</h2>
-  <div className='padding'>
-    <div className="editable-attr">
-      {
-        user_to_display.get('field_currently_editing', null) === 'firstname' ?
-        <div className="editable-attr-input-wrapper">
-          <input
-            size={user_to_display.get('firstname').length}
-            value={user_to_display.get('firstname')}
-            onBlur={start_editing_attr_for_user_with_id(null)}
-            onChange={edit_user_attr_with_id('firstname')}
-            ref={i => i && i.focus()}
-          />
-        </div> :
-        <span
-          onClick={start_editing_attr_for_user_with_id('firstname')}
-        >{user_to_display.get('firstname')}</span>
-      }
-    </div>
+  <div>
+    <table className='table table-striped'>
+      <tbody>
+        <tr>
+          <td width='20%'></td>
+          <td width='30%'>
+            <div>Name:</div>
+          </td>
+          <td>
+            <div
+              className="editable-attr padding-right-one"
+              style={{width: `${user_to_display.get('firstname').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'firstname' ?
+                <input
+                  value={user_to_display.get('firstname')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('firstname')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('firstname')}
+                >
+                  {user_to_display.get('firstname')}
+                </div>
+              }
+            </div>
+            <div
+              className='editable-attr'
+              style={{width: `${user_to_display.get('firstname').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'lastname' ?
+                <input
+                  value={user_to_display.get('lastname')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('lastname')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('lastname')}
+                >
+                  {user_to_display.get('lastname')}
+                </div>
+              }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>;
 

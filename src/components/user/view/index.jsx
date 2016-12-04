@@ -76,9 +76,9 @@ const unconnected_view_user_component = ({
           <p className="text-md profile-status">{user_to_display.get('about_me')}</p>
           <p>Trusted user since {D.format('MMMM D YYYY', new Date(user_to_display.get('date_created')))}</p>
           <button
-            className="btn btn-sm rounded btn-outline b-success"
+            className="btn rounded warning"
             onClick={open_editing_panel_for_user_with_id(user_to_display.get('id'))}
-          >Edit</button>
+          >Edit Details</button>
         </div>
       </div>
     </div>
