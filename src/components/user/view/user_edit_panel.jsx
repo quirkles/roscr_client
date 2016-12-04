@@ -24,9 +24,7 @@ const user_info_panel = ({
       <tbody>
         <tr>
           <td width='20%'></td>
-          <td width='30%'>
-            <div>Name:</div>
-          </td>
+          <td width='30%'>Name:</td>
           <td>
             <div
               className="editable-attr padding-right-one"
@@ -61,6 +59,102 @@ const user_info_panel = ({
                   onClick={start_editing_attr_for_user_with_id('lastname')}
                 >
                   {user_to_display.get('lastname')}
+                </div>
+              }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>About Me:</td>
+          <td>
+            <div
+              className='editable-attr'
+              style={{width: `${user_to_display.get('about_me').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'about_me' ?
+                <input
+                  value={user_to_display.get('about_me')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('about_me')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('about_me')}
+                >
+                  {user_to_display.get('about_me')}
+                </div>
+              }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>City:</td>
+          <td>
+            <div
+              className='editable-attr'
+              style={{width: `${user_to_display.get('city').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'city' ?
+                <input
+                  value={user_to_display.get('city')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('city')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('city')}
+                >
+                  {user_to_display.get('city')}
+                </div>
+              }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Country:</td>
+          <td>
+            <div
+              className='editable-attr'
+              style={{width: `${user_to_display.get('country').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'country' ?
+                <input
+                  value={user_to_display.get('country')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('country')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('country')}
+                >
+                  {user_to_display.get('country')}
+                </div>
+              }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Profession:</td>
+          <td>
+            <div
+              className='editable-attr'
+              style={{width: `${user_to_display.get('profession').length * 16}px`}}
+            >
+              {user_to_display.get('field_currently_editing', null) === 'profession' ?
+                <input
+                  value={user_to_display.get('profession')}
+                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onChange={edit_user_attr_with_id('profession')}
+                  ref={i => i && i.focus()}
+                /> :
+                <div
+                  onClick={start_editing_attr_for_user_with_id('profession')}
+                >
+                  {user_to_display.get('profession')}
                 </div>
               }
             </div>
