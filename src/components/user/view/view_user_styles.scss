@@ -19,15 +19,41 @@
     transition-timing-function: cubic-bezier(1,-0.5,0,1.5);
     z-index: 2001;
     background-color: white;
+
+    
+
+    .editable-attr {
+      font-size: 18px;
+      line-height: 18px;
+      span {
+        border-bottom: 1px dashed #aaa;
+        cursor: pointer;
+      }
+      .editable-attr-input-wrapper {
+        display: inline-block;
+        input {
+          border: none;
+          padding: 0px;
+          background: transparent;
+          font-style: italic;
+          color: grey;
+        }
+      }
+    }
+    
     .edit-panel-close-box {
       float: right;
-      width: 96px;
-      height: 96px;
+      width: 48px;
+      height: 48px;
       background-image: url('../../../img/cancel.png');
-      background-size: 64px 64px;
+      background-size: 32px 32px;
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
+    }
+    h2 {
+      text-align: center;
+      margin: 15px;
     }
     &.open{
       transform: translateY(5vh);

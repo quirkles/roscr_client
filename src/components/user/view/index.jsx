@@ -1,18 +1,26 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import classnames from 'classnames';
 import {Map} from 'immutable';
 import D from 'date-fp';
 
-import {open_editing_panel_for_user, close_editing_panel_for_user} from '../../../actions/user_actions';
+import {
+  open_editing_panel_for_user,
+  close_editing_panel_for_user,
+  start_editing_attr_for_user,
+  edit_user
+} from '../../../actions/user_actions';
+
+import UserEditPanel from './user_edit_panel';
 
 import './view_user_styles.scss';
 
 const unconnected_view_user_component = ({
   user_to_display,
   open_editing_panel_for_user_with_id,
-  close_editing_panel_for_user_with_id
+  close_editing_panel_for_user_with_id,
+  start_editing_attr_for_user_with_id,
+  edit_user_attr_with_id
 }) =>
   <div className="item view-user-component">
     <div className="item-bg">
@@ -74,16 +82,12 @@ const unconnected_view_user_component = ({
         </div>
       </div>
     </div>
-    <div
-      className = {classnames('user-edit-panel', {
-        open: user_to_display.get('is_edit_detail_panel_open')
-      })}
-    >
-      <div
-        className='edit-panel-close-box bg-danger'
-        onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
-      ></div>
-    </div>
+    <UserEditPanel
+      user_to_display={user_to_display}
+      close_editing_panel_for_user_with_id={close_editing_panel_for_user_with_id}
+      start_editing_attr_for_user_with_id={start_editing_attr_for_user_with_id(user_to_display.get('id'))}
+      edit_user_attr_with_id={edit_user_attr_with_id(user_to_display.get('id'))}
+    ></UserEditPanel>
     <div
       className="user-edit-panel-overlay"
       onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
@@ -101,14 +105,26 @@ const map_state_to_props = ({users}, own_props) => {
 
 const map_dispatch_to_props = dispatch => {
   const open_editing_panel_for_user_action = bindActionCreators(open_editing_panel_for_user, dispatch);
-  const open_editing_panel_for_user_with_id = user_id => () => open_editing_panel_for_user_action(user_id);
+  const open_editing_panel_for_user_with_id = user_id =>
+    () => open_editing_panel_for_user_action(user_id);
 
   const close_editing_panel_for_user_action = bindActionCreators(close_editing_panel_for_user, dispatch);
-  const close_editing_panel_for_user_with_id = user_id => () => close_editing_panel_for_user_action(user_id);
+  const close_editing_panel_for_user_with_id = user_id =>
+    () => close_editing_panel_for_user_action(user_id);
+
+  const start_editing_attr_for_user_action = bindActionCreators(start_editing_attr_for_user, dispatch);
+  const start_editing_attr_for_user_with_id = user_id =>
+    attr_to_edit => () => start_editing_attr_for_user_action({user_id, attr_to_edit});
+
+  const edit_user_action = bindActionCreators(edit_user, dispatch);
+  const edit_user_attr_with_id = user_id =>
+    attr_to_edit => e => edit_user_action({user_id, user_data: Map({}).set(attr_to_edit, e.target.value)});
 
   return {
     open_editing_panel_for_user_with_id,
-    close_editing_panel_for_user_with_id
+    close_editing_panel_for_user_with_id,
+    start_editing_attr_for_user_with_id,
+    edit_user_attr_with_id
   };
 };
 
