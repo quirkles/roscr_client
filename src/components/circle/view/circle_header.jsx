@@ -1,6 +1,6 @@
 import React from 'react';
 import D from 'date-fp';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 
 import {capitalize} from '../../../utils/string';
 
@@ -22,7 +22,7 @@ const circle_header_component = ({
             <span className="m-r">Created by:</span>
             <small>
               <Link
-                to={`/user/1`}
+                to='/user/1'
               >
                 Peter Jones
               </Link>

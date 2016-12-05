@@ -6,12 +6,7 @@ const user_profile_header_component = ({
   open_editing_panel_for_user_with_id
 }) =>
 <div className='item'>
-  <div className="item-bg">
-    <img
-      src={user_to_display.get('avatar_url')}
-      className="blur opacity-3"
-    />
-  </div>
+  <div className="item-bg bg-tile-ignasi"></div>
   <div className="p-a-md">
     <div className="row m-t">
       <div className="col-sm-7">
