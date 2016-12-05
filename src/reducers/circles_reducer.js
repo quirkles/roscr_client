@@ -10,7 +10,10 @@ const default_state = fromJS({
     participant_count: 12,
     cycle_period: 'monthly',
     start_date: new Date(),
-    members: ['1', '2', '3']
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    members: ['1', '2', '3'],
+    created_by: '1'
   }
 });
 

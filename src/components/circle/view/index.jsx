@@ -7,6 +7,7 @@ import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 
 import CircleMemberList from './circle_member_list';
 import CircleInformation from './circle_information';
+import CircleHeader from './circle_header';
 
 import './view_circle_styles.scss';
 
@@ -16,19 +17,27 @@ export const unconnected_create_circle_component = ({
   show_tooltip_with_data,
   destroy_tooltip_with_id
 }) =>
-  <div className='row view-circle-component'>
-    <div className='col-lg-12 col-xl-6'>
-      <CircleInformation
-        circle_to_display = {circle_to_display}
-      />
-    </div>
-    <div className='col-lg-12 col-xl-6'>
-      <CircleMemberList
-        circle_members = {circle_members}
-        circle_id = {circle_to_display.get('id')}
-        show_tooltip_with_data = {show_tooltip_with_data}
-        destroy_tooltip_with_id = {destroy_tooltip_with_id}
-      />
+  <div className="view-circle-component">
+    <CircleHeader
+      circle_to_display={circle_to_display}
+      open_editing_panel_for_circle_with_id={() => () => true}
+    />
+    <div className="padding">
+      <div className='row margin-top-two'>
+        <div className='col-lg-12 col-xl-6'>
+          <CircleInformation
+            circle_to_display = {circle_to_display}
+          />
+        </div>
+        <div className='col-lg-12 col-xl-6'>
+          <CircleMemberList
+            circle_members = {circle_members}
+            circle_id = {circle_to_display.get('id')}
+            show_tooltip_with_data = {show_tooltip_with_data}
+            destroy_tooltip_with_id = {destroy_tooltip_with_id}
+          />
+        </div>
+      </div>
     </div>
   </div>;
 

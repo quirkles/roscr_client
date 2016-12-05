@@ -9,7 +9,7 @@ const circle_member_list_component = ({
   destroy_tooltip_with_id
 }) =>
 <div className='box circle-member-list-pane'>
-  <div className='box-header blue-grey'>
+  <div className='box-header yellow'>
     <h2 className='padding-half'>
       <i className="ion-ios-people padding-right-one"></i>
       <span>Circle Members</span>

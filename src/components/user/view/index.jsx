@@ -19,6 +19,7 @@ import './view_user_styles.scss';
 const unconnected_view_user_component = ({
   user_to_display,
   circles_as_member,
+  circles_created,
   open_editing_panel_for_user_with_id,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
@@ -29,12 +30,20 @@ const unconnected_view_user_component = ({
       user_to_display={user_to_display}
       open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
     />
-    <div className='row margin-top-two'>
-      <div className='col-lg-12 col-xl-6'>
-        <CircleList
-          panel_title='Circles As Member'
-          circles={circles_as_member}
-        />
+    <div className="padding">
+      <div className='row margin-top-two'>
+        <div className='col-lg-12 col-xl-6'>
+          <CircleList
+            panel_title='Circles As Member'
+            circles={circles_as_member}
+          />
+          <CircleList
+            panel_title='Circles As Creator'
+            circles={circles_created}
+          />
+        </div>
+        <div className='col-lg-12 col-xl-6'>
+        </div>
       </div>
     </div>
     <UserEditPanel
@@ -53,15 +62,24 @@ const map_state_to_props = ({users, circles}, own_props) => {
   const user_to_display = users
     .get(own_props.params.user_id, Map({needs_to_be_fetched: true}))
     .set('id', own_props.params.user_id);
+
   const circles_as_member = user_to_display.get('needs_to_be_fetched', false) ?
     List({}) :
     user_to_display
       .get('circles_as_member', List([]))
       .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
         .set('id', c_id));
+
+  const circles_created = user_to_display.get('needs_to_be_fetched', false) ?
+    List({}) :
+    user_to_display
+      .get('circles_created', List([]))
+      .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
+        .set('id', c_id));
   return {
     user_to_display,
-    circles_as_member
+    circles_as_member,
+    circles_created
   };
 };
 

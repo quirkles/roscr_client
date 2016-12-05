@@ -1,4 +1,17 @@
 .view-circle-component {
+  .circle-header {
+    .circle-participant-count {
+      font-family: 'Sumana';
+      width: 96px;
+      height: 96px;
+      float: left;
+      margin-right: 1em;
+      border-radius: 48px;
+      line-height: 96px;
+      text-align: center;
+      font-size: 58px
+    }
+  }
   .circle-member-list-pane {
     .trust-score {
       font-family: 'Sumana';
