@@ -1,5 +1,7 @@
 import React from 'react';
 import D from 'date-fp';
+import {Link} from 'react-router'
+
 import {capitalize} from '../../../utils/string';
 
 const circle_header_component = ({
@@ -19,7 +21,11 @@ const circle_header_component = ({
           <p className="text-muted">
             <span className="m-r">Created by:</span>
             <small>
-              Peter Jones
+              <Link
+                to={`/user/1`}
+              >
+                Peter Jones
+              </Link>
             </small>
           </p>
           <a href="#" className="btn btn-sm warn rounded info active m-b" data-ui-toggle-className="success">

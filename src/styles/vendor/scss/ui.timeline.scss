@@ -33,7 +33,7 @@ Timeline
 		border-radius: 50%;
 		border-style: solid;
 		background: $light;
-		box-shadow: 0 0 0 4px $body-bg;		
+		box-shadow: 0 0 0 4px $body-bg;
 	}
 }
 
@@ -43,7 +43,7 @@ Timeline
 	float: left;
 	margin-left: -7.5em;
 	display: block;
-	width: 4.5em;
+	width: 7.5em;
 	text-align: right;
 }
 
@@ -87,7 +87,7 @@ Timeline
 		}
 		.visible-left{
 			display: inherit;
-		}		
+		}
 		.tl-wrap{
 			float: right;
 			margin-right: 0px;
@@ -104,8 +104,8 @@ Timeline
 		.tl-date{
 			float: right;
 			margin-left: 0;
-			margin-right: -8.5em;
-			text-align: left;	
+			margin-right: -10.5em;
+			text-align: left;
 		}
 	}
 }

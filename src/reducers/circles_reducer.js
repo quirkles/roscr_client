@@ -13,7 +13,17 @@ const default_state = fromJS({
     date_created: new Date(),
     date_last_modified: new Date(),
     members: ['1', '2', '3'],
-    created_by: '1'
+    created_by: '1',
+    activity: [
+      {
+        'type': 'CIRCLE_CREATED',
+        'created_at': '2016-08-14T18:36:35.863Z',
+        'originator': {
+          'username': 'Alex Quirk',
+          'id': 'ciruyd1df0000g83eq4ionpqz'
+        }
+      }
+    ]
   }
 });
 

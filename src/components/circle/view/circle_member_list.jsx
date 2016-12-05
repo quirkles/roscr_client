@@ -10,7 +10,7 @@ const circle_member_list_component = ({
 }) =>
 <div className='box circle-member-list-pane'>
   <div className='box-header yellow'>
-    <h2 className='padding-half'>
+    <h2 className='padding-half serif bold'>
       <i className="ion-ios-people padding-right-one"></i>
       <span>Circle Members</span>
     </h2>

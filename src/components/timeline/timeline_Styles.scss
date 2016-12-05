@@ -1,0 +1,15 @@
+.timeline {
+  .tl-header {
+    div {
+      height: 48px;
+      i {
+        transition: all 0.5s;
+        line-height: 48px;
+        &:hover {
+          transform: rotateY(180deg);
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}

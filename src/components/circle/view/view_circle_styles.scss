@@ -12,6 +12,11 @@
       font-size: 58px
     }
   }
+  .circle-details-pane {
+    table tr td:nth-child(2) {
+      font-family: Sumana;
+    }
+  }
   .circle-member-list-pane {
     .trust-score {
       font-family: 'Sumana';

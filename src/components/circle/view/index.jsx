@@ -8,6 +8,7 @@ import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 import CircleMemberList from './circle_member_list';
 import CircleInformation from './circle_information';
 import CircleHeader from './circle_header';
+import Timeline from '../../timeline';
 
 import './view_circle_styles.scss';
 
@@ -28,13 +29,17 @@ export const unconnected_create_circle_component = ({
           <CircleInformation
             circle_to_display = {circle_to_display}
           />
-        </div>
-        <div className='col-lg-12 col-xl-6'>
           <CircleMemberList
             circle_members = {circle_members}
             circle_id = {circle_to_display.get('id')}
             show_tooltip_with_data = {show_tooltip_with_data}
             destroy_tooltip_with_id = {destroy_tooltip_with_id}
+          />
+        </div>
+        <div className='col-lg-12 col-xl-6'>
+          <h1 className='text-center serif margin-bottom-one'>Circle Activity Timeline</h1>
+          <Timeline
+            timeline_items={circle_to_display.get('activity')}
           />
         </div>
       </div>

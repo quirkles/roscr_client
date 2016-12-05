@@ -9,16 +9,20 @@ const get_contribution_value = (withdrawal_value, participant_count) => {
 };
 
 export default ({circle_to_display}) =>
-<div className='box'>
+<div className='box circle-details-pane'>
   <div className='box-header yellow'>
-    <h2 className='padding-half'>
+    <h2 className='padding-half serif bold'>
       <i className='fa fa-circle-o padding-right-one'></i>
-      {circle_to_display.get('circle_name')}
+      Circle Details
     </h2>
   </div>
   <div className='box-body'>
     <table className="table">
       <tbody>
+      <tr>
+        <td>Circle Name</td>
+        <td className='font-weight-600'>{circle_to_display.get('circle_name')}</td>
+      </tr>
       <tr>
         <td>Number of Participants</td>
         <td className='font-weight-600'>{circle_to_display.get('participant_count')}</td>
