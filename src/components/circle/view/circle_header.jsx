@@ -9,7 +9,6 @@ const circle_header_component = ({
   open_editing_panel_for_circle_with_id
 }) =>
 <div className='item bg-tile-swirl circle-header'>
-  <div className="item-bg bg-tile"></div>
   <div className="p-a-md">
     <div className="row m-t">
       <div className="col-sm-7">

@@ -36,6 +36,11 @@ const get_sidebar_items = () =>
     link: '/user/1',
     icon_class: 'fa fa-user'
 
+  },
+  {
+    text: '404',
+    link: '/asdfasdf',
+    icon_class: 'fa fa-exclamation-circle'
   }
 ];
 

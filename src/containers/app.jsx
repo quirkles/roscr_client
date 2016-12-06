@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Router} from 'react-router';
 
 import About from '../components/about';
-import NotFound from '../components/notFound';
+import NotFound from '../components/not_found';
 import Login from '../components/login';
 import Signup from '../components/signup';
 import Shell from '../components/shell';
@@ -19,8 +19,8 @@ const routes =
       <Route path='/circle/:circle_id' component={ViewCircle}></Route>
       <Route path='/user/:user_id' component={ViewUser}></Route>
       <Route path='/' component={About}></Route>
+      <Route path='*' component={NotFound}/>
     </Route>
-    <Route path='*' component={NotFound}/>
   </Router>;
 
 const app = ({ history}) => <Router history={history}>{routes}</Router>;

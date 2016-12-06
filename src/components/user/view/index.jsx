@@ -43,6 +43,74 @@ const unconnected_view_user_component = ({
           />
         </div>
         <div className='col-lg-12 col-xl-6'>
+          <div className='box'>
+            <div className='box-header warn'>
+              <h2 className='padding-half'>
+                <i className='fa fa-history padding-right-one'></i>
+                Activity History
+              </h2>
+            </div>
+            <div className='box-body'>
+              <div>
+                <div className='streamline m-b'>
+                  <div className='sl-item'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>Just now</div>
+                      <p>Finished task <a href="#" className='text-info'>#features 4</a>.</p>
+                    </div>
+                  </div>
+                  <div className='sl-item b-success'>
+                    <div className='sl-icon'>
+                      <i className='fa fa-twitter'></i>
+                    </div>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>11:30</div>
+                      <p><a href="#">@Jessi</a> retwit your post</p>
+                    </div>
+                  </div>
+                  <div className='sl-item b-primary'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>10:30</div>
+                      <p>Call to customer <a href="#" className='text-info'>Jacob</a> and discuss the detail.</p>
+                    </div>
+                  </div>
+                  <div className='sl-item b-info'>
+                    <div className='sl-icon'>
+                      <i className='fa fa-bolt'></i>
+                    </div>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>3 days ago</div>
+                      <p><a href="#" className='text-info'>Jessi</a> commented your post.</p>
+                    </div>
+                  </div>
+                  <div className='sl-item b-warning'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>Thu, 10 Mar</div>
+                      <p>Trip to the moon</p>
+                    </div>
+                  </div>
+                  <div className='sl-item b-info'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>Sat, 5 Mar</div>
+                      <p>Prepare for presentation</p>
+                    </div>
+                  </div>
+                  <div className='sl-item'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>Sun, 11 Feb</div>
+                      <p><a href="#" className='text-info'>Jessi</a> assign you a task <a href="#" className='text-info'>Mockup Design</a>.</p>
+                    </div>
+                  </div>
+                  <div className='sl-item'>
+                    <div className='sl-content'>
+                      <div className='sl-date text-muted'>Thu, 17 Jan</div>
+                      <p>Follow up to close deal</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

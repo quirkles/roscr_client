@@ -6,6 +6,7 @@ import './create_circle_styles.scss';
 
 import CreateCircleForm from './create_circle_form';
 import CreateCircleInfoPanel from './create_circle_info_panel';
+import CreateHircleHeader from './create_circle_header';
 
 import {edit_circle as edit_circle_action} from '../../../actions/circle_actions';
 import {set_hover_hint as set_hover_hint_action} from '../../../actions/new_circle_actions.js';
@@ -16,19 +17,24 @@ export const unconnected_create_circle_component = ({
   edit_circle_attr,
   set_hover_hint_to_section
 }) =>
-<div className='row'>
-  <div className='col-lg-12 col-xl-6'>
-    <CreateCircleForm
-      new_circle = {new_circle}
-      edit_circle = {edit_circle}
-      edit_circle_attr = {edit_circle_attr}
-      set_hover_hint_to_section = {set_hover_hint_to_section}
-    />
-  </div>
-  <div className='col-lg-12 col-xl-6'>
-    <CreateCircleInfoPanel
-      hover_hint ={new_circle.get('hover_hint')}
-    />
+<div className='create-circle-component'>
+  <CreateHircleHeader/>
+  <div className="padding">
+    <div className='row margin-top-two'>
+      <div className='col-lg-12 col-xl-6'>
+        <CreateCircleForm
+          new_circle = {new_circle}
+          edit_circle = {edit_circle}
+          edit_circle_attr = {edit_circle_attr}
+          set_hover_hint_to_section = {set_hover_hint_to_section}
+        />
+      </div>
+      <div className='col-lg-12 col-xl-6'>
+        <CreateCircleInfoPanel
+          hover_hint ={new_circle.get('hover_hint')}
+        />
+      </div>
+    </div>
   </div>
 </div>;
 

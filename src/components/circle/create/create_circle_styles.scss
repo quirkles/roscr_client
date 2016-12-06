@@ -1,7 +1,20 @@
-.create-circle-info-panel {
-  .box-body {
-    div {
-      transition: background-color 0.5s ease;
+.create-circle-component {
+  .circle-header-icon {
+    width: 96px;
+    height: 96px;
+    float: left;
+    margin-right: 1em;
+    border-radius: 48px;
+    text-align: center;
+    i {
+      line-height: 96px;
+    }
+  }
+  .create-circle-info-panel {
+    .box-body {
+      div {
+        transition: background-color 0.5s ease;
+      }
     }
   }
 }

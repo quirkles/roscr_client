@@ -5,8 +5,8 @@ export default ({
   hover_hint
 }) =>
 <div className='box create-circle-info-panel'>
-  <div className='box-header indigo'>
-    <h2 className='panel-title padding'>
+  <div className='box-header pink'>
+    <h2 className='panel-title padding-half'>
       <i className='fa fa-info-circle padding-right-one'></i>
       Creating A Circle
     </h2>

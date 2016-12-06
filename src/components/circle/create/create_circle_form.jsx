@@ -15,8 +15,8 @@ export default ({
 }) =>
   <form>
     <div className='box'>
-      <div className='box-header indigo'>
-        <h2 className='padding'>
+      <div className='box-header pink'>
+        <h2 className='padding-half'>
           <i className='fa fa-plus-circle padding-right-one'></i>
           Create Circle
         </h2>
