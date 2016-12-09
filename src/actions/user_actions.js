@@ -26,3 +26,9 @@ export const edit_user = ({user_id, user_data}) => ({
   user_id,
   user_data
 });
+
+export const update_sign_in_up_credentials = user_data => ({
+  type: EDIT_USER,
+  user_id: 'sign_in_up_credentials',
+  user_data
+});
