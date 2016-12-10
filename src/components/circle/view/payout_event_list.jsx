@@ -16,7 +16,7 @@ const get_random_bg_color = () => get_random_element_from_array([
 const payout_event_list_component = ({payout_events}) =>
 <div className='list box payout-event-list'>
   {payout_events.map((payout_event, index) =>
-    <div className='list-item'>
+    <div key = {index} className='list-item'>
       <div className="list-right">
         <button className='btn yellow'>Claim Spot</button>
       </div>
