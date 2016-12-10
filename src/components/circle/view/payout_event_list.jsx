@@ -17,9 +17,11 @@ const payout_event_list_component = ({payout_events}) =>
 <div className='list box payout-event-list'>
   {payout_events.map((payout_event, index) =>
     <div key = {index} className='list-item'>
-      <div className="list-right">
-        <button className='btn yellow'>Claim Spot</button>
-      </div>
+      {payout_event.get('recipient_id') ? '' :
+        <div className="list-right">
+          <button className='btn yellow'>Claim Spot</button>
+        </div>
+      }
       <div className='list-left'>
         <div className={classnames('w-40', 'circle', get_random_bg_color())}>
           {get_badge_content(payout_event.get('recipient', 'NONE'))}

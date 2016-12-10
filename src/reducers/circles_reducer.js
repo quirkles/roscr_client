@@ -16,8 +16,9 @@ const default_state = fromJS({
     created_by: '1',
     payout_events: [
       {
-        'date': '2016-08-14T18:36:18.000Z',
-        '_id': '57b0ba339b9348a8201e5f20'
+        date: '2016-08-14T18:36:18.000Z',
+        _id: '57b0ba339b9348a8201e5f20',
+        recipient_id: '2'
       },
       {
         'date': '2016-09-14T18:36:18.000Z',
@@ -29,7 +30,8 @@ const default_state = fromJS({
       },
       {
         'date': '2016-11-14T19:36:18.000Z',
-        '_id': '57b0ba339b9348a8201e5f23'
+        '_id': '57b0ba339b9348a8201e5f23',
+        recipient_id: '6'
       },
       {
         'date': '2016-12-14T19:36:18.000Z',
@@ -64,6 +66,7 @@ const default_state = fromJS({
         '_id': '57b0ba339b9348a8201e5f2b'
       }
     ],
+    savingsGoals: [],
     activity: [
       {
         'type': 'CIRCLE_CREATED',
