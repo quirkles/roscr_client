@@ -10,7 +10,10 @@ const get_contribution_value = (withdrawal_value, participant_count) => {
     `$${contribution_value.toFixed(2)}`;
 };
 
-export default ({circle_to_display}) =>
+export default ({
+  circle_to_display,
+  claim_payout_event_on_circle
+}) =>
 <div className='box circle-details-pane'>
   <div className='box-header yellow'>
     <h2 className='padding-half serif bold'>
@@ -50,6 +53,7 @@ export default ({circle_to_display}) =>
     <h4 className='margin-top-one text-center serif'>Payout Schedule</h4>
     <PayoutEventList
       payout_events = {circle_to_display.get('payout_events')}
+      claim_payout_event_with_id = {claim_payout_event_on_circle(circle_to_display.get('id'))}
     />
   </div>
 </div>;

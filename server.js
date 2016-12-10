@@ -1,6 +1,8 @@
 const path = require('path');
-const express = require('express');
 const webpack = require('webpack');
+const express = require('express');
+var devMiddleware = require('webpack-dev-middleware');
+var hotMiddleware = require('webpack-hot-middleware');
 
 const app = express();
 
@@ -15,16 +17,15 @@ const initDevelopmentServer = function () {
   const config = require('./webpack.config.dev');
   const compiler = webpack(config);
 
-  app.use(require('webpack-dev-middleware')(compiler, {
+  app.use(devMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    hot: true,
     historyApiFallback: true,
     stats: {
       colors: true
     }
   }));
 
-  app.use(require('webpack-hot-middleware')(compiler));
+  app.use(hotMiddleware(compiler));
 //  app.use('/static', express.static(__dirname + '/src/static'));
 };
 

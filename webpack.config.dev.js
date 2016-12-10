@@ -4,8 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
     'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     './src/index.jsx'
   ],
   output: {
@@ -14,7 +14,9 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
