@@ -70,11 +70,11 @@ const user_info_panel = ({
           <td>
             <div
               className='editable-attr'
-              style={{width: `${user_to_display.get('about_me').length * 16}px`}}
+              style={{width: `${user_to_display.get('about_me', 'User has not told us about themselves yet.').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'about_me' ?
                 <input
-                  value={user_to_display.get('about_me')}
+                  value={user_to_display.get('about_me', 'User has not told us about themselves yet.')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('about_me')}
                   ref={i => i && i.focus()}
@@ -82,7 +82,7 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('about_me')}
                 >
-                  {user_to_display.get('about_me')}
+                  {user_to_display.get('about_me', 'User has not told us about themselves yet.')}
                 </div>
               }
             </div>
@@ -94,11 +94,11 @@ const user_info_panel = ({
           <td>
             <div
               className='editable-attr'
-              style={{width: `${user_to_display.get('city').length * 16}px`}}
+              style={{width: `${user_to_display.get('city', 'Unknown').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'city' ?
                 <input
-                  value={user_to_display.get('city')}
+                  value={user_to_display.get('city', 'Unknown')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('city')}
                   ref={i => i && i.focus()}
@@ -106,7 +106,7 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('city')}
                 >
-                  {user_to_display.get('city')}
+                  {user_to_display.get('city', 'Unknown')}
                 </div>
               }
             </div>
@@ -118,11 +118,11 @@ const user_info_panel = ({
           <td>
             <div
               className='editable-attr'
-              style={{width: `${user_to_display.get('country').length * 16}px`}}
+              style={{width: `${user_to_display.get('country', 'Unknown').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'country' ?
                 <input
-                  value={user_to_display.get('country')}
+                  value={user_to_display.get('country', 'Unknown')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('country')}
                   ref={i => i && i.focus()}
@@ -130,7 +130,7 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('country')}
                 >
-                  {user_to_display.get('country')}
+                  {user_to_display.get('country', 'Unknown')}
                 </div>
               }
             </div>
@@ -142,11 +142,11 @@ const user_info_panel = ({
           <td>
             <div
               className='editable-attr'
-              style={{width: `${user_to_display.get('profession').length * 16}px`}}
+              style={{width: `${user_to_display.get('profession', 'No profession yet for this user.').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'profession' ?
                 <input
-                  value={user_to_display.get('profession')}
+                  value={user_to_display.get('profession', 'No profession yet for this user.')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('profession')}
                   ref={i => i && i.focus()}
@@ -154,7 +154,7 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('profession')}
                 >
-                  {user_to_display.get('profession')}
+                  {user_to_display.get('profession', 'No profession yet for this user.')}
                 </div>
               }
             </div>

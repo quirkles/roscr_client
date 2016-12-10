@@ -50,7 +50,12 @@ export const unconnected_create_circle_component = ({
 
 const populate_payout_events_with_users = users => payout_events =>
   payout_events.map(poe => !poe.get('recipient_id') ? poe :
-    poe.set('recipient', pick(['firstname', 'lastname', 'needs_to_be_fetched'], users.get(poe.get('recipient_id'), Map({needs_to_be_fetched: true}))))
+    poe.set('recipient',
+      pick(
+        ['firstname', 'lastname', 'needs_to_be_fetched'],
+        users.get(poe.get('recipient_id'), Map({needs_to_be_fetched: true}))
+      ).set('id', poe.get('recipient_id'))
+    )
   );
 
 // state -> pick circles -> get 'new_circle'
