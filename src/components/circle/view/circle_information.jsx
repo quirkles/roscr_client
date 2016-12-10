@@ -1,8 +1,10 @@
 import React from 'react';
 import {format} from 'date-fp';
 
+import PayoutEventList from './payout_event_list';
+
 const get_contribution_value = (withdrawal_value, participant_count) => {
-  const contribution_value = parseFloat(withdrawal_value, 10) / parseInt(participant_count, 10);
+  const contribution_value = parseFloat(withdrawal_value) / parseInt(participant_count, 10);
   return Number.isNaN(contribution_value) ?
     'Contribution value is calculated from the withdrawal value and number of particiapnts' :
     `$${contribution_value.toFixed(2)}`;
@@ -45,5 +47,9 @@ export default ({circle_to_display}) =>
       </tr>
       </tbody>
     </table>
+    <h4 className='margin-top-one text-center serif'>Payout Schedule</h4>
+    <PayoutEventList
+      payout_events = {circle_to_display.get('payout_events')}
+    />
   </div>
 </div>;

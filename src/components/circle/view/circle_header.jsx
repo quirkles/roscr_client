@@ -36,10 +36,6 @@ const circle_header_component = ({
         <p>Circle created: {D.format('MMMM D YYYY', new Date(circle_to_display.get('date_created')))}</p>
         <p>Circle starts: {D.format('MMMM D YYYY', new Date(circle_to_display.get('start_date')))}</p>
         <p>Pays out: {capitalize(circle_to_display.get('cycle_period'))}</p>
-        <button
-          className="btn rounded warning"
-          onClick={open_editing_panel_for_circle_with_id(circle_to_display.get('id'))}
-        >Edit Details</button>
       </div>
     </div>
   </div>

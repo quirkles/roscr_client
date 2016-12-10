@@ -16,6 +16,20 @@
     table tr td:nth-child(2) {
       font-family: Sumana;
     }
+    .payout-event-list {
+      .list-body {
+        margin-right: 115px;
+      }
+      .list-left {
+        > div {
+          line-height: 40px;
+          font-size: 26px;
+        }
+      }
+      .list-right {
+        float: right;
+      }
+    }
   }
   .circle-member-list-pane {
     .trust-score {

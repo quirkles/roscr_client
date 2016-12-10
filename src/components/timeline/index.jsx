@@ -13,8 +13,8 @@ const unconnected_timeline_component = ({
         <i className='fa fa-2x fa-angle-double-down text-warn'></i>
       </div>
     </li>
-    {timeline_items.map(parse_timeline_item).map(item =>
-      <li className='tl-item tl-left'>
+    {timeline_items.map(parse_timeline_item).map((item, index) =>
+      <li key={index} className='tl-item tl-left'>
         <div className='tl-wrap b-warn'>
           <span className='tl-date text-muted'>{item.date}</span>
           <div className='tl-content box-color text-color p-a-sm'>
