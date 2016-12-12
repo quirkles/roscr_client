@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Map} from 'immutable';
@@ -7,6 +7,8 @@ import {pick} from '../../../utils/immutable';
 
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 import {claim_payout_spot_on_circle} from '../../../actions/circle_actions';
+
+import FetchingCircle from './fetching_circle';
 
 import CircleMemberList from './circle_member_list';
 import CircleInformation from './circle_information';
@@ -22,7 +24,8 @@ export const unconnected_create_circle_component = ({
   show_tooltip_with_data,
   destroy_tooltip_with_id,
   claim_payout_event_for_user
-}) =>
+}) => circle_to_display.get('needs_to_be_fetched') ?
+  <FetchingCircle/> :
   <div className="view-circle-component">
     <CircleHeader
       circle_to_display={circle_to_display}
@@ -65,12 +68,12 @@ const populate_payout_events_with_users = users => payout_events =>
 // state -> pick circles -> get 'new_circle'
 const map_state_to_props = ({circles, users, session_user_id}, own_props) => {
   const circle_to_display = circles
-    .get(own_props.params.circle_id)
+    .get(own_props.params.circle_id, Map({needs_to_be_fetched: true}))
     .set('id', own_props.params.circle_id)
-    .update('payout_events', populate_payout_events_with_users(users));
+    .update('payout_events', Map({}), populate_payout_events_with_users(users));
 
   const circle_members = circle_to_display
-    .get('members')
+    .get('members', Map({}))
     .map(m => users.get(m, Map({needs_to_be_fetched: true}))
       .set('id', m));
   return {

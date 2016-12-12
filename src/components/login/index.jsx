@@ -31,12 +31,12 @@ export const unconnected_login_component = ({
         <form name="form">
           <div className="form-group">
             <input
-              // type="email"
+              type="email"
               className="form-control"
               placeholder="Email"
               required=""
-              value={sign_in_up_credentials.get('username')}
-              onChange={update_credential_attr('username')}
+              value={sign_in_up_credentials.get('email_address')}
+              onChange={update_credential_attr('email_address')}
             />
           </div>
           <div className="form-group">

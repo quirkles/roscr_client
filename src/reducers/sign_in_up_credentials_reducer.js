@@ -5,7 +5,7 @@ import {
 } from '../constants/user_constants';
 
 const default_state = Map({
-  username: '',
+  email_address: '',
   password: '',
   confirm_password: ''
 });

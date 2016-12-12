@@ -11,6 +11,8 @@ import Root from './containers/root';
  */
 import './styles/main.scss';
 
+import initial_state from './dev_state';
+
 
 // TODO detect env and do this if prod
 
@@ -38,7 +40,7 @@ import './styles/main.scss';
 
 // TODO and do this if dev
 
-const store = configureStore({});
+const store = configureStore(initial_state);
 
 render(
   <AppContainer>
