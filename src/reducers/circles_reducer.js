@@ -3,7 +3,7 @@ import {EDIT_CIRCLE} from '../constants/circle_constants';
 
 import circle_reducer from './circle_reducer';
 
-const default_state = Map();
+const default_state = Map({});
 
 export default (state = default_state, action) => {
   switch (action.type) {

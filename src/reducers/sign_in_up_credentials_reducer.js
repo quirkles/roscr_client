@@ -4,11 +4,7 @@ import {
   EDIT_USER
 } from '../constants/user_constants';
 
-const default_state = Map({
-  email_address: '',
-  password: '',
-  confirm_password: ''
-});
+const default_state = Map({});
 
 export default (state = default_state, action) => {
   switch (action.type) {

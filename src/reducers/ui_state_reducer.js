@@ -7,10 +7,7 @@ import {
   CLOSE_HEADER_DROPDOWN
 } from '../constants/ui_state_constants';
 
-const default_state = from_js({
-  tooltips: {},
-  header_dropdown_open: false
-});
+const default_state = from_js({});
 
 const ui_state_reducer = (state = default_state, action) => {
   switch (action.type) {

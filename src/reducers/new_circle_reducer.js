@@ -2,12 +2,7 @@ import {Map} from 'immutable';
 import {EDIT_CIRCLE} from '../constants/circle_constants';
 import {SET_HOVER_HINT} from '../constants/new_circle_constants';
 
-const default_state = Map({
-  participant_count: 12,
-  cycle_period: 'monthly',
-  start_date: new Date(),
-  hover_hint: null
-});
+const default_state = Map({});
 
 export default (state = default_state, action) => {
   switch (action.type) {

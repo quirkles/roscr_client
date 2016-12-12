@@ -64,8 +64,82 @@ const circles = fromJS({
   }
 });
 
-const initial_dev_state = {
-  circles: Map({})
+const new_circle = fromJS({
+  participant_count: 12,
+  cycle_period: 'monthly',
+  start_date: new Date(),
+  hover_hint: null
+});
+
+const session_user_id = null;
+
+const sidebar = Map({});
+
+const sign_in_up_credentials = fromJS({
+  email_address: '',
+  password: '',
+  confirm_password: ''
+});
+
+const ui_state = fromJS({
+  tooltips: {},
+  header_dropdown_open: false
+});
+
+const users = fromJS({
+  '1': {
+    firstname: 'peter',
+    lastname: 'jones',
+    email_address: 'p.jones@gmail.com',
+    avatar_url: 'https://api.adorable.io/avatars/285/peterjones@adorable.io.png',
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    trust_score: 65,
+    circles_created: ['1'],
+    circles_as_member: ['2', 'test-circle-id'],
+    about_me: 'Here\'s my about me!',
+    city: 'Toronto',
+    country: 'Canada',
+    profession: 'Server'
+  },
+  '2': {
+    firstname: 'alice',
+    lastname: 'smith',
+    email_address: 'alan.smith@gmail.com',
+    avatar_url: 'https://api.adorable.io/avatars/285/alansmith@adorable.io.png',
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    trust_score: 80,
+    circles_created: ['2'],
+    circles_as_member: ['1', 'test-circle-id']
+  },
+  '3': {
+    firstname: 'Francis',
+    lastname: 'Archer',
+    email_address: 'archer@gmail.com',
+    avatar_url: 'https://api.adorable.io/avatars/285/francisarcher@adorable.io.png',
+    date_created: new Date(),
+    date_last_modified: new Date(),
+    trust_score: 99,
+    circles_created: [],
+    circles_as_member: ['1', '2']
+  }
+});
+
+export const initial_dev_state = {
+  circles,
+  new_circle,
+  session_user_id,
+  sign_in_up_credentials,
+  ui_state,
+  users
 };
 
-export default initial_dev_state;
+export const initial_empty_state = {
+  circles: Map({}),
+  new_circle: Map({}),
+  session_user_id: null,
+  sign_up_in_credentials: Map({}),
+  ui_state: Map({}),
+  users: Map({})
+};

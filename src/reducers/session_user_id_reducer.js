@@ -1,4 +1,4 @@
-const default_state = '1';
+const default_state = null;
 
 const session_user_id_reducer = (state = default_state, action) => {
     switch (action.type) {

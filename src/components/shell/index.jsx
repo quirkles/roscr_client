@@ -1,5 +1,6 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
+import {Map} from 'immutable';
 
 import Sidebar from './sidebar';
 import Header from './header';
@@ -47,7 +48,7 @@ export const unconnected_shell_component = ({
 
 const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
   active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
-  session_user: users.get(session_user_id).set('id', session_user_id),
+  session_user: users.get(session_user_id, Map({})).set('id', session_user_id),
   header_dropdown_open: ui_state.get('header_dropdown_open'),
   tooltips: ui_state.get('tooltips')
     .map((tooltip, tooltip_id) => tooltip.set('id', tooltip_id))

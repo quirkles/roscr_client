@@ -11,7 +11,7 @@ import Root from './containers/root';
  */
 import './styles/main.scss';
 
-import initial_state from './dev_state';
+import {initial_dev_state, initial_empty_state} from './dev_state';
 
 
 // TODO detect env and do this if prod
@@ -39,6 +39,10 @@ import initial_state from './dev_state';
 // });
 
 // TODO and do this if dev
+
+const get_initial_state = () => process.env.NODE_ENV === 'production' ? initial_empty_state : initial_dev_state;
+
+const initial_state = get_initial_state();
 
 const store = configureStore(initial_state);
 
