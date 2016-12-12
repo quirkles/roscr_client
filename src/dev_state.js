@@ -139,7 +139,7 @@ export const initial_empty_state = {
   circles: Map({}),
   new_circle: Map({}),
   session_user_id: null,
-  sign_up_in_credentials: Map({}),
+  sign_in_up_credentials: Map({}),
   ui_state: Map({}),
   users: Map({})
 };

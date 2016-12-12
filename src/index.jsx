@@ -40,7 +40,7 @@ import {initial_dev_state, initial_empty_state} from './dev_state';
 
 // TODO and do this if dev
 
-const get_initial_state = () => process.env.NODE_ENV === 'production' ? initial_empty_state : initial_dev_state;
+const get_initial_state = () => process.env.NODE_ENV !== 'productionkjkhj' ? initial_empty_state : initial_dev_state;
 
 const initial_state = get_initial_state();
 

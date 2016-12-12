@@ -10,6 +10,8 @@ import {
   edit_user
 } from '../../../actions/user_actions';
 
+import FetchingUser from './fetching_user';
+
 import UserProfileHeader from './user_profile_header';
 import UserEditPanel from './user_edit_panel';
 import CircleList from './circle_list';
@@ -24,7 +26,8 @@ const unconnected_view_user_component = ({
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
   edit_user_attr_with_id
-}) =>
+}) => user_to_display.get('needs_to_be_fetched') ?
+  <FetchingUser /> :
   <div className="view-user-component">
     <UserProfileHeader
       user_to_display={user_to_display}
@@ -124,7 +127,7 @@ const unconnected_view_user_component = ({
     className="user-edit-panel-overlay"
     onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
   ></div>
-  </div>;
+</div>;
 
 const map_state_to_props = ({users, circles}, own_props) => {
   const user_to_display = users
@@ -132,18 +135,19 @@ const map_state_to_props = ({users, circles}, own_props) => {
     .set('id', own_props.params.user_id);
 
   const circles_as_member = user_to_display.get('needs_to_be_fetched', false) ?
-    List({}) :
+    List([]) :
     user_to_display
       .get('circles_as_member', List([]))
       .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
         .set('id', c_id));
 
   const circles_created = user_to_display.get('needs_to_be_fetched', false) ?
-    List({}) :
+    List([]) :
     user_to_display
       .get('circles_created', List([]))
       .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
         .set('id', c_id));
+
   return {
     user_to_display,
     circles_as_member,

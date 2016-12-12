@@ -50,7 +50,7 @@ const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
   active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
   session_user: users.get(session_user_id, Map({})).set('id', session_user_id),
   header_dropdown_open: ui_state.get('header_dropdown_open'),
-  tooltips: ui_state.get('tooltips')
+  tooltips: ui_state.get('tooltips', Map({}))
     .map((tooltip, tooltip_id) => tooltip.set('id', tooltip_id))
     .toList()
 });
