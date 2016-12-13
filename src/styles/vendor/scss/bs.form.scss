@@ -60,19 +60,19 @@ Form
 
 .form-validation{
   .form-control{
-    &.ng-dirty.ng-invalid{
-      border-color: $danger;
+    + .form-errors-list {
+      display: none;
+      list-style: none;
+      margin: 6px 0;
+      padding: 0;
+      font-size: 85%;
+      color: $danger;
     }
-    &.ng-dirty.ng-valid{
-      &,
-      &:focus{
-        border-color: $success;
-      }
-    }  
-  }
-  .ui-checks{
-    .ng-invalid.ng-dirty + i{
+    &.form-error{
       border-color: $danger;
+      + .form-errors-list {
+        display: block;
+      }
     }
   }
 }

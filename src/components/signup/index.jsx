@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
-import {mapObjIndexed, filter, isEmpty, not, compose} from 'ramda';
+import {mapObjIndexed} from 'ramda';
+import classnames from 'classnames';
 
 import {is_required, is_valid_email, must_match} from '../../utils/validators';
 
@@ -12,16 +13,13 @@ const do_validations_on_credentials = credentials => (validators, attr) =>
   validators.map(validator => validator(credentials.get(attr, ''))).filter(r => !!r);
 
 const get_credential_validation_errors = credentials =>
-  filter(
-    compose(not, isEmpty),
-    mapObjIndexed(
-      do_validations_on_credentials(credentials),
-      {
-        email_address: [is_required, is_valid_email],
-        password: [is_required],
-        confirm_password: [must_match(credentials.get('password', ''))]
-      }
-    )
+  mapObjIndexed(
+    do_validations_on_credentials(credentials),
+    {
+      email_address: [is_required, is_valid_email],
+      password: [is_required],
+      confirm_password: [must_match(credentials.get('password', ''))]
+    }
   );
 
 const unconnected_signup_component = ({
@@ -50,15 +48,26 @@ const unconnected_signup_component = ({
       <div className='b-t'>
         <div className='center-block w-xxl w-auto-xs p-y-md text-center'>
           <div className='p-a-md'>
-            <form name='form'>
+            <form name='form' className={classnames({
+              'form-validation': sign_in_up_credentials.get('has_attempted_form_submit')
+            })}>
               <div className='form-group'>
                 <input
                   type='email'
-                  className='form-control'
+                  className={classnames('form-control', {
+                    'form-error': validation_errors.email_address.length
+                  })}
                   placeholder='Email'
                   value={sign_in_up_credentials.get('email_address')}
                   onChange={update_credential_attr('email_address')}
                 />
+                <ul
+                  className='form-errors-list'
+                  >
+                    {validation_errors.email_address.map(error =>
+                      <li>{error}</li>
+                    )}
+                </ul>
               </div>
               <div className='form-group'>
                 <input
