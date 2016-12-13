@@ -2,8 +2,27 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
+import {mapObjIndexed, filter, isEmpty, not, compose} from 'ramda';
+
+import {is_required, is_valid_email, must_match} from '../../utils/validators';
 
 import {update_sign_in_up_credentials} from '../../actions/user_actions';
+
+const do_validations_on_credentials = credentials => (validators, attr) =>
+  validators.map(validator => validator(credentials.get(attr, ''))).filter(r => !!r);
+
+const get_credential_validation_errors = credentials =>
+  filter(
+    compose(not, isEmpty),
+    mapObjIndexed(
+      do_validations_on_credentials(credentials),
+      {
+        email_address: [is_required, is_valid_email],
+        password: [is_required],
+        confirm_password: [must_match(credentials.get('password', ''))]
+      }
+    )
+  );
 
 const unconnected_signup_component = ({
   sign_in_up_credentials,
@@ -14,6 +33,8 @@ const unconnected_signup_component = ({
     e.preventDefault();
     mark_sign_in_up_user_as_attempted_form_submit();
   };
+
+  const validation_errors = get_credential_validation_errors(sign_in_up_credentials);
 
   return (
     <div className='app' id='app'>
