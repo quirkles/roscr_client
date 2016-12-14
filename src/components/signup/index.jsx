@@ -4,10 +4,11 @@ import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {mapObjIndexed} from 'ramda';
 import classnames from 'classnames';
+import {pick, values} from 'ramda';
 
-import {is_required, is_valid_email, must_match} from '../../utils/validators';
+import {is_required, is_valid_email, must_match, has_min_length} from '../../utils/validators';
 
-import {update_sign_in_up_credentials} from '../../actions/user_actions';
+import {update_sign_in_up_credentials, attempt_sign_up_with_credentials} from '../../actions/user_actions';
 
 const do_validations_on_credentials = credentials => (validators, attr) =>
   validators.map(validator => validator(credentials.get(attr, ''))).filter(r => !!r);
@@ -17,7 +18,7 @@ const get_credential_validation_errors = credentials =>
     do_validations_on_credentials(credentials),
     {
       email_address: [is_required, is_valid_email],
-      password: [is_required],
+      password: [is_required, has_min_length(4)],
       confirm_password: [must_match(credentials.get('password', ''))]
     }
   );
@@ -25,14 +26,18 @@ const get_credential_validation_errors = credentials =>
 const unconnected_signup_component = ({
   sign_in_up_credentials,
   update_credential_attr,
-  mark_sign_in_up_user_as_attempted_form_submit
+  mark_sign_in_up_user_as_attempted_form_submit,
+  attempt_sign_up_with_credentials_action
 }) => {
+  const validation_errors = get_credential_validation_errors(sign_in_up_credentials);
+
   const process_submit_click = e => {
     e.preventDefault();
     mark_sign_in_up_user_as_attempted_form_submit();
+    if (values(validation_errors).reduce((reduction, value) => reduction + value.length, 0) === 0) {
+      attempt_sign_up_with_credentials_action(pick(['email_address', 'password'], sign_in_up_credentials.toJS()));
+    }
   };
-
-  const validation_errors = get_credential_validation_errors(sign_in_up_credentials);
 
   return (
     <div className='app' id='app'>
@@ -49,7 +54,7 @@ const unconnected_signup_component = ({
         <div className='center-block w-xxl w-auto-xs p-y-md text-center'>
           <div className='p-a-md'>
             <form name='form' className={classnames({
-              'form-validation': sign_in_up_credentials.get('has_attempted_form_submit')
+              'show-form-validation-hints': sign_in_up_credentials.get('has_attempted_form_submit')
             })}>
               <div className='form-group'>
                 <input
@@ -61,36 +66,49 @@ const unconnected_signup_component = ({
                   value={sign_in_up_credentials.get('email_address')}
                   onChange={update_credential_attr('email_address')}
                 />
-                <ul
-                  className='form-errors-list'
-                  >
-                    {validation_errors.email_address.map(error =>
-                      <li>{error}</li>
-                    )}
+                <ul className='form-errors-list'>
+                    {validation_errors.email_address.map((error, i) =><li key={i}>{error}</li>)}
                 </ul>
               </div>
               <div className='form-group'>
                 <input
                   type='password'
-                  className='form-control'
+                  className={classnames('form-control', {
+                    'form-error': validation_errors.password.length
+                  })}
                   placeholder='Password'
                   value={sign_in_up_credentials.get('password')}
                   onChange={update_credential_attr('password')}
                 />
+                <ul className='form-errors-list'>
+                    {validation_errors.password.map((error, i) =><li key={i}>{error}</li>)}
+                </ul>
               </div>
               <div className='form-group'>
                 <input
                   type='password'
-                  className='form-control'
+                  className={classnames('form-control', {
+                    'form-error': validation_errors.confirm_password.length
+                  })}
                   placeholder='Confirm Password'
                   value={sign_in_up_credentials.get('confirm_password')}
                   onChange={update_credential_attr('confirm_password')}
                 />
+                <ul className='form-errors-list'>
+                    {validation_errors.confirm_password.map((error, i) =>
+                      <li key={i}>
+                        {error === 'Value does not match target.' ?
+                          'Doesn\'t match the current password' :
+                          error
+                        }
+                      </li>
+                    )}
+                </ul>
               </div>
               <button
                 className='btn btn-lg black p-x-lg'
                 onClick={process_submit_click}
-              >Sign in</button>
+              >Sign up</button>
             </form>
             <div className='margin-top-one'>
               <span className='padding-right-half'>Already have an account?</span>
@@ -108,6 +126,8 @@ const map_state_to_props = ({sign_in_up_credentials}) => ({sign_in_up_credential
 const map_dispatch_to_props = dispatch => {
   const update_sign_in_up_credentials_action = bindActionCreators(update_sign_in_up_credentials, dispatch);
 
+  const attempt_sign_up_with_credentials_action = bindActionCreators(attempt_sign_up_with_credentials, dispatch)
+
   const update_credential_attr = attr => e => {
     let creds = {};
     creds[attr] = e.target.value;
@@ -118,7 +138,8 @@ const map_dispatch_to_props = dispatch => {
 
   return ({
     update_credential_attr,
-    mark_sign_in_up_user_as_attempted_form_submit
+    mark_sign_in_up_user_as_attempted_form_submit,
+    attempt_sign_up_with_credentials_action
   });
 };
 

@@ -11,9 +11,6 @@ import Root from './containers/root';
  */
 import './styles/main.scss';
 
-import {initial_dev_state, initial_empty_state} from './dev_state';
-
-
 // TODO detect env and do this if prod
 
 // const get_state_from_local_storage = () => {
@@ -40,11 +37,7 @@ import {initial_dev_state, initial_empty_state} from './dev_state';
 
 // TODO and do this if dev
 
-const get_initial_state = () => process.env.NODE_ENV !== 'productionkjkhj' ? initial_empty_state : initial_dev_state;
-
-const initial_state = get_initial_state();
-
-const store = configureStore(initial_state);
+const store = configureStore();
 
 render(
   <AppContainer>
