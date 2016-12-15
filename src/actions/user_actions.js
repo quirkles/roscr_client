@@ -45,6 +45,6 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
   dispatch =>
     do_request_sign_up({email_address, password})
     .then(
-      user => dispatch(log_in_user(user)),
+      resp => dispatch(log_in_user(resp.user)),
       error => console.error(error)
     );

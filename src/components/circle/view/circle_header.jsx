@@ -5,8 +5,7 @@ import {Link} from 'react-router';
 import {capitalize} from '../../../utils/string';
 
 const circle_header_component = ({
-  circle_to_display,
-  open_editing_panel_for_circle_with_id
+  circle_to_display
 }) =>
 <div className='item bg-tile-swirl circle-header'>
   <div className="p-a-md">
