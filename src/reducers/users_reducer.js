@@ -23,7 +23,7 @@ const member_reducer = (state = default_state, action) => {
         state.update(action.user_id, user => user_reducer(user, action)) :
         state;
     case LOG_IN_USER:
-        return state.set(action.user.id, fromJS(action.user).delete('id'));
+        return action.user_data && action.user_data.id ? state.set(action.user_data.id, fromJS(action.user_data).delete('id')) : state;
     default:
       return state;
   }

@@ -2,9 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
-import {mapObjIndexed} from 'ramda';
 import classnames from 'classnames';
-import {pick, values} from 'ramda';
+import {pick, values, mapObjIndexed} from 'ramda';
 
 import {is_required, is_valid_email, must_match, has_min_length} from '../../utils/validators';
 
@@ -126,7 +125,7 @@ const map_state_to_props = ({sign_in_up_credentials}) => ({sign_in_up_credential
 const map_dispatch_to_props = dispatch => {
   const update_sign_in_up_credentials_action = bindActionCreators(update_sign_in_up_credentials, dispatch);
 
-  const attempt_sign_up_with_credentials_action = bindActionCreators(attempt_sign_up_with_credentials, dispatch)
+  const attempt_sign_up_with_credentials_action = bindActionCreators(attempt_sign_up_with_credentials, dispatch);
 
   const update_credential_attr = attr => e => {
     let creds = {};
