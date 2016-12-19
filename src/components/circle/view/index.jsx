@@ -8,12 +8,11 @@ import {pick} from '../../../utils/immutable';
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 import {claim_payout_spot_on_circle} from '../../../actions/circle_actions';
 
-import FetchingCircle from './fetching_circle';
-
 import CircleMemberList from './circle_member_list';
 import CircleInformation from './circle_information';
 import CircleHeader from './circle_header';
 import Timeline from '../../timeline';
+import Loader from '../../loader';
 
 import './view_circle_styles.scss';
 
@@ -25,7 +24,9 @@ export const unconnected_create_circle_component = ({
   destroy_tooltip_with_id,
   claim_payout_event_for_user
 }) => circle_to_display.get('needs_to_be_fetched') ?
-  <FetchingCircle/> :
+  <Loader
+    title='Fetching circle information...'
+  /> :
   <div className="view-circle-component">
     <CircleHeader
       circle_to_display={circle_to_display}
