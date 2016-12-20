@@ -15,6 +15,7 @@ import FetchingUser from './fetching_user';
 import UserProfileHeader from './user_profile_header';
 import UserEditPanel from './user_edit_panel';
 import CircleList from './circle_list';
+import Loader from '../../loader';
 
 import './view_user_styles.scss';
 
@@ -27,7 +28,9 @@ const unconnected_view_user_component = ({
   start_editing_attr_for_user_with_id,
   edit_user_attr_with_id
 }) => user_to_display.get('needs_to_be_fetched') ?
-  <FetchingUser /> :
+  <Loader
+    title='Fetching User Information...'
+  /> :
   <div className="view-user-component">
     <UserProfileHeader
       user_to_display={user_to_display}
