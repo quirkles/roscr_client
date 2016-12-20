@@ -3,13 +3,18 @@ import {
   CLOSE_EDIT_USER_PANEL,
   START_EDITING_ATTR_FOR_USER,
   EDIT_USER,
-  LOG_IN_USER
+  LOG_IN_USER,
+  ADD_USER
 } from '../constants/user_constants';
 
 import {
   do_request_sign_up,
-  do_request_log_in
+  do_request_log_in,
 } from '../utils/requests/auth';
+
+import {
+  do_find_user_by_id
+} from '../utils/requests/user';
 
 export const open_editing_panel_for_user = user_id => ({
   type: OPEN_EDIT_USER_PANEL,
@@ -44,6 +49,11 @@ export const log_in_user = user_data => ({
   user_data
 });
 
+export const add_user = user_data => ({
+  type: ADD_USER,
+  user_data
+});
+
 export const attempt_sign_up_with_credentials = ({email_address, password}) =>
   dispatch =>
     do_request_sign_up({email_address, password})
@@ -58,4 +68,16 @@ export const attempt_log_in_with_credentials = ({email_address, password}) =>
     .then(
       resp =>dispatch(log_in_user(resp.data.user)),
       error => console.error(error)
+    );
+
+export const find_user_by_id = target_user_id =>
+  dispatch =>
+    do_find_user_by_id(target_user_id)
+    .then(
+      resp => {
+        if (resp.success && resp.data.user) {
+          dispatch(add_user(resp.data.user))
+        }
+      },
+      error => console.log(error)
     );
