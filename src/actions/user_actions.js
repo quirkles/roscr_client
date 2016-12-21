@@ -16,6 +16,10 @@ import {
   do_find_user_by_id
 } from '../utils/requests/user';
 
+import {omit} from 'ramda';
+
+import {fromJS} from 'immutable';
+
 export const open_editing_panel_for_user = user_id => ({
   type: OPEN_EDIT_USER_PANEL,
   user_id
@@ -49,8 +53,9 @@ export const log_in_user = user_data => ({
   user_data
 });
 
-export const add_user = user_data => ({
+export const add_user = ({user_id, user_data}) => ({
   type: ADD_USER,
+  user_id,
   user_data
 });
 
@@ -74,10 +79,21 @@ export const find_user_by_id = target_user_id =>
   dispatch =>
     do_find_user_by_id(target_user_id)
     .then(
-      resp => {
-        if (resp.success && resp.data.user) {
-          dispatch(add_user(resp.data.user))
+      ({data}) => {
+        if (data.success && data.user) {
+          dispatch(add_user(parse_user_data(data.user)))
         }
       },
-      error => console.log(error)
+      error => {
+        if (error.response.data.error_code === 'USER_NOT_FOUND') {
+          dispatch(add_user(parse_user_data({
+            id: target_user_id,
+            user_not_found_in_db: true
+          })))
+        }
+      }
     );
+const parse_user_data = user_data => ({
+  user_id: user_data.id,
+  user_data: fromJS(omit(['id'], user_data))
+});

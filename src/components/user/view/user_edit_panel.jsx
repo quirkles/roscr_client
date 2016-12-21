@@ -28,11 +28,11 @@ const user_info_panel = ({
           <td>
             <div
               className="editable-attr padding-right-one"
-              style={{width: `${user_to_display.get('firstname').length * 16}px`}}
+              style={{width: `${user_to_display.get('firstname', 'No firstname set').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'firstname' ?
                 <input
-                  value={user_to_display.get('firstname')}
+                  value={user_to_display.get('firstname', 'No firstname set')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('firstname')}
                   ref={i => i && i.focus()}
@@ -40,17 +40,17 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('firstname')}
                 >
-                  {user_to_display.get('firstname')}
+                  {user_to_display.get('firstname', 'No firstname set')}
                 </div>
               }
             </div>
             <div
               className='editable-attr'
-              style={{width: `${user_to_display.get('firstname').length * 16}px`}}
+              style={{width: `${user_to_display.get('lastname', 'No lastname set').length * 16}px`}}
             >
               {user_to_display.get('field_currently_editing', null) === 'lastname' ?
                 <input
-                  value={user_to_display.get('lastname')}
+                  value={user_to_display.get('lastname', 'No lastname set')}
                   onBlur={start_editing_attr_for_user_with_id(null)}
                   onChange={edit_user_attr_with_id('lastname')}
                   ref={i => i && i.focus()}
@@ -58,7 +58,7 @@ const user_info_panel = ({
                 <div
                   onClick={start_editing_attr_for_user_with_id('lastname')}
                 >
-                  {user_to_display.get('lastname')}
+                  {user_to_display.get('lastname', 'No lastname set')}
                 </div>
               }
             </div>

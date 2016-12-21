@@ -15,6 +15,7 @@ import UserProfileHeader from './user_profile_header';
 import UserEditPanel from './user_edit_panel';
 import CircleList from './circle_list';
 import Loader from '../../loader';
+import NotFound from '../../not_found';
 
 import './view_user_styles.scss';
 
@@ -35,6 +36,8 @@ const unconnected_view_user_component = ({
         title='Fetching User Information...'
       />
     );
+  } else if (user_to_display.get('user_not_found_in_db')) {
+    return <NotFound message="Sorry, we couldn't find that user"/>
   } else {
     return (
       <div className="view-user-component">
