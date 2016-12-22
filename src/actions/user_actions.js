@@ -93,6 +93,7 @@ export const find_user_by_id = target_user_id =>
         }
       }
     );
+
 const parse_user_data = user_data => ({
   user_id: user_data.id,
   user_data: fromJS(omit(['id'], user_data))

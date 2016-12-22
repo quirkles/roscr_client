@@ -6,13 +6,11 @@ import {Map} from 'immutable';
 import {pick} from '../../../utils/immutable';
 
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
-import {claim_payout_spot_on_circle} from '../../../actions/circle_actions';
+import {claim_payout_spot_on_circle, find_circle_by_id} from '../../../actions/circle_actions';
 
-import CircleMemberList from './circle_member_list';
-import CircleInformation from './circle_information';
-import CircleHeader from './circle_header';
-import Timeline from '../../timeline';
+import CircleComponent from './circle_component'
 import Loader from '../../loader';
+import NotFound from '../../not_found';
 
 import './view_circle_styles.scss';
 
@@ -22,39 +20,27 @@ export const unconnected_create_circle_component = ({
   session_user_id,
   show_tooltip_with_data,
   destroy_tooltip_with_id,
-  claim_payout_event_for_user
-}) => circle_to_display.get('needs_to_be_fetched') ?
-  <Loader
-    title='Fetching circle information...'
-  /> :
-  <div className="view-circle-component">
-    <CircleHeader
-      circle_to_display={circle_to_display}
-      open_editing_panel_for_circle_with_id={() => () => true}
-    />
-    <div className="padding">
-      <div className='row margin-top-two'>
-        <div className='col-lg-12 col-xl-5'>
-          <CircleInformation
-            circle_to_display = {circle_to_display}
-            claim_payout_event_on_circle = {claim_payout_event_for_user(session_user_id)}
-          />
-        </div>
-        <div className='col-lg-12 col-xl-5'>
-          <CircleMemberList
-            circle_members = {circle_members}
-            circle_id = {circle_to_display.get('id')}
-            show_tooltip_with_data = {show_tooltip_with_data}
-            destroy_tooltip_with_id = {destroy_tooltip_with_id}
-          />
-          <h1 className='text-center serif margin-bottom-one'>Circle Activity Timeline</h1>
-          <Timeline
-            timeline_items={circle_to_display.get('activity')}
-          />
-        </div>
-      </div>
-    </div>
-  </div>;
+  claim_payout_event_for_user,
+  do_find_circle_by_id
+}) => {
+  if (circle_to_display.get('needs_to_be_fetched')) {
+    do_find_circle_by_id(circle_to_display.get('id'))
+    return <Loader title='Fetching circle information...' />
+  } else if (circle_to_display.get('circle_not_found_in_db')) {
+    return <NotFound message="Sorry, we couldn't find that circle." />
+  } else {
+    return (
+      <CircleComponent
+        circle_to_display={circle_to_display}
+        circle_members={circle_members}
+        session_user_id={session_user_id}
+        show_tooltip_with_data={show_tooltip_with_data}
+        destroy_tooltip_with_id={destroy_tooltip_with_id}
+        claim_payout_event_for_user={claim_payout_event_for_user}
+      />
+    );
+  }
+};
 
 const populate_payout_events_with_users = users => payout_events =>
   payout_events.map(poe => !poe.get('recipient_id') ? poe :
@@ -98,10 +84,13 @@ const map_dispatch_to_props = dispatch => {
         payout_event_id =>
           () => claim_payout_spot_on_circle_action({user_id, circle_id, payout_event_id});
 
+  const do_find_circle_by_id = bindActionCreators(find_circle_by_id, dispatch)
+
   return {
     show_tooltip_with_data,
     destroy_tooltip_with_id,
-    claim_payout_event_for_user
+    claim_payout_event_for_user,
+    do_find_circle_by_id
   };
 };
 
