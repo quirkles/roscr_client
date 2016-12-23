@@ -29,7 +29,7 @@ const unconnected_view_user_component = ({
   edit_user_attr_with_id,
   do_find_user_by_id
 }) => {
-  if(user_to_display.get('needs_to_be_fetched')) {
+  if (user_to_display.get('needs_to_be_fetched')) {
     do_find_user_by_id(user_to_display.get('id'));
     return (
       <Loader
@@ -37,7 +37,7 @@ const unconnected_view_user_component = ({
       />
     );
   } else if (user_to_display.get('user_not_found_in_db')) {
-    return <NotFound message="Sorry, we couldn't find that user"/>
+    return <NotFound message="Sorry, we couldn't find that user"/>;
   } else {
     return (
       <div className="view-user-component">
