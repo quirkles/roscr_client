@@ -76,7 +76,7 @@ const user_info_panel = ({
               {user_to_display.get('field_currently_editing', null) === 'about_me' ?
                 <input
                   value={user_to_display.get('about_me', 'User has not told us about themselves yet.')}
-                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onBlur={stop_editing_and_do_update_attr('about_me')}
                   onChange={edit_user_attr_with_id('about_me')}
                   ref={i => i && i.focus()}
                 /> :
@@ -100,7 +100,7 @@ const user_info_panel = ({
               {user_to_display.get('field_currently_editing', null) === 'city' ?
                 <input
                   value={user_to_display.get('city', 'Unknown City')}
-                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onBlur={stop_editing_and_do_update_attr('city')}
                   onChange={edit_user_attr_with_id('city')}
                   ref={i => i && i.focus()}
                 /> :
@@ -124,7 +124,7 @@ const user_info_panel = ({
               {user_to_display.get('field_currently_editing', null) === 'country' ?
                 <input
                   value={user_to_display.get('country', 'Unknown Country')}
-                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onBlur={stop_editing_and_do_update_attr('country')}
                   onChange={edit_user_attr_with_id('country')}
                   ref={i => i && i.focus()}
                 /> :
@@ -148,7 +148,7 @@ const user_info_panel = ({
               {user_to_display.get('field_currently_editing', null) === 'profession' ?
                 <input
                   value={user_to_display.get('profession', 'No profession yet for this user.')}
-                  onBlur={start_editing_attr_for_user_with_id(null)}
+                  onBlur={stop_editing_and_do_update_attr('profession')}
                   onChange={edit_user_attr_with_id('profession')}
                   ref={i => i && i.focus()}
                 /> :

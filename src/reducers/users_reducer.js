@@ -17,9 +17,12 @@ const default_state = Map({});
 const member_reducer = (state = default_state, action) => {
     switch (action.type) {
         case ADD_USER:
-            return state.set(action.user_id, action.user_data).setIn([action.user_id, 'last_known_server_verison'], action.user_data);
         case LOG_IN_USER:
-            return action.user_data && action.user_data.id ? state.set(action.user_data.id, fromJS(action.user_data).delete('id')) : state;
+            return action.user_data && action.user_data.id ?
+              state
+                .set(action.user_data.id, fromJS(action.user_data).delete('id'))
+                .setIn([action.user_data.id, 'last_known_server_verison'], action.user_data) :
+              state;
         case OPEN_EDIT_USER_PANEL:
         case CLOSE_EDIT_USER_PANEL:
         case START_EDITING_ATTR_FOR_USER:
