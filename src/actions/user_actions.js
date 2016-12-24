@@ -13,12 +13,18 @@ import {
 } from '../utils/requests/auth';
 
 import {
-  do_find_user_by_id
+  do_find_user_by_id,
+  do_save_user_data
 } from '../utils/requests/user';
 
 import {omit} from 'ramda';
 
 import {fromJS} from 'immutable';
+
+const parse_user_data = user_data => ({
+  user_id: user_data.id,
+  user_data: fromJS(omit(['id'], user_data))
+});
 
 export const open_editing_panel_for_user = user_id => ({
   type: OPEN_EDIT_USER_PANEL,
@@ -81,7 +87,7 @@ export const find_user_by_id = target_user_id =>
     .then(
       ({data}) => {
         if (data.success && data.user) {
-          dispatch(add_user(parse_user_data(data.user)))
+          dispatch(add_user(parse_user_data(data.user)));
         }
       },
       error => {
@@ -89,12 +95,16 @@ export const find_user_by_id = target_user_id =>
           dispatch(add_user(parse_user_data({
             id: target_user_id,
             user_not_found_in_db: true
-          })))
+          })));
         }
       }
     );
 
-const parse_user_data = user_data => ({
-  user_id: user_data.id,
-  user_data: fromJS(omit(['id'], user_data))
-});
+  export const save_user_changes = ({user_id, new_user_data}) =>
+    dispatch =>
+      do_save_user_data({user_id, new_user_data})
+      .then(
+        ({data}) => console.log(data),
+        error => console.log(error)
+      );
+

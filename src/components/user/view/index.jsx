@@ -8,7 +8,8 @@ import {
   close_editing_panel_for_user,
   start_editing_attr_for_user,
   find_user_by_id,
-  edit_user
+  edit_user,
+  save_user_changes
 } from '../../../actions/user_actions';
 
 import UserProfileHeader from './user_profile_header';
@@ -27,7 +28,8 @@ const unconnected_view_user_component = ({
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
   edit_user_attr_with_id,
-  do_find_user_by_id
+  do_find_user_by_id,
+  stop_editing_and_do_update_attr_for_user
 }) => {
   if (user_to_display.get('needs_to_be_fetched')) {
     do_find_user_by_id(user_to_display.get('id'));
@@ -74,54 +76,6 @@ const unconnected_view_user_component = ({
                           <p>Finished task <a href="#" className='text-info'>#features 4</a>.</p>
                         </div>
                       </div>
-                      <div className='sl-item b-success'>
-                        <div className='sl-icon'>
-                          <i className='fa fa-twitter'/>
-                        </div>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>11:30</div>
-                          <p><a href="#">@Jessi</a> retwit your post</p>
-                        </div>
-                      </div>
-                      <div className='sl-item b-primary'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>10:30</div>
-                          <p>Call to customer <a href="#" className='text-info'>Jacob</a> and discuss the detail.</p>
-                        </div>
-                      </div>
-                      <div className='sl-item b-info'>
-                        <div className='sl-icon'>
-                          <i className='fa fa-bolt'/>
-                        </div>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>3 days ago</div>
-                          <p><a href="#" className='text-info'>Jessi</a> commented your post.</p>
-                        </div>
-                      </div>
-                      <div className='sl-item b-warning'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>Thu, 10 Mar</div>
-                          <p>Trip to the moon</p>
-                        </div>
-                      </div>
-                      <div className='sl-item b-info'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>Sat, 5 Mar</div>
-                          <p>Prepare for presentation</p>
-                        </div>
-                      </div>
-                      <div className='sl-item'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>Sun, 11 Feb</div>
-                          <p><a href="#" className='text-info'>Jessi</a> assign you a task <a href="#" className='text-info'>Mockup Design</a>.</p>
-                        </div>
-                      </div>
-                      <div className='sl-item'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>Thu, 17 Jan</div>
-                          <p>Follow up to close deal</p>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -134,6 +88,7 @@ const unconnected_view_user_component = ({
           close_editing_panel_for_user_with_id={close_editing_panel_for_user_with_id}
           start_editing_attr_for_user_with_id={start_editing_attr_for_user_with_id(user_to_display.get('id'))}
           edit_user_attr_with_id={edit_user_attr_with_id(user_to_display.get('id'))}
+          stop_editing_and_do_update_attr={stop_editing_and_do_update_attr_for_user(user_to_display.get('id'))}
         />
         <div
           className="user-edit-panel-overlay"
@@ -171,6 +126,8 @@ const map_state_to_props = ({users, circles}, own_props) => {
 };
 
 const map_dispatch_to_props = dispatch => {
+  const save_user_changes_action = bindActionCreators(save_user_changes, dispatch);
+
   const open_editing_panel_for_user_action = bindActionCreators(open_editing_panel_for_user, dispatch);
   const open_editing_panel_for_user_with_id = user_id =>
     () => open_editing_panel_for_user_action(user_id);
@@ -189,12 +146,28 @@ const map_dispatch_to_props = dispatch => {
 
   const do_find_user_by_id = bindActionCreators(find_user_by_id, dispatch);
 
+  const stop_editing_and_do_update_attr_for_user = user_id => attr_name => e => {
+    let new_user_data = {};
+
+    start_editing_attr_for_user_action({
+      user_id,
+      attr_to_edit: null
+    });
+
+    new_user_data[attr_name] = e.target.value;
+    save_user_changes_action({
+      user_id,
+      new_user_data
+    });
+  };
+
   return {
     open_editing_panel_for_user_with_id,
     close_editing_panel_for_user_with_id,
     start_editing_attr_for_user_with_id,
     edit_user_attr_with_id,
-    do_find_user_by_id
+    do_find_user_by_id,
+    stop_editing_and_do_update_attr_for_user
   };
 };
 

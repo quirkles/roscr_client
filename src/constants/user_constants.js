@@ -4,3 +4,4 @@ export const START_EDITING_ATTR_FOR_USER = 'START_EDITING_ATTR_FOR_USER';
 export const EDIT_USER = 'EDIT_USER';
 export const LOG_IN_USER = 'LOG_IN_USER';
 export const ADD_USER = 'ADD_USER';
+export const SAVE_USER_CHANGES = 'SAVE_USER_CHANGES';
