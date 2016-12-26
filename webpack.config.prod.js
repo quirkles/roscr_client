@@ -23,7 +23,7 @@ module.exports = {
      */
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-      'process.env.ROSCR_API_ENDPOINT': process.env.ROSCR_API_ENDPOINT || null
+      'process.env.API_URL': JSON.stringify(process.env.ROSCR_API_ENDPOINT || 'http://localhost:5000')
     }),
     /**
      * Some of you might recognize this! It minimizes all your JS output of chunks.
