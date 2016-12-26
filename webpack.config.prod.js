@@ -1,6 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 
+console.log('#####');
+console.log('!!!!!!!!!!!!!!!!!!!');
+console.log('#####');
+
 module.exports = {
   devtool: 'source-map',
   entry: [

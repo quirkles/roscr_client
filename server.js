@@ -29,10 +29,6 @@ const initDevelopmentServer = function () {
 //  app.use('/static', express.static(__dirname + '/src/static'));
 };
 
-console.log('#####');
-console.log(process.env);
-console.log('#####');
-
 // Depending on mode, initialize the server.
 if (process.env['NODE_ENV'] === 'production') {
   initProductionServer();
