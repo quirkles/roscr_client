@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+console.log(`###### ${process.env.ROSCR_API_ENDPOINT} ######`)
+
 module.exports = {
   devtool: 'source-map',
   entry: [
@@ -23,7 +25,7 @@ module.exports = {
      */
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-      ROSCR_API_ENDPOINT: process.env.ROSCR_API_ENDPOINT || null
+      'process.env.ROSCR_API_ENDPOINT': process.env.ROSCR_API_ENDPOINT || null
     }),
     /**
      * Some of you might recognize this! It minimizes all your JS output of chunks.
