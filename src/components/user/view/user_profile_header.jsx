@@ -13,7 +13,7 @@ const user_profile_header_component = ({
         <a href="#" className="pull-left m-r-md">
           <span className="avatar w-96">
             <img
-              src={user_to_display.get('avatar_url')}
+              src={`https://api.adorable.io/avatars/285/${user_to_display.get('id')}@adorable.io.png`}
             />
             <i className="on b-white"></i>
           </span>

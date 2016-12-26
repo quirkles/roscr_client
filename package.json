@@ -1,6 +1,9 @@
 {
   "name": "react-redux-boilerplate",
   "version": "1.0.0",
+  "engines": {
+    "node": "7.3.1"
+  },
   "description": "Client side roscr code",
   "repository": "https://github.com/quirkles/roscr_client",
   "main": "index.js",
