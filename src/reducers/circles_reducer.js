@@ -1,4 +1,5 @@
-import {Map} from 'immutable';
+import {Map, fromJS} from 'immutable';
+
 import {
   EDIT_CIRCLE,
   ADD_CIRCLE
@@ -15,7 +16,9 @@ export default (state = default_state, action) => {
         state.update(action.circle_id, c => circle_reducer(c, action)) :
         state;
     case ADD_CIRCLE:
-      return state.set(action.circle_id, action.circle_data);
+      return action.circle_data && action.circle_data.id ?
+        state.set(action.circle_data.id, fromJS(action.circle_data).delete('id')) :
+        state;
     default:
       return state;
   }

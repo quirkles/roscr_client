@@ -17,10 +17,6 @@ import {
   do_save_user_data
 } from '../utils/requests/user';
 
-import {omit} from 'ramda';
-
-import {fromJS} from 'immutable';
-
 export const open_editing_panel_for_user = user_id => ({
   type: OPEN_EDIT_USER_PANEL,
   user_id

@@ -17,6 +17,9 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.API_URL': JSON.stringify(process.env.ROSCR_API_ENDPOINT || 'http://localhost:5000')
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
