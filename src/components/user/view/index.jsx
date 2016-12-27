@@ -12,6 +12,8 @@ import {
   save_user_changes
 } from '../../../actions/user_actions';
 
+import {find_many_circles_by_ids} from '../../../actions/circle_actions';
+
 import UserProfileHeader from './user_profile_header';
 import UserEditPanel from './user_edit_panel';
 import CircleList from './circle_list';
@@ -29,6 +31,7 @@ const unconnected_view_user_component = ({
   start_editing_attr_for_user_with_id,
   edit_user_attr_with_id,
   do_find_user_by_id,
+  do_find_many_circles_by_ids,
   stop_editing_and_do_update_attr_for_user
 }) => {
   if (user_to_display.get('needs_to_be_fetched')) {
@@ -41,6 +44,15 @@ const unconnected_view_user_component = ({
   } else if (user_to_display.get('user_not_found_in_db')) {
     return <NotFound message="Sorry, we couldn't find that user"/>;
   } else {
+    const circle_ids_to_be_fetched =
+      circles_as_member
+        .concat(circles_created)
+        .filter(circle => circle.get('needs_to_be_fetched'))
+        .map(circle => circle.get('id'))
+        .toJS();
+
+    do_find_many_circles_by_ids(circle_ids_to_be_fetched);
+
     return (
       <div className="view-user-component">
         <UserProfileHeader
@@ -161,12 +173,15 @@ const map_dispatch_to_props = dispatch => {
     });
   };
 
+  const do_find_many_circles_by_ids = bindActionCreators(find_many_circles_by_ids, dispatch);
+
   return {
     open_editing_panel_for_user_with_id,
     close_editing_panel_for_user_with_id,
     start_editing_attr_for_user_with_id,
     edit_user_attr_with_id,
     do_find_user_by_id,
+    do_find_many_circles_by_ids,
     stop_editing_and_do_update_attr_for_user
   };
 };

@@ -39,7 +39,7 @@ const circle_list_component = ({
               <Link
                 to={`/circle/${circle.get('id')}`}
               >
-                {circle.get('circle_name')}
+                {circle.get('circle_name', 'Circle name not set.')}
               </Link>
             </td>
           </tr>

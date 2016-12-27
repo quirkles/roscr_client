@@ -1,12 +1,14 @@
 import {
   EDIT_CIRCLE,
   ADD_CIRCLE,
+  ADD_CIRCLES,
   CLAIM_PAYOUT_SPOT_ON_CIRCLE
 } from '../constants/circle_constants';
 
 import {
   do_find_circle_by_id,
-  do_create_circle
+  do_create_circle,
+  do_find_many_circles_by_ids
 } from '../utils/requests/circle';
 
 export const edit_circle = ({circle_id, circle_data}) => ({
@@ -27,6 +29,11 @@ export const add_circle = circle_data => ({
   circle_data,
 });
 
+export const add_circles = circle_list => ({
+  type: ADD_CIRCLES,
+  circle_list,
+});
+
 export const find_circle_by_id = target_circle_id =>
   dispatch =>
     do_find_circle_by_id(target_circle_id)
@@ -45,6 +52,20 @@ export const find_circle_by_id = target_circle_id =>
         }
       }
     );
+
+export const find_many_circles_by_ids = circle_id_array =>
+  dispatch =>
+    do_find_many_circles_by_ids(circle_id_array)
+    .then(response_array => {
+      const circles = response_array
+        .map(resp => resp.data.success ?
+            resp.data.circle :
+            {
+              id: resp.data.missing_circle_id,
+              circle_not_found_in_db: true
+            });
+        dispatch(add_circles(circles));
+    });
 
 export const attempt_create_circle = circle_data =>
   dispatch =>
