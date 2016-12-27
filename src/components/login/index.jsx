@@ -57,7 +57,7 @@ export const unconnected_login_component = ({
                   className="form-control"
                   placeholder="Email"
                   required=""
-                  value={sign_in_up_credentials.get('email_address')}
+                  value={sign_in_up_credentials.get('email_address', '')}
                   onChange={update_credential_attr('email_address')}
                 />
               </div>
@@ -67,7 +67,7 @@ export const unconnected_login_component = ({
                   className="form-control"
                   placeholder="password"
                   required=""
-                  value={sign_in_up_credentials.get('password')}
+                  value={sign_in_up_credentials.get('password', '')}
                   onChange={update_credential_attr('password')}
                   />
               </div>

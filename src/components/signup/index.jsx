@@ -62,7 +62,7 @@ const unconnected_signup_component = ({
                     'form-error': validation_errors.email_address.length
                   })}
                   placeholder='Email'
-                  value={sign_in_up_credentials.get('email_address')}
+                  value={sign_in_up_credentials.get('email_address', '')}
                   onChange={update_credential_attr('email_address')}
                 />
                 <ul className='form-errors-list'>
@@ -76,7 +76,7 @@ const unconnected_signup_component = ({
                     'form-error': validation_errors.password.length
                   })}
                   placeholder='Password'
-                  value={sign_in_up_credentials.get('password')}
+                  value={sign_in_up_credentials.get('password', '')}
                   onChange={update_credential_attr('password')}
                 />
                 <ul className='form-errors-list'>
@@ -90,7 +90,7 @@ const unconnected_signup_component = ({
                     'form-error': validation_errors.confirm_password.length
                   })}
                   placeholder='Confirm Password'
-                  value={sign_in_up_credentials.get('confirm_password')}
+                  value={sign_in_up_credentials.get('confirm_password', '')}
                   onChange={update_credential_attr('confirm_password')}
                 />
                 <ul className='form-errors-list'>
