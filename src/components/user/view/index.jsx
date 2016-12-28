@@ -2,6 +2,9 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Map, List} from 'immutable';
+import D from 'date-fp';
+
+import {get_activity_description_from_type} from '../../../utils/activity_helpers';
 
 import {
   open_editing_panel_for_user,
@@ -82,12 +85,18 @@ const unconnected_view_user_component = ({
                 <div className='box-body'>
                   <div>
                     <div className='streamline m-b'>
-                      <div className='sl-item'>
-                        <div className='sl-content'>
-                          <div className='sl-date text-muted'>Just now</div>
-                          <p>Finished task <a href="#" className='text-info'>#features 4</a>.</p>
-                        </div>
-                      </div>
+                      {
+                        user_to_display.get('activity').map(activity_item =>
+                          <div
+                            key={activity_item.get('id')}
+                            className='sl-item'
+                          >
+                            <div className='sl-content'>
+                              <div className='sl-date text-muted'>{D.format('MMMM D YYYY', new Date(activity_item.get('date')))}</div>
+                              <p>{get_activity_description_from_type(activity_item.get('activity_type'))}</p>
+                            </div>
+                          </div>
+                        )}
                     </div>
                   </div>
                 </div>
