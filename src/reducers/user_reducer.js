@@ -7,6 +7,8 @@ import {
   EDIT_USER
 } from '../constants/user_constants';
 
+import {ADD_CIRCLE} from '../constants/circle_constants';
+
 const default_state = Map({
   is_edit_detail_panel_open: true
 });
@@ -21,6 +23,12 @@ const user_reducer = (state = default_state, action) => {
       return state.set('field_currently_editing', action.attr_to_edit);
     case EDIT_USER:
       return state.merge(action.user_data);
+    case ADD_CIRCLE:
+      return state.update('circles_created', circles_created =>
+        circles_created.has(action.circle_data.id) ?
+        circles_created :
+        circles_created.push(action.circle_data.id)
+      );
     default:
       return state;
   }

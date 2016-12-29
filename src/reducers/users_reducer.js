@@ -12,6 +12,8 @@ import {
   ADD_USER
 } from '../constants/user_constants';
 
+import {ADD_CIRCLE} from '../constants/circle_constants';
+
 const default_state = Map({});
 
 const member_reducer = (state = default_state, action) => {
@@ -26,6 +28,10 @@ const member_reducer = (state = default_state, action) => {
         case OPEN_EDIT_USER_PANEL:
         case CLOSE_EDIT_USER_PANEL:
         case START_EDITING_ATTR_FOR_USER:
+        case ADD_CIRCLE:
+          return action.circle_data && action.circle_data.created_by && state.get(action.circle_data.created_by) ?
+                state.update(action.circle_data.created_by, user => user_reducer(user, action)) :
+                state;
         case EDIT_USER:
             return action.user_id && state.get(action.user_id) ?
                 state.update(action.user_id, user => user_reducer(user, action)) :

@@ -5,4 +5,4 @@ export const get_activity_description_from_type = activity_type => {
     default:
       return 'Action type not found.';
   }
-}
+};
