@@ -20,7 +20,7 @@ const user_info_panel = ({
     onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
   ></div>
   <h2>Edit details for {get_full_name(user_to_display)}</h2>
-  <div>
+  <div className='table-container'>
     <table className='table table-striped'>
       <tbody>
         <tr>
