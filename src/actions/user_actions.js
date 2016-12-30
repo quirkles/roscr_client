@@ -1,3 +1,5 @@
+import {push} from 'react-router-redux';
+
 import {
   OPEN_EDIT_USER_PANEL,
   CLOSE_EDIT_USER_PANEL,
@@ -59,7 +61,10 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
   dispatch =>
     do_request_sign_up({email_address, password})
     .then(
-      resp =>dispatch(log_in_user(resp.data.user)),
+      resp => {
+        dispatch(log_in_user(resp.data.user));
+        dispatch(push(`/user/${resp.data.user.id}`));
+      },
       error => console.error(error)
     );
 
@@ -67,7 +72,10 @@ export const attempt_log_in_with_credentials = ({email_address, password}) =>
   dispatch =>
     do_request_log_in({email_address, password})
     .then(
-      resp =>dispatch(log_in_user(resp.data.user)),
+      resp => {
+        dispatch(log_in_user(resp.data.user));
+        dispatch(push(`/user/${resp.data.user.id}`));
+      },
       error => console.error(error)
     );
 
