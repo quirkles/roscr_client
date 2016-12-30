@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {parse_timeline_item} from '../../utils/timeline'
+import {parse_timeline_item} from '../../utils/timeline';
 import './timeline_Styles.scss';
 
 const unconnected_timeline_component = ({

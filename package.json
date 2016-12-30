@@ -13,8 +13,8 @@
     "copydist": ".\\node_modules\\.bin\\copy .\\src\\static\\* .\\dist\\",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "lint": "eslint src",
-    "start": "node server.js",
-    "start:prod": "npm run build && cross-env NODE_ENV=production node server.js",
+    "dev": "node server.js",
+    "start": "npm run build && cross-env NODE_ENV=production node server.js",
     "test": "mocha --compilers js:babel-core/register --require ./src/test/test_helper.js --require ignore-styles \"src/test/**/*@(.js|.jsx)\"",
     "clean": "rimraf dist"
   },
