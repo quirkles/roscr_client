@@ -7,7 +7,8 @@ export default ({
   session_user,
   header_dropdown_open,
   open_header_dropdown,
-  close_header_dropdown
+  close_header_dropdown,
+  log_out_user
 }) =>
 <div className="app-header white bg b-b">
   <div className="navbar">
@@ -30,8 +31,16 @@ export default ({
             <Link
               className="dropdown-item"
               to={`/user/${session_user.get('id')}`}
+              onClick={close_header_dropdown}
             >
               <span>Profile</span>
+            </Link>
+            <Link
+              className="dropdown-item"
+              to='/login'
+              onClick={log_out_user}
+            >
+              <span>Log out</span>
             </Link>
           </div>
         </li>

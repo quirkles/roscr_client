@@ -12,6 +12,8 @@ import {
   close_header_dropdown as close_header_dropdown_action
 } from '../../actions/ui_state_actions';
 
+import {attempt_log_out} from '../../actions/user_actions';
+
 import './shell_styles.scss';
 
 export const unconnected_shell_component = ({
@@ -21,7 +23,8 @@ export const unconnected_shell_component = ({
   session_user,
   header_dropdown_open,
   open_header_dropdown,
-  close_header_dropdown
+  close_header_dropdown,
+  log_out_user
 }) =>
 <div>
   <Tooltips tooltips={tooltips}/>
@@ -35,6 +38,7 @@ export const unconnected_shell_component = ({
       header_dropdown_open={header_dropdown_open}
       open_header_dropdown={open_header_dropdown}
       close_header_dropdown={close_header_dropdown}
+      log_out_user={log_out_user}
     />
     <div
       className="app-body"
@@ -57,7 +61,8 @@ const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
 
 const map_dispatch_to_props = dispatch => ({
   open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
-  close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch)
+  close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
+  log_out_user: bindActionCreators(attempt_log_out, dispatch)
 });
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);

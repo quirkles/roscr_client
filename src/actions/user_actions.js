@@ -6,12 +6,14 @@ import {
   START_EDITING_ATTR_FOR_USER,
   EDIT_USER,
   LOG_IN_USER,
+  LOG_OUT_USER,
   ADD_USER
 } from '../constants/user_constants';
 
 import {
   do_request_sign_up,
   do_request_log_in,
+  do_log_out
 } from '../utils/requests/auth';
 
 import {
@@ -52,6 +54,10 @@ export const log_in_user = user_data => ({
   user_data
 });
 
+export const log_out_user = user_data => ({
+  type: LOG_OUT_USER
+});
+
 export const add_user = user_data => ({
   type: ADD_USER,
   user_data
@@ -75,6 +81,18 @@ export const attempt_log_in_with_credentials = ({email_address, password}) =>
       resp => {
         dispatch(log_in_user(resp.data.user));
         dispatch(push(`/user/${resp.data.user.id}`));
+      },
+      error => console.error(error)
+    );
+
+export const attempt_log_out = () =>
+  dispatch =>
+    do_log_out()
+    .then(
+      ({data}) => {
+        if (data.success) {
+          dispatch(log_out_user());
+        }
       },
       error => console.error(error)
     );
