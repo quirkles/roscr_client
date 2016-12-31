@@ -25,13 +25,13 @@ const member_reducer = (state = default_state, action) => {
                 .set(action.user_data.id, fromJS(action.user_data).delete('id'))
                 .setIn([action.user_data.id, 'last_known_server_verison'], action.user_data) :
               state;
-        case OPEN_EDIT_USER_PANEL:
-        case CLOSE_EDIT_USER_PANEL:
-        case START_EDITING_ATTR_FOR_USER:
         case ADD_CIRCLE:
           return action.circle_data && action.circle_data.created_by && state.get(action.circle_data.created_by) ?
                 state.update(action.circle_data.created_by, user => user_reducer(user, action)) :
                 state;
+        case OPEN_EDIT_USER_PANEL:
+        case CLOSE_EDIT_USER_PANEL:
+        case START_EDITING_ATTR_FOR_USER:
         case EDIT_USER:
             return action.user_id && state.get(action.user_id) ?
                 state.update(action.user_id, user => user_reducer(user, action)) :
