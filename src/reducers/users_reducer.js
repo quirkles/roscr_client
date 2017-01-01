@@ -9,6 +9,7 @@ import {
   START_EDITING_ATTR_FOR_USER,
   EDIT_USER,
   LOG_IN_USER,
+  SET_SESSION_DATA,
   ADD_USER
 } from '../constants/user_constants';
 
@@ -29,6 +30,10 @@ const member_reducer = (state = default_state, action) => {
           return action.circle_data && action.circle_data.created_by && state.get(action.circle_data.created_by) ?
                 state.update(action.circle_data.created_by, user => user_reducer(user, action)) :
                 state;
+        case SET_SESSION_DATA:
+          return action.session_data && action.session_data.session_user && action.session_data.session_user.id ?
+            state.set(action.session_data.session_user.id, fromJS(action.session_data.session_user).delete('id')) :
+            state;
         case OPEN_EDIT_USER_PANEL:
         case CLOSE_EDIT_USER_PANEL:
         case START_EDITING_ATTR_FOR_USER:

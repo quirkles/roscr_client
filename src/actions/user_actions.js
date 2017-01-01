@@ -7,6 +7,7 @@ import {
   EDIT_USER,
   LOG_IN_USER,
   LOG_OUT_USER,
+  SET_SESSION_DATA,
   ADD_USER
 } from '../constants/user_constants';
 
@@ -54,13 +55,18 @@ export const log_in_user = user_data => ({
   user_data
 });
 
-export const log_out_user = user_data => ({
+export const log_out_user = () => ({
   type: LOG_OUT_USER
 });
 
 export const add_user = user_data => ({
   type: ADD_USER,
   user_data
+});
+
+export const set_session_data = session_data => ({
+  type: SET_SESSION_DATA,
+  session_data
 });
 
 export const attempt_sign_up_with_credentials = ({email_address, password}) =>

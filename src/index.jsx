@@ -4,6 +4,8 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configure_store';
 import Root from './containers/root';
+import {get_session_info} from './utils/requests/session';
+import {set_session_data} from './actions/user_actions';
 
 /**
  * Import the stylesheet you want used! Here we just reference
@@ -37,7 +39,9 @@ import './styles/main.scss';
 
 // TODO and do this if dev
 
+
 const store = configureStore();
+
 
 render(
   <AppContainer>
@@ -57,3 +61,9 @@ if (module.hot) {
     );
   });
 }
+
+get_session_info()
+.then(
+  ({data}) => store.dispatch(set_session_data(data)),
+  error => console.log(error)
+);
