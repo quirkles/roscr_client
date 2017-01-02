@@ -1,6 +1,8 @@
 import React from 'react';
 import D from 'date-fp';
 
+import {get_display_name} from '../../../utils/user_immutable';
+
 const user_profile_header_component = ({
   user_to_display,
   open_editing_panel_for_user_with_id
@@ -19,7 +21,7 @@ const user_profile_header_component = ({
           </span>
         </a>
         <div className="clear m-b">
-          <h4 className="m-a-0 m-b-sm text-capitalize">{user_to_display.get('firstname')} {user_to_display.get('lastname')}</h4>
+          <h4 className="m-b-sm text-capitalize">{get_display_name(user_to_display)}</h4>
           <p className="text-muted">
             <span className="m-r">{user_to_display.get('profession', 'No employment information :(')}</span>
             <small>
@@ -34,7 +36,7 @@ const user_profile_header_component = ({
       </div>
       <div className="col-sm-5">
         <p className="text-md profile-status">{user_to_display.get('about_me')}</p>
-        <p>Trusted user since {D.format('MMMM D YYYY', new Date(user_to_display.get('date_created')))}</p>
+        <p>Trusted user since {D.format('MMMM D YYYY', new Date(user_to_display.get('created')))}</p>
         <button
           className="btn rounded warning"
           onClick={open_editing_panel_for_user_with_id(user_to_display.get('id'))}
