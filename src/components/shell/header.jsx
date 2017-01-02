@@ -10,33 +10,41 @@ export default ({
   close_header_dropdown,
   log_out_user
 }) =>
-<div className="app-header white bg b-b">
-  <div className="navbar">
-    <div className="navbar-item pull-left h5">Roscr</div>
+<div className='app-header white bg b-b'>
+  <div className='navbar'>
+    <div className='navbar-item pull-left h5'>Roscr</div>
     {session_user.get('id') ?
-      <ul className="nav navbar-nav pull-right">
+      <ul className='nav navbar-nav pull-right'>
+        <li className='nav-item'>
+          <a className='nav-link'>
+            <span className='btn btn-xs btn-primary'>
+              <i className='fa fa-fw fa-user-plus margin-right-half'></i>
+              <span className='hidden-sm-down'>Add User</span>
+            </span>
+          </a>
+        </li>
         <li className={classnames('nav-item', 'dropdown', {open: header_dropdown_open})}>
           <a
-            className="nav-link clear"
+            className='nav-link clear'
             onClick={open_header_dropdown}
           >
             {session_user.get('avatar_url') ?
-              <span className="avatar w-32">
-                <img src={session_user.get('avatar_url')} className="w-full rounded"/>
+              <span className='avatar w-32'>
+                <img src={session_user.get('avatar_url')} className='w-full rounded'/>
               </span> :
               <span>{session_user.get('email_address')}</span>
             }
           </a>
-          <div className="dropdown-menu w dropdown-menu-scale pull-right">
+          <div className='dropdown-menu w dropdown-menu-scale pull-right'>
             <Link
-              className="dropdown-item"
+              className='dropdown-item'
               to={`/user/${session_user.get('id')}`}
               onClick={close_header_dropdown}
             >
               <span>Profile</span>
             </Link>
             <Link
-              className="dropdown-item"
+              className='dropdown-item'
               to='/login'
               onClick={log_out_user}
             >
@@ -45,7 +53,7 @@ export default ({
           </div>
         </li>
         <div
-          className="header-dropdown-overlay"
+          className='header-dropdown-overlay'
           onClick={close_header_dropdown}
         ></div>
       </ul> :
