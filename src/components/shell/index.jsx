@@ -1,21 +1,21 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import {Map} from 'immutable';
 
 import Sidebar from './sidebar';
 import Header from './header';
-import {connect} from 'react-redux';
-
 import Modal from '../modal';
 import ModalOverlay from '../modal/modal_overlay';
-
 import Tooltips from '../tooltips';
+
 import {
   open_header_dropdown as open_header_dropdown_action,
   close_header_dropdown as close_header_dropdown_action
 } from '../../actions/ui_state_actions';
 
 import {attempt_log_out} from '../../actions/user_actions';
+import {close_modal} from '../../actions/modal_actions';
 
 import './shell_styles.scss';
 
@@ -28,6 +28,7 @@ export const unconnected_shell_component = ({
   open_header_dropdown,
   close_header_dropdown,
   modal_props,
+  do_close_modal,
   log_out_user
 }) =>
 <div>
@@ -52,8 +53,14 @@ export const unconnected_shell_component = ({
     </div>
   </div>
   <Tooltips tooltips={tooltips}/>
-  <Modal modal_props = {modal_props} />
-  <ModalOverlay modal_props = {modal_props} />
+  <Modal
+    modal_props = {modal_props}
+    do_close_modal = {do_close_modal}
+  />
+  <ModalOverlay
+    modal_props = {modal_props}
+    do_close_modal = {do_close_modal}
+  />
 </div>;
 
 const map_state_to_props = ({routing, ui_state, users, session_user_id, modal}) => ({
@@ -69,7 +76,8 @@ const map_state_to_props = ({routing, ui_state, users, session_user_id, modal}) 
 const map_dispatch_to_props = dispatch => ({
   open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
   close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
-  log_out_user: bindActionCreators(attempt_log_out, dispatch)
+  log_out_user: bindActionCreators(attempt_log_out, dispatch),
+  do_close_modal: bindActionCreators(close_modal, dispatch)
 });
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);

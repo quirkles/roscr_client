@@ -1,1 +1,2 @@
 export const SHOW_ADD_USER_MODAL = 'SHOW_ADD_USER_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
