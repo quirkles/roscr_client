@@ -12,6 +12,6 @@ export default ({
           do_close_modal={do_close_modal}
         />
         <Body
-          body_text={modal_props.get('body_text', 'Here is the modal content')}
+          content={modal_props.get('content', 'Here is the modal content')}
         />
     </div>;
