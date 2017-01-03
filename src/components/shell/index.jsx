@@ -6,6 +6,9 @@ import Sidebar from './sidebar';
 import Header from './header';
 import {connect} from 'react-redux';
 
+import Modal from '../modal';
+import ModalOverlay from '../modal/modal_overlay';
+
 import Tooltips from '../tooltips';
 import {
   open_header_dropdown as open_header_dropdown_action,
@@ -24,10 +27,10 @@ export const unconnected_shell_component = ({
   header_dropdown_open,
   open_header_dropdown,
   close_header_dropdown,
+  modal_props,
   log_out_user
 }) =>
 <div>
-  <Tooltips tooltips={tooltips}/>
   <Sidebar active_route = {active_route} />
   <div
     id="content"
@@ -48,12 +51,16 @@ export const unconnected_shell_component = ({
       </div>
     </div>
   </div>
+  <Tooltips tooltips={tooltips}/>
+  <Modal modal_props = {modal_props} />
+  <ModalOverlay modal_props = {modal_props} />
 </div>;
 
-const map_state_to_props = ({routing, ui_state, users, session_user_id}) => ({
+const map_state_to_props = ({routing, ui_state, users, session_user_id, modal}) => ({
   active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
   session_user: users.get(session_user_id, Map({})).set('id', session_user_id),
   header_dropdown_open: ui_state.get('header_dropdown_open'),
+  modal_props: modal,
   tooltips: ui_state.get('tooltips', Map({}))
     .map((tooltip, tooltip_id) => tooltip.set('id', tooltip_id))
     .toList()

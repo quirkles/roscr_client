@@ -17,7 +17,7 @@ export default ({
       <ul className='nav navbar-nav pull-right'>
         <li className='nav-item'>
           <a className='nav-link'>
-            <span className='btn btn-xs btn-primary'>
+            <span className='btn btn-sm btn-primary'>
               <i className='fa fa-fw fa-user-plus margin-right-half'></i>
               <span className='hidden-sm-down'>Add User</span>
             </span>
