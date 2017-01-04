@@ -19,7 +19,7 @@ export default ({
         <li className='nav-item'>
           <a className='nav-link'>
             <span
-              className='btn btn-sm btn-primary'
+              className='btn btn-sm primary'
               onClick={do_show_add_user_modal}
             >
               <i className='fa fa-fw fa-user-plus margin-right-half'></i>

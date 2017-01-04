@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {pick, values, mapObjIndexed} from 'ramda';
+import classnames from 'classnames';
 
 import {is_required, is_valid_email, has_min_length} from '../../utils/validators';
 
@@ -50,26 +51,38 @@ export const unconnected_login_component = ({
       <div className="b-t">
         <div className="center-block w-xxl w-auto-xs p-y-md text-center">
           <div className="p-a-md">
-            <form name="form">
+            <form name='form' className={classnames({
+              'show-form-validation-hints': sign_in_up_credentials.get('has_attempted_form_submit')
+            })}>
               <div className="form-group">
                 <input
                   type="email"
-                  className="form-control"
+                  className={classnames('form-control', {
+                    'form-error': validation_errors.email_address.length
+                  })}
                   placeholder="Email"
                   required=""
                   value={sign_in_up_credentials.get('email_address', '')}
                   onChange={update_credential_attr('email_address')}
                 />
+                <ul className='form-errors-list'>
+                    {validation_errors.email_address.map((error, i) =><li key={i}>{error}</li>)}
+                </ul>
               </div>
               <div className="form-group">
                 <input
                   type="password"
-                  className="form-control"
+                  className={classnames('form-control', {
+                    'form-error': validation_errors.password.length
+                  })}
                   placeholder="password"
                   required=""
                   value={sign_in_up_credentials.get('password', '')}
                   onChange={update_credential_attr('password')}
-                  />
+                />
+                <ul className='form-errors-list'>
+                  {validation_errors.password.map((error, i) =><li key={i}>{error}</li>)}
+                </ul>
               </div>
               <div className="m-b-md">
                 <label className="md-check">
