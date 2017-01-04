@@ -2,7 +2,8 @@ import {Map} from 'immutable';
 
 import {
   HIDE_MODAL,
-  SHOW_ADD_USER_MODAL
+  SHOW_ADD_USER_MODAL,
+  UPDATE_ADD_USER_EMAIL
 } from '../constants/modal_constants';
 
 const default_state = Map({
@@ -19,6 +20,8 @@ const modal_reducer = (state = default_state, action) => {
         is_shown: true,
         content: 'add_user_template'
       });
+      case UPDATE_ADD_USER_EMAIL:
+        return state.set('add_user_email' ,action.email_address)
     default:
       return state;
   }

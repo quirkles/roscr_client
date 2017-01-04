@@ -18,7 +18,8 @@ import {
 import {attempt_log_out} from '../../actions/user_actions';
 import {
   close_modal,
-  show_add_user_modal
+  show_add_user_modal,
+  update_add_user_email
 } from '../../actions/modal_actions';
 
 import './shell_styles.scss';
@@ -34,6 +35,7 @@ export const unconnected_shell_component = ({
   modal_props,
   do_close_modal,
   do_show_add_user_modal,
+  update_add_user_email_action,
   log_out_user
 }) =>
 <div>
@@ -62,6 +64,7 @@ export const unconnected_shell_component = ({
   <Modal
     modal_props = {modal_props}
     do_close_modal = {do_close_modal}
+    update_add_user_email_action = {update_add_user_email_action}
   />
   <ModalOverlay
     modal_props = {modal_props}
@@ -84,7 +87,8 @@ const map_dispatch_to_props = dispatch => ({
   close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
   log_out_user: bindActionCreators(attempt_log_out, dispatch),
   do_close_modal: bindActionCreators(close_modal, dispatch),
-  do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch)
+  do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
+  update_add_user_email_action: e => bindActionCreators(update_add_user_email, dispatch)(e.target.value)
 });
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);
