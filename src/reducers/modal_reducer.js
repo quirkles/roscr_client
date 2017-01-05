@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {fromJS} from 'immutable';
 
 import {
   HIDE_MODAL,
@@ -6,9 +6,12 @@ import {
   UPDATE_ADD_USER_EMAIL
 } from '../constants/modal_constants';
 
-const default_state = Map({
+const default_state = fromJS({
   is_shown: false,
-  content: null
+  content: null,
+  invite_user: {
+    invitee_email_address: ''
+  }
 });
 
 const modal_reducer = (state = default_state, action) => {
@@ -21,7 +24,7 @@ const modal_reducer = (state = default_state, action) => {
         content: 'add_user_template'
       });
       case UPDATE_ADD_USER_EMAIL:
-        return state.set('add_user_email' ,action.email_address)
+        return state.setIn(['invite_user', 'invitee_email_address'] ,action.email_address)
     default:
       return state;
   }

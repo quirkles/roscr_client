@@ -15,7 +15,7 @@ export default ({
         />
         <Body
           content={modal_props.get('content', 'Here is the modal content')}
-          add_user_email={modal_props.get('add_user_email', '')}
+          invitee_email_address={modal_props.getIn(['invite_user', 'invitee_email_address'], '')}
           update_add_user_email_action={update_add_user_email_action}
           submit_add_user_action={submit_add_user_action}
         />
