@@ -19,7 +19,8 @@ import {attempt_log_out} from '../../actions/user_actions';
 import {
   close_modal,
   show_add_user_modal,
-  update_add_user_email
+  update_add_user_email,
+  submit_add_user
 } from '../../actions/modal_actions';
 
 import './shell_styles.scss';
@@ -36,6 +37,7 @@ export const unconnected_shell_component = ({
   do_close_modal,
   do_show_add_user_modal,
   update_add_user_email_action,
+  submit_add_user_action,
   log_out_user
 }) =>
 <div>
@@ -65,6 +67,7 @@ export const unconnected_shell_component = ({
     modal_props = {modal_props}
     do_close_modal = {do_close_modal}
     update_add_user_email_action = {update_add_user_email_action}
+    submit_add_user_action = {submit_add_user_action}
   />
   <ModalOverlay
     modal_props = {modal_props}
@@ -82,13 +85,17 @@ const map_state_to_props = ({routing, ui_state, users, session_user_id, modal}) 
     .toList()
 });
 
-const map_dispatch_to_props = dispatch => ({
-  open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
-  close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
-  log_out_user: bindActionCreators(attempt_log_out, dispatch),
-  do_close_modal: bindActionCreators(close_modal, dispatch),
-  do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
-  update_add_user_email_action: e => bindActionCreators(update_add_user_email, dispatch)(e.target.value)
-});
+const map_dispatch_to_props = dispatch => {
+  const update_add_user_email_action = e => bindActionCreators(update_add_user_email, dispatch)(e.target.value);
+  return {
+    open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
+    close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
+    log_out_user: bindActionCreators(attempt_log_out, dispatch),
+    do_close_modal: bindActionCreators(close_modal, dispatch),
+    do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
+    submit_add_user_action: bindActionCreators(submit_add_user, dispatch),
+    update_add_user_email_action
+  };
+};
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_shell_component);

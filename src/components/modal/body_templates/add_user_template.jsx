@@ -2,7 +2,8 @@ import React from 'react';
 
 const add_user_template = ({
   add_user_email,
-  update_add_user_email_action
+  update_add_user_email_action,
+  submit_add_user_action
 }) =>
 <div className='add-user-template'>
   <h2 className='margin-bottom-one'>Invite a user to ROSCr!</h2>
@@ -15,7 +16,10 @@ const add_user_template = ({
     type='text'
   />
   <div>
-    <div className="btn btn-lg primary">Invite</div>
+    <div
+      className="btn btn-lg primary"
+      onClick={submit_add_user_action}
+    >Invite</div>
   </div>
 </div>;
 

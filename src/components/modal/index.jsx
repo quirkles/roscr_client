@@ -8,7 +8,8 @@ import './modal_styles.scss';
 const modal = ({
   modal_props,
   do_close_modal,
-  update_add_user_email_action
+  update_add_user_email_action,
+  submit_add_user_action
 }) => {
   return (
       <div
@@ -20,6 +21,7 @@ const modal = ({
           modal_props = {modal_props}
           do_close_modal = {do_close_modal}
           update_add_user_email_action = {update_add_user_email_action}
+          submit_add_user_action = {submit_add_user_action}
         />
     </div>
   );
