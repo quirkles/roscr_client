@@ -8,7 +8,7 @@ import {pick} from '../../../utils/immutable';
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 import {claim_payout_spot_on_circle, find_circle_by_id} from '../../../actions/circle_actions';
 
-import CircleComponent from './circle_component'
+import CircleComponent from './circle_component';
 import Loader from '../../loader';
 import NotFound from '../../not_found';
 
@@ -24,10 +24,10 @@ export const unconnected_create_circle_component = ({
   do_find_circle_by_id
 }) => {
   if (circle_to_display.get('needs_to_be_fetched')) {
-    do_find_circle_by_id(circle_to_display.get('id'))
-    return <Loader title='Fetching circle information...' />
+    do_find_circle_by_id(circle_to_display.get('id'));
+    return <Loader title='Fetching circle information...' />;
   } else if (circle_to_display.get('circle_not_found_in_db')) {
-    return <NotFound message="Sorry, we couldn't find that circle." />
+    return <NotFound message="Sorry, we couldn't find that circle." />;
   } else {
     return (
       <CircleComponent
@@ -84,7 +84,7 @@ const map_dispatch_to_props = dispatch => {
         payout_event_id =>
           () => claim_payout_spot_on_circle_action({user_id, circle_id, payout_event_id});
 
-  const do_find_circle_by_id = bindActionCreators(find_circle_by_id, dispatch)
+  const do_find_circle_by_id = bindActionCreators(find_circle_by_id, dispatch);
 
   return {
     show_tooltip_with_data,

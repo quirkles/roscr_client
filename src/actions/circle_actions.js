@@ -26,12 +26,12 @@ export const claim_payout_spot_on_circle = ({circle_id, payout_event_id, user_id
 
 export const add_circle = circle_data => ({
   type: ADD_CIRCLE,
-  circle_data,
+  circle_data
 });
 
 export const add_circles = circle_list => ({
   type: ADD_CIRCLES,
-  circle_list,
+  circle_list
 });
 
 export const find_circle_by_id = target_circle_id =>

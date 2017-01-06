@@ -9,8 +9,9 @@ import {
   close_modal,
   show_add_user_modal,
   update_add_user_email,
-  submit_add_user
-} from '../../actions/modal_actions'
+  submit_add_user,
+  do_request_submit_add_user
+} from '../../actions/modal_actions';
 
 import './modal_styles.scss';
 
@@ -18,7 +19,8 @@ const unconnected_modal_component = ({
   modal,
   do_close_modal,
   update_add_user_email_action,
-  submit_add_user_action
+  submit_add_user_action,
+  do_request_add_user_action
 }) => {
   return (
       <div
@@ -31,6 +33,7 @@ const unconnected_modal_component = ({
           do_close_modal = {do_close_modal}
           update_add_user_email_action = {update_add_user_email_action}
           submit_add_user_action = {submit_add_user_action}
+          do_request_add_user_action={do_request_add_user_action}
         />
     </div>
   );
@@ -44,6 +47,7 @@ const map_dispatch_to_props = dispatch => {
     do_close_modal: bindActionCreators(close_modal, dispatch),
     do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
     submit_add_user_action: bindActionCreators(submit_add_user, dispatch),
+    do_request_add_user_action: bindActionCreators(do_request_submit_add_user, dispatch),
     update_add_user_email_action
   };
 };

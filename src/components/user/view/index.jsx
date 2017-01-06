@@ -54,7 +54,9 @@ const unconnected_view_user_component = ({
         .map(circle => circle.get('id'))
         .toJS();
 
-    do_find_many_circles_by_ids(circle_ids_to_be_fetched);
+    if (circle_ids_to_be_fetched.length) {
+      do_find_many_circles_by_ids(circle_ids_to_be_fetched);
+    }
 
     return (
       <div className="view-user-component">

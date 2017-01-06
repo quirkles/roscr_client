@@ -16,10 +16,14 @@ export const update_add_user_email = email_address => ({
   email_address
 });
 
-export const submit_add_user = invitee_user_email =>
+export const submit_add_user = () => ({
+  type: SUBMIT_ADD_USER
+});
+
+export const do_request_submit_add_user = invitee_user_email =>
   dispatch =>
     do_submit_add_user(invitee_user_email)
     .then(
       ({data}) => console.log(data),
       error => console.log(error)
-    )
+    );
