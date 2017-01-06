@@ -93,7 +93,11 @@
             box-shadow: 0px 0px 0px 2px #ddd;
             -webkit-transition: box-shadow 0.3s;
             transition: box-shadow 0.3s;
+            &.form-error:focus {
+                box-shadow: 0px 0px 0px 2px #ef193c;
+            }
         }
+
 
         .input-field:focus {
             box-shadow: 0px 0px 0px 2px #4BC0C0;
