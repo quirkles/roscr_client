@@ -1,4 +1,5 @@
 import {fromJS as from_js} from 'immutable';
+
 import {
   SHOW_TOOLTIP_AT_ELEMENT,
   DESTROY_TOOLTIP,
@@ -6,6 +7,8 @@ import {
   OPEN_HEADER_DROPDOWN,
   CLOSE_HEADER_DROPDOWN
 } from '../constants/ui_state_constants';
+
+import { LOG_OUT_USER } from '../constants/user_constants';
 
 const default_state = from_js({});
 
@@ -19,6 +22,7 @@ const ui_state_reducer = (state = default_state, action) => {
       return default_state;
     case OPEN_HEADER_DROPDOWN:
       return state.set('header_dropdown_open', true);
+    case LOG_OUT_USER:
     case CLOSE_HEADER_DROPDOWN:
       return state.set('header_dropdown_open', false);
     default:
