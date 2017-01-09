@@ -62,7 +62,9 @@ const map_dispatch_to_props = dispatch => {
     set_hover_hint_to_section: attr => () => set_hover_hint(attr),
     edit_circle_attr: attr => e => {
       const circle_data = {};
-      circle_data[attr] = e.target.value;
+      circle_data[attr] = e.target.type === 'checkbox' ?
+        e.target.checked :
+        e.target.value;
       edit_circle({
         circle_id: 'new_circle',
         circle_data

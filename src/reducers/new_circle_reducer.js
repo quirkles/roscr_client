@@ -7,6 +7,7 @@ const default_state = Map({
   participant_count: 12,
   withdrawal_amount: 100,
   cycle_period: 'monthly',
+  is_public: false,
   start_date: new Date()
 });
 

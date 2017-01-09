@@ -159,8 +159,8 @@ const create_circle_form = ({
                 <label className="md-switch">
                   <input
                     type="checkbox"
-                    className="has-value"
-                    value={new_circle.get('is_public')}
+                    className='has-value'
+                    defaultChecked={new_circle.get('is_public')}
                     onChange = {edit_circle_attr('is_public')}
                   />
                   <i className='primary'></i>
