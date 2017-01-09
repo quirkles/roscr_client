@@ -61,6 +61,15 @@ export default ({
     <div
       className={classnames(
         'padding-half',
+        {'indigo-50': hover_hint === 'is_public'}
+      )}
+    >
+      <h5 className='text-info font-bold'>Create Circle Public</h5>
+      <p>Circles are either public or private, anyone can see public circles, only you will see private circles. If this is checked then this circle will be public upon creation.</p>
+    </div>
+    <div
+      className={classnames(
+        'padding-half',
         {'indigo-50': hover_hint === 'contribution_amount'}
       )}
     >
@@ -68,4 +77,4 @@ export default ({
       <p>The dollar amount that each circle member is required ot pay into the circle each savings cycle. This is calcualted from the withdrawal value and number of participants, it includes the ROSCr fees.</p>
     </div>
   </div>
-</div>
+</div>;

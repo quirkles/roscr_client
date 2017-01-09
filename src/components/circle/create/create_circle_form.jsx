@@ -151,6 +151,24 @@ const create_circle_form = ({
             </div>
             <div
               className='form-group'
+              onMouseEnter={set_hover_hint_to_section('is_public')}
+              onMouseLeave={set_hover_hint_to_section(null)}
+            >
+              <label className='control-label'>Create Circle Public</label>
+              <div>
+                <label className="md-switch">
+                  <input
+                    type="checkbox"
+                    className="has-value"
+                    value={new_circle.get('is_public')}
+                    onChange = {edit_circle_attr('is_public')}
+                  />
+                  <i className='primary'></i>
+                </label>
+              </div>
+            </div>
+            <div
+              className='form-group'
               onMouseEnter={set_hover_hint_to_section('contribution_amount')}
               onMouseLeave={set_hover_hint_to_section(null)}
             >
@@ -164,7 +182,7 @@ const create_circle_form = ({
             </div>
             <div className='button-list'>
               <button
-                className='btn btn-primary w-sm'
+                className='btn primary w-sm'
                 onClick={handle_submit_click}
               >Submit</button>
             </div>
