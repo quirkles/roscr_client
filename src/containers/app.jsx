@@ -7,6 +7,7 @@ import Login from '../components/login';
 import Signup from '../components/signup';
 import Shell from '../components/shell';
 import CreateCircle from '../components/circle/create';
+import Circles from '../components/circles';
 import ViewCircle from '../components/circle/view';
 import ViewUser from '../components/user/view';
 
@@ -15,6 +16,7 @@ const routes =
     <Route component={Shell}>
       <Route path='/login' component={Login}></Route>
       <Route path='/signup' component={Signup}></Route>
+      <Route path='/circles' component={Circles}></Route>
       <Route path='/circle/create' component={CreateCircle}></Route>
       <Route path='/circle/:circle_id' component={ViewCircle}></Route>
       <Route path='/user/:user_id' component={ViewUser}></Route>

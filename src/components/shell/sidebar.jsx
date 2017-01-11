@@ -38,6 +38,12 @@ const get_sidebar_items = () =>
 
   },
   {
+    text: 'View Circles',
+    link: '/circles',
+    icon_class: 'fa  fa-dot-circle-o'
+
+  },
+  {
     text: '404',
     link: '/asdfasdf',
     icon_class: 'fa fa-exclamation-circle'
