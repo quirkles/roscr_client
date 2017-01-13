@@ -9,677 +9,623 @@ import {
 import circle_reducer from './circle_reducer';
 
 const default_state = fromJS({
-  cixpewwlt002zypnytwum30rd: {
-    'circle_name': 'dusty-techniques-89',
-    'created_by': 'cixpewwlp000jypnyiz1xxr2c',
-    'withdrawal_amount': 360,
-    'contribution_amount': 45,
-    'last_modified': '2017-01-09T01: 31: 15.161Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.088Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-02-15T01: 31: 15.088Z',
-            '_id': 'cixpewwnt00chypnyop5ur6c1'
-        },
-        {
-            'date': '2017-03-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnu00ciypnybo3q99bu'
-        },
-        {
-            'date': '2017-04-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnu00cjypny4hz3lzi5'
-        },
-        {
-            'date': '2017-05-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnu00ckypnyp4ilierq'
-        },
-        {
-            'date': '2017-06-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnv00clypnyux4bdkly'
-        },
-        {
-            'date': '2017-07-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnv00cmypny0d7reatx'
-        },
-        {
-            'date': '2017-08-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnv00cnypnyerrppqmm'
-        },
-        {
-            'date': '2017-09-15T00: 31: 15.088Z',
-            '_id': 'cixpewwnv00coypnyxfbv0dxx'
-        }
+  "cixv2izc800306ynyrs25y5j7": {
+    "id": "cixv2izc800306ynyrs25y5j7",
+    "last_modified": "2017-01-13T00:31:07.176Z",
+    "circle_name": "male-accounts-112",
+    "created_by": "cixv2izc7001r6ynyzoyup48g",
+    "withdrawal_amount": 280,
+    "contribution_amount": 35,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.121Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-03-13T00:31:07.112Z",
+        "_id": "cixv2ize000c56yny7585v3aq"
+      },
+      {
+        "date": "2017-03-27T00:31:07.112Z",
+        "_id": "cixv2ize200c66ynyoqzzsk5l"
+      },
+      {
+        "date": "2017-04-10T00:31:07.112Z",
+        "_id": "cixv2ize200c76ynyrl2dehtb"
+      },
+      {
+        "date": "2017-04-24T00:31:07.112Z",
+        "_id": "cixv2ize200c86yny92w2xzd1"
+      },
+      {
+        "date": "2017-05-08T00:31:07.112Z",
+        "_id": "cixv2ize200c96ynybmul3m5h"
+      },
+      {
+        "date": "2017-05-22T00:31:07.112Z",
+        "_id": "cixv2ize200ca6yny7webv13v"
+      },
+      {
+        "date": "2017-06-05T00:31:07.112Z",
+        "_id": "cixv2ize200cb6ynyla1bdvg3"
+      },
+      {
+        "date": "2017-06-19T00:31:07.112Z",
+        "_id": "cixv2ize300cc6yny0ss9aru1"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwls002bypnyesn8fbex',
-        'cixpewwls001zypny2maqkwmj',
-        'cixpewwlp000jypnyiz1xxr2c',
-        'cixpewwls0023ypnyqzp65agw'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7001r6ynyzoyup48g",
+      "cixv2izc700236yny8kltx0zg",
+      "cixv2izc4000c6ynyfgvhrpur",
+      "cixv2izc7001i6yny3497zkmx",
+      "cixv2izc7002l6yny327dr4ue"
     ],
-    'start_date': '2017-02-15T01: 31: 15.088Z',
-    'cycle_period': 'monthly',
-    'participant_count': 8
+    "start_date": "2017-03-13T00:31:07.112Z",
+    "cycle_period": "bi-weekly",
+    "participant_count": 8
   },
-  'cixpewwlt003bypnyiu2k5y3q': {
-    'circle_name': 'tender-inquiries-89',
-    'created_by': 'cixpewwlo0007ypnykt54v7hj',
-    'withdrawal_amount': 490,
-    'contribution_amount': 40.833333333333336,
-    'last_modified': '2017-01-09T01: 31: 15.166Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-04-13T01: 31: 15.089Z',
-            '_id': 'cixpewwny00cpypnys0v6ioxy'
-        },
-        {
-            'date': '2017-04-27T01: 31: 15.089Z',
-            '_id': 'cixpewwnz00cqypnyxkrlgwh4'
-        },
-        {
-            'date': '2017-05-11T01: 31: 15.089Z',
-            '_id': 'cixpewwnz00crypnyw5hwd3vz'
-        },
-        {
-            'date': '2017-05-25T01: 31: 15.089Z',
-            '_id': 'cixpewwnz00csypnypnznokze'
-        },
-        {
-            'date': '2017-06-08T01: 31: 15.089Z',
-            '_id': 'cixpewwnz00ctypnyfuk1yi8d'
-        },
-        {
-            'date': '2017-06-22T01: 31: 15.089Z',
-            '_id': 'cixpewwo000cuypny0yq3hpyx'
-        },
-        {
-            'date': '2017-07-06T01: 31: 15.089Z',
-            '_id': 'cixpewwo000cvypny7rtb0al7'
-        },
-        {
-            'date': '2017-07-20T01: 31: 15.089Z',
-            '_id': 'cixpewwo000cwypnyi8fq98js'
-        },
-        {
-            'date': '2017-08-03T01: 31: 15.089Z',
-            '_id': 'cixpewwo000cxypnyogb3md47'
-        },
-        {
-            'date': '2017-08-17T01: 31: 15.089Z',
-            '_id': 'cixpewwo000cyypnyqqan0q19'
-        },
-        {
-            'date': '2017-08-31T01: 31: 15.089Z',
-            '_id': 'cixpewwo000czypny5itsebly'
-        },
-        {
-            'date': '2017-09-14T01: 31: 15.089Z',
-            '_id': 'cixpewwo000d0ypnyb94g68up'
-        }
+  "cixv2izc800366yny9nc7y0p0": {
+    "id": "cixv2izc800366yny9nc7y0p0",
+    "last_modified": "2017-01-13T00:31:07.182Z",
+    "circle_name": "concerned-tacks-112",
+    "created_by": "cixv2izc400096ynyuwp8jhbh",
+    "withdrawal_amount": 370,
+    "contribution_amount": 46.25,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.126Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-04-16T00:31:07.112Z",
+        "_id": "cixv2ize600cd6yny4c3x8txw"
+      },
+      {
+        "date": "2017-05-16T00:31:07.112Z",
+        "_id": "cixv2ize700ce6ynyqqihsusu"
+      },
+      {
+        "date": "2017-06-16T00:31:07.112Z",
+        "_id": "cixv2ize700cf6yny4uchmhlh"
+      },
+      {
+        "date": "2017-07-16T00:31:07.112Z",
+        "_id": "cixv2ize700cg6ynyuhoyenef"
+      },
+      {
+        "date": "2017-08-16T00:31:07.112Z",
+        "_id": "cixv2ize700ch6yny37oyzb52"
+      },
+      {
+        "date": "2017-09-16T00:31:07.112Z",
+        "_id": "cixv2ize800ci6ynysnjxdfi3"
+      },
+      {
+        "date": "2017-10-16T00:31:07.112Z",
+        "_id": "cixv2ize800cj6ynyrkh611yv"
+      },
+      {
+        "date": "2017-11-16T01:31:07.112Z",
+        "_id": "cixv2ize800ck6ynyf7osdsjf"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwlo0009ypnymkj37c9i',
-        'cixpewwlr001aypnyt8xso4cc',
-        'cixpewwlp000dypny9pzmhtqd',
-        'cixpewwlp000gypnyb8r4bjky',
-        'cixpewwlq000typnyoshj9nb5',
-        'cixpewwls002qypny3tuwlhoc',
-        'cixpewwlp000mypnyucpn3hbl',
-        'cixpewwlp000iypny41off1ba',
-        'cixpewwlq000qypny894850jb',
-        'cixpewwlo0007ypnykt54v7hj',
-        'cixpewwlp000hypnyduigewq1'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7001l6ynymx0dwzvw",
+      "cixv2izc600156ynyncn9a80n",
+      "cixv2izc7001r6ynyzoyup48g",
+      "cixv2izc400096ynyuwp8jhbh",
+      "cixv2izc400036ynykdy4nu0s"
     ],
-    'start_date': '2017-04-13T01: 31: 15.089Z',
-    'cycle_period': 'bi-weekly',
-    'participant_count': 12
+    "start_date": "2017-04-16T00:31:07.112Z",
+    "cycle_period": "monthly",
+    "participant_count": 8
   },
-  'cixpewwlt003gypnymfkum5wi': {
-    'circle_name': 'victorious-letterhead-89',
-    'created_by': 'cixpewwlq000xypnyob5rmiei',
-    'withdrawal_amount': 460,
-    'contribution_amount': 51.111111111111114,
-    'last_modified': '2017-01-09T01: 31: 15.169Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-02-05T01: 31: 15.089Z',
-            '_id': 'cixpewwo100d1ypnymp01nipc'
-        },
-        {
-            'date': '2017-02-12T01: 31: 15.089Z',
-            '_id': 'cixpewwo100d2ypnyk9wt1bfc'
-        },
-        {
-            'date': '2017-02-19T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d3ypnycu2zs0mv'
-        },
-        {
-            'date': '2017-02-26T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d4ypnysmsrmcf1'
-        },
-        {
-            'date': '2017-03-05T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d5ypnylmbj7cpw'
-        },
-        {
-            'date': '2017-03-12T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d6ypnyx3fo85u2'
-        },
-        {
-            'date': '2017-03-19T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d7ypnyo04pa4yy'
-        },
-        {
-            'date': '2017-03-26T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d8ypnyux8xod4h'
-        },
-        {
-            'date': '2017-04-02T01: 31: 15.089Z',
-            '_id': 'cixpewwo200d9ypnyij15o4o0'
-        }
+  "cixv2izc8003b6ynym01i1mip": {
+    "id": "cixv2izc8003b6ynym01i1mip",
+    "last_modified": "2017-01-13T00:31:07.185Z",
+    "circle_name": "nervous-self-113",
+    "created_by": "cixv2izc5000q6ynyj7j35r5p",
+    "withdrawal_amount": 250,
+    "contribution_amount": 25,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.127Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-04-12T00:31:07.112Z",
+        "_id": "cixv2ize900cl6yny78itv26z"
+      },
+      {
+        "date": "2017-04-19T00:31:07.112Z",
+        "_id": "cixv2ize900cm6ynyoo5w7xq4"
+      },
+      {
+        "date": "2017-04-26T00:31:07.112Z",
+        "_id": "cixv2ize900cn6yny2plpm8ij"
+      },
+      {
+        "date": "2017-05-03T00:31:07.112Z",
+        "_id": "cixv2izea00co6ynypjb3c955"
+      },
+      {
+        "date": "2017-05-10T00:31:07.112Z",
+        "_id": "cixv2izea00cp6ynyxwwx7i6p"
+      },
+      {
+        "date": "2017-05-17T00:31:07.112Z",
+        "_id": "cixv2izea00cq6ynyjvz9i9qb"
+      },
+      {
+        "date": "2017-05-24T00:31:07.112Z",
+        "_id": "cixv2izea00cr6ynys7gg42q8"
+      },
+      {
+        "date": "2017-05-31T00:31:07.112Z",
+        "_id": "cixv2izea00cs6yny6yjsizxl"
+      },
+      {
+        "date": "2017-06-07T00:31:07.112Z",
+        "_id": "cixv2izea00ct6ynyghg7060v"
+      },
+      {
+        "date": "2017-06-14T00:31:07.112Z",
+        "_id": "cixv2izea00cu6ynyl7t41ohc"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwlr001uypnyqro6nidk',
-        'cixpewwlp000nypnye3sh98yv',
-        'cixpewwlq000xypnyob5rmiei',
-        'cixpewwlo0007ypnykt54v7hj'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc6001a6ynyft5zpawo",
+      "cixv2izc7001x6ynym5kai8mr",
+      "cixv2izc400036ynykdy4nu0s",
+      "cixv2izc5000q6ynyj7j35r5p"
     ],
-    'start_date': '2017-02-05T01: 31: 15.089Z',
-    'cycle_period': 'weekly',
-    'participant_count': 9
+    "start_date": "2017-04-12T00:31:07.112Z",
+    "cycle_period": "weekly",
+    "participant_count": 10
   },
-  'cixpewwlt003kypny58i06578': {
-    'circle_name': 'young-shotline-89',
-    'created_by': 'cixpewwlr001vypnykvaq3ar4',
-    'withdrawal_amount': 460,
-    'contribution_amount': 41.81818181818182,
-    'last_modified': '2017-01-09T01: 31: 15.171Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-04-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo300daypnya9zmfsti'
-        },
-        {
-            'date': '2017-05-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo300dbypnyv5u2a91z'
-        },
-        {
-            'date': '2017-06-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo300dcypnyiktfjgj7'
-        },
-        {
-            'date': '2017-07-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo400ddypny4lndxw3q'
-        },
-        {
-            'date': '2017-08-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo400deypny0olqhsz2'
-        },
-        {
-            'date': '2017-09-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo400dfypny64ecnst5'
-        },
-        {
-            'date': '2017-10-15T01: 31: 15.089Z',
-            '_id': 'cixpewwo400dgypny176ne2ab'
-        },
-        {
-            'date': '2017-11-15T02: 31: 15.089Z',
-            '_id': 'cixpewwo400dhypnyzwl7yqav'
-        },
-        {
-            'date': '2017-12-15T02: 31: 15.089Z',
-            '_id': 'cixpewwo400diypnya6u3qf1v'
-        },
-        {
-            'date': '2018-01-15T02: 31: 15.089Z',
-            '_id': 'cixpewwo400djypnyb4g0s9s9'
-        },
-        {
-            'date': '2018-02-15T02: 31: 15.089Z',
-            '_id': 'cixpewwo400dkypnyogb55qqt'
-        }
+  "cixv2izc9003i6yny4vtz3jgp": {
+    "id": "cixv2izc9003i6yny4vtz3jgp",
+    "last_modified": "2017-01-13T00:31:07.187Z",
+    "circle_name": "delicious-registers-113",
+    "created_by": "cixv2izc400076yny5cqrx3sq",
+    "withdrawal_amount": 300,
+    "contribution_amount": 27.272727272727273,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.127Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-03-05T00:31:07.113Z",
+        "_id": "cixv2izec00cv6ynyrxmh6i2v"
+      },
+      {
+        "date": "2017-03-12T00:31:07.113Z",
+        "_id": "cixv2izec00cw6yny1z6s6p2r"
+      },
+      {
+        "date": "2017-03-19T00:31:07.113Z",
+        "_id": "cixv2izec00cx6ynyu1y6ivu6"
+      },
+      {
+        "date": "2017-03-26T00:31:07.113Z",
+        "_id": "cixv2izec00cy6ynyur53fzkp"
+      },
+      {
+        "date": "2017-04-02T00:31:07.113Z",
+        "_id": "cixv2izec00cz6ynyz1a2unb1"
+      },
+      {
+        "date": "2017-04-09T00:31:07.113Z",
+        "_id": "cixv2izec00d06yny1qeaz1f5"
+      },
+      {
+        "date": "2017-04-16T00:31:07.113Z",
+        "_id": "cixv2izec00d16ynyklnjt7xa"
+      },
+      {
+        "date": "2017-04-23T00:31:07.113Z",
+        "_id": "cixv2izec00d26yny0k7w5lex"
+      },
+      {
+        "date": "2017-04-30T00:31:07.113Z",
+        "_id": "cixv2ized00d36ynypx5wkqdh"
+      },
+      {
+        "date": "2017-05-07T00:31:07.113Z",
+        "_id": "cixv2ized00d46ynyutxpr0kx"
+      },
+      {
+        "date": "2017-05-14T00:31:07.113Z",
+        "_id": "cixv2ized00d56ynytemw9v0m"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwls001wypnyy56z5cnz',
-        'cixpewwlo0008ypnyjjzqmy13',
-        'cixpewwlr001vypnykvaq3ar4'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7002a6ynyuf98l1rk",
+      "cixv2izc400076yny5cqrx3sq",
+      "cixv2izc7002k6yny8ixrl9rh",
+      "cixv2izc7002b6ynydg9abqjh",
+      "cixv2izc4000g6ynytzl4jobs",
+      "cixv2izc6001g6ynyjom3e18d"
     ],
-    'start_date': '2017-04-15T01: 31: 15.089Z',
-    'cycle_period': 'monthly',
-    'participant_count': 11
+    "start_date": "2017-03-05T00:31:07.113Z",
+    "cycle_period": "weekly",
+    "participant_count": 11
   },
-  'cixpewwlt003vypnyl4k0jquf': {
-    'circle_name': 'sad-safety-89',
-    'created_by': 'cixpewwls002rypny3zol1oqb',
-    'withdrawal_amount': 410,
-    'contribution_amount': 34.166666666666664,
-    'last_modified': '2017-01-09T01: 31: 15.175Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-02-12T01: 31: 15.089Z',
-            '_id': 'cixpewwo700dlypnysmbhnq9t'
-        },
-        {
-            'date': '2017-02-26T01: 31: 15.089Z',
-            '_id': 'cixpewwo800dmypny1acxmkvg'
-        },
-        {
-            'date': '2017-03-12T01: 31: 15.089Z',
-            '_id': 'cixpewwo800dnypnys0ybhwz7'
-        },
-        {
-            'date': '2017-03-26T01: 31: 15.089Z',
-            '_id': 'cixpewwo800doypny5xkkftjy'
-        },
-        {
-            'date': '2017-04-09T01: 31: 15.089Z',
-            '_id': 'cixpewwo800dpypnyxq8lgcka'
-        },
-        {
-            'date': '2017-04-23T01: 31: 15.089Z',
-            '_id': 'cixpewwo800dqypnyz47lp862'
-        },
-        {
-            'date': '2017-05-07T01: 31: 15.089Z',
-            '_id': 'cixpewwo800drypny0rock7fv'
-        },
-        {
-            'date': '2017-05-21T01: 31: 15.089Z',
-            '_id': 'cixpewwo900dsypnyd9gbnrcx'
-        },
-        {
-            'date': '2017-06-04T01: 31: 15.089Z',
-            '_id': 'cixpewwo900dtypny73alfhql'
-        },
-        {
-            'date': '2017-06-18T01: 31: 15.089Z',
-            '_id': 'cixpewwo900duypnyjbdiu89s'
-        },
-        {
-            'date': '2017-07-02T01: 31: 15.089Z',
-            '_id': 'cixpewwo900dvypnyznup8vn4'
-        },
-        {
-            'date': '2017-07-16T01: 31: 15.089Z',
-            '_id': 'cixpewwo900dwypnyqxb0zoey'
-        }
+  "cixv2izc9003q6ynygwy7fz11": {
+    "id": "cixv2izc9003q6ynygwy7fz11",
+    "last_modified": "2017-01-13T00:31:07.193Z",
+    "circle_name": "scattered-typist-113",
+    "created_by": "cixv2izc7001q6ynyjjhq6x9p",
+    "withdrawal_amount": 460,
+    "contribution_amount": 51.111111111111114,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.128Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-02-23T00:31:07.113Z",
+        "_id": "cixv2izeh00d66ynyjabuxn12"
+      },
+      {
+        "date": "2017-03-02T00:31:07.113Z",
+        "_id": "cixv2izeh00d76ynyujapgppp"
+      },
+      {
+        "date": "2017-03-09T00:31:07.113Z",
+        "_id": "cixv2izeh00d86ynyjaeyzmkp"
+      },
+      {
+        "date": "2017-03-16T00:31:07.113Z",
+        "_id": "cixv2izei00d96ynyqqxtrdo3"
+      },
+      {
+        "date": "2017-03-23T00:31:07.113Z",
+        "_id": "cixv2izei00da6ynyiinjbr5s"
+      },
+      {
+        "date": "2017-03-30T00:31:07.113Z",
+        "_id": "cixv2izei00db6ynys0n9ic3z"
+      },
+      {
+        "date": "2017-04-06T00:31:07.113Z",
+        "_id": "cixv2izei00dc6ynyagvwju0y"
+      },
+      {
+        "date": "2017-04-13T00:31:07.113Z",
+        "_id": "cixv2izei00dd6ynykgxv0goh"
+      },
+      {
+        "date": "2017-04-20T00:31:07.113Z",
+        "_id": "cixv2izej00de6ynyuauhb0ho"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwls0020ypnyctq04wah',
-        'cixpewwls0029ypnyhiksrwnl',
-        'cixpewwls002qypny3tuwlhoc',
-        'cixpewwlr0017ypnyyaap77en',
-        'cixpewwlp000oypnywxqgse7u',
-        'cixpewwlp000kypnynuk0qg46',
-        'cixpewwlo0006ypny715zlxi4',
-        'cixpewwls002rypny3zol1oqb',
-        'cixpewwlr001mypnyhz94ooiv',
-        'cixpewwls001zypny2maqkwmj'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7002g6ynybxsrqos9",
+      "cixv2izc6001c6yny1ybdzyup",
+      "cixv2izc700246ynyksv444mo",
+      "cixv2izc7001q6ynyjjhq6x9p",
+      "cixv2izc7001j6ynyrldzelte",
+      "cixv2izc700256ynyw2odev7p",
+      "cixv2izc6001f6ynydtd88y67"
     ],
-    'start_date': '2017-02-12T01: 31: 15.089Z',
-    'cycle_period': 'bi-weekly',
-    'participant_count': 12
+    "start_date": "2017-02-23T00:31:07.113Z",
+    "cycle_period": "weekly",
+    "participant_count": 9
   },
-  'cixpewwlt0044ypnyhenuwoun': {
-    'circle_name': 'ltd-retirement-89',
-    'created_by': 'cixpewwlo0006ypny715zlxi4',
-    'withdrawal_amount': 360,
-    'contribution_amount': 30,
-    'last_modified': '2017-01-09T01: 31: 15.179Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-02-19T01: 31: 15.089Z',
-            '_id': 'cixpewwob00dxypny6rbss92g'
-        },
-        {
-            'date': '2017-02-26T01: 31: 15.089Z',
-            '_id': 'cixpewwob00dyypnykazva17e'
-        },
-        {
-            'date': '2017-03-05T01: 31: 15.089Z',
-            '_id': 'cixpewwoc00dzypny4mkk5iz9'
-        },
-        {
-            'date': '2017-03-12T01: 31: 15.089Z',
-            '_id': 'cixpewwoc00e0ypnyiewxsj4j'
-        },
-        {
-            'date': '2017-03-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoc00e1ypnyn03n2nho'
-        },
-        {
-            'date': '2017-03-26T01: 31: 15.089Z',
-            '_id': 'cixpewwoc00e2ypnyo8uv441s'
-        },
-        {
-            'date': '2017-04-02T01: 31: 15.089Z',
-            '_id': 'cixpewwoc00e3ypnyfudyfd2i'
-        },
-        {
-            'date': '2017-04-09T01: 31: 15.089Z',
-            '_id': 'cixpewwod00e4ypnyyvsojp5j'
-        },
-        {
-            'date': '2017-04-16T01: 31: 15.089Z',
-            '_id': 'cixpewwod00e5ypnyb9905eij'
-        },
-        {
-            'date': '2017-04-23T01: 31: 15.089Z',
-            '_id': 'cixpewwod00e6ypnywgy5q8x3'
-        },
-        {
-            'date': '2017-04-30T01: 31: 15.089Z',
-            '_id': 'cixpewwod00e7ypny5qq6wjmc'
-        },
-        {
-            'date': '2017-05-07T01: 31: 15.089Z',
-            '_id': 'cixpewwoe00e8ypny4fjny9ks'
-        }
+  "cixv2izc9003v6ynyxj58s3ri": {
+    "id": "cixv2izc9003v6ynyxj58s3ri",
+    "last_modified": "2017-01-13T00:31:07.195Z",
+    "circle_name": "wrong-brooms-113",
+    "created_by": "cixv2izc700266ynyaa2b62h1",
+    "withdrawal_amount": 500,
+    "contribution_amount": 50,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.128Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-04-06T00:31:07.113Z",
+        "_id": "cixv2izej00df6ynyo58th1xt"
+      },
+      {
+        "date": "2017-04-13T00:31:07.113Z",
+        "_id": "cixv2izek00dg6yny9sgmlyzb"
+      },
+      {
+        "date": "2017-04-20T00:31:07.113Z",
+        "_id": "cixv2izek00dh6ynyyordqd6q"
+      },
+      {
+        "date": "2017-04-27T00:31:07.113Z",
+        "_id": "cixv2izek00di6ynyogxuscus"
+      },
+      {
+        "date": "2017-05-04T00:31:07.113Z",
+        "_id": "cixv2izek00dj6ynykgxfr0n2"
+      },
+      {
+        "date": "2017-05-11T00:31:07.113Z",
+        "_id": "cixv2izek00dk6ynybgk72lp8"
+      },
+      {
+        "date": "2017-05-18T00:31:07.113Z",
+        "_id": "cixv2izek00dl6ynygevjgkvo"
+      },
+      {
+        "date": "2017-05-25T00:31:07.113Z",
+        "_id": "cixv2izek00dm6ynyxnmcwdiw"
+      },
+      {
+        "date": "2017-06-01T00:31:07.113Z",
+        "_id": "cixv2izek00dn6yny49h4eqc2"
+      },
+      {
+        "date": "2017-06-08T00:31:07.113Z",
+        "_id": "cixv2izek00do6ynyvxtst2wz"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwls0021ypnyeo6x21ci',
-        'cixpewwlq0015ypny8ur2gpse',
-        'cixpewwlp000oypnywxqgse7u',
-        'cixpewwls002dypnycrnv3ore',
-        'cixpewwlo0006ypny715zlxi4',
-        'cixpewwlq000qypny894850jb',
-        'cixpewwls002typnyicofrc2p',
-        'cixpewwlr001eypnyckl9vcbr'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc400086ynyj1nlqwva",
+      "cixv2izc7002r6ynyamrz2ox5",
+      "cixv2izc700266ynyaa2b62h1",
+      "cixv2izc7002b6ynydg9abqjh"
     ],
-    'start_date': '2017-02-19T01: 31: 15.089Z',
-    'cycle_period': 'weekly',
-    'participant_count': 12
+    "start_date": "2017-04-06T00:31:07.113Z",
+    "cycle_period": "weekly",
+    "participant_count": 10
   },
-  'cixpewwlt004aypnyh9zgwxzy': {
-    'circle_name': 'able-encounter-89',
-    'created_by': 'cixpewwlr001iypnywf72986v',
-    'withdrawal_amount': 250,
-    'contribution_amount': 31.25,
-    'last_modified': '2017-01-09T01: 31: 15.182Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-03-23T01: 31: 15.089Z',
-            '_id': 'cixpewwoe00e9ypnyyvmi9s25'
-        },
-        {
-            'date': '2017-04-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00eaypnyz0jfo82t'
-        },
-        {
-            'date': '2017-05-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00ebypnyy6mqkhlo'
-        },
-        {
-            'date': '2017-06-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00ecypny23ixj7wa'
-        },
-        {
-            'date': '2017-07-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00edypnyyiwehbu3'
-        },
-        {
-            'date': '2017-08-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00eeypnytioj94ks'
-        },
-        {
-            'date': '2017-09-23T01: 31: 15.089Z',
-            '_id': 'cixpewwof00efypny64p2d3lx'
-        },
-        {
-            'date': '2017-10-23T01: 31: 15.089Z',
-            '_id': 'cixpewwog00egypnyfl8q1ejc'
-        }
+  "cixv2izc9003x6ynyefbof4sz": {
+    "id": "cixv2izc9003x6ynyefbof4sz",
+    "last_modified": "2017-01-13T00:31:07.197Z",
+    "circle_name": "dusty-tolerance-113",
+    "created_by": "cixv2izc7002l6yny327dr4ue",
+    "withdrawal_amount": 320,
+    "contribution_amount": 32,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.130Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-03-25T00:31:07.113Z",
+        "_id": "cixv2izel00dp6ynyam64cp5i"
+      },
+      {
+        "date": "2017-04-25T00:31:07.113Z",
+        "_id": "cixv2izel00dq6ynyl39o50xi"
+      },
+      {
+        "date": "2017-05-25T00:31:07.113Z",
+        "_id": "cixv2izel00dr6yny6g3j9pls"
+      },
+      {
+        "date": "2017-06-25T00:31:07.113Z",
+        "_id": "cixv2izel00ds6ynypu3hmpol"
+      },
+      {
+        "date": "2017-07-25T00:31:07.113Z",
+        "_id": "cixv2izel00dt6yny48xlbhdg"
+      },
+      {
+        "date": "2017-08-25T00:31:07.113Z",
+        "_id": "cixv2izel00du6yny4oua1uja"
+      },
+      {
+        "date": "2017-09-25T00:31:07.113Z",
+        "_id": "cixv2izem00dv6ynyek9a1gyl"
+      },
+      {
+        "date": "2017-10-25T00:31:07.113Z",
+        "_id": "cixv2izem00dw6yny7k81epcd"
+      },
+      {
+        "date": "2017-11-25T01:31:07.113Z",
+        "_id": "cixv2izem00dx6ynyrgcw182m"
+      },
+      {
+        "date": "2017-12-25T01:31:07.113Z",
+        "_id": "cixv2izem00dy6yny9mmyk2a7"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwlo000cypnyaopxzt1j',
-        'cixpewwls002oypny35pbgwts',
-        'cixpewwls002sypny71trtnf7',
-        'cixpewwlp000kypnynuk0qg46',
-        'cixpewwlr001iypnywf72986v'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7002l6yny327dr4ue"
     ],
-    'start_date': '2017-03-23T01: 31: 15.089Z',
-    'cycle_period': 'monthly',
-    'participant_count': 8
+    "start_date": "2017-03-25T00:31:07.113Z",
+    "cycle_period": "monthly",
+    "participant_count": 10
   },
-  'cixpewwlt004fypny6njc0z0x': {
-    'circle_name': 'bloody-outline-89',
-    'created_by': 'cixpewwlq000xypnyob5rmiei',
-    'withdrawal_amount': 410,
-    'contribution_amount': 41,
-    'last_modified': '2017-01-09T01: 31: 15.184Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-03-19T01: 31: 15.089Z',
-            '_id': 'cixpewwog00ehypnyeq81rvtc'
-        },
-        {
-            'date': '2017-04-19T01: 31: 15.089Z',
-            '_id': 'cixpewwog00eiypnylfrwr8bk'
-        },
-        {
-            'date': '2017-05-19T01: 31: 15.089Z',
-            '_id': 'cixpewwog00ejypnycxkiqg7d'
-        },
-        {
-            'date': '2017-06-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoh00ekypnyxes4jkbq'
-        },
-        {
-            'date': '2017-07-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoh00elypnyk5pdbo54'
-        },
-        {
-            'date': '2017-08-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoh00emypny736hyei6'
-        },
-        {
-            'date': '2017-09-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoh00enypny8t5zdvpz'
-        },
-        {
-            'date': '2017-10-19T01: 31: 15.089Z',
-            '_id': 'cixpewwoi00eoypnyw5ubtz90'
-        },
-        {
-            'date': '2017-11-19T02: 31: 15.089Z',
-            '_id': 'cixpewwoi00epypny5jjxmklw'
-        },
-        {
-            'date': '2017-12-19T02: 31: 15.089Z',
-            '_id': 'cixpewwoi00eqypnysm9maaye'
-        }
+  "cixv2izc900486yny1klzawyg": {
+    "id": "cixv2izc900486yny1klzawyg",
+    "last_modified": "2017-01-13T00:31:07.200Z",
+    "circle_name": "proposed-operators-113",
+    "created_by": "cixv2izc7002l6yny327dr4ue",
+    "withdrawal_amount": 480,
+    "contribution_amount": 48,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.131Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-03-14T00:31:07.113Z",
+        "_id": "cixv2izeo00dz6yny8yx3bm6x"
+      },
+      {
+        "date": "2017-03-28T00:31:07.113Z",
+        "_id": "cixv2izep00e06ynyk3iacwcy"
+      },
+      {
+        "date": "2017-04-11T00:31:07.113Z",
+        "_id": "cixv2izep00e16ynyj9guwbew"
+      },
+      {
+        "date": "2017-04-25T00:31:07.113Z",
+        "_id": "cixv2izep00e26ynymacf2zt1"
+      },
+      {
+        "date": "2017-05-09T00:31:07.113Z",
+        "_id": "cixv2izep00e36ynyu9fh8uhg"
+      },
+      {
+        "date": "2017-05-23T00:31:07.113Z",
+        "_id": "cixv2izep00e46ynyc5ss60y4"
+      },
+      {
+        "date": "2017-06-06T00:31:07.113Z",
+        "_id": "cixv2izep00e56ynyd73vk869"
+      },
+      {
+        "date": "2017-06-20T00:31:07.113Z",
+        "_id": "cixv2izep00e66yny0pwb9tev"
+      },
+      {
+        "date": "2017-07-04T00:31:07.113Z",
+        "_id": "cixv2izep00e76ynyq9cymcx9"
+      },
+      {
+        "date": "2017-07-18T00:31:07.113Z",
+        "_id": "cixv2izep00e86ynyzh0m3tql"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwlo0004ypny1uz5oyhh',
-        'cixpewwlq000xypnyob5rmiei',
-        'cixpewwlr001iypnywf72986v',
-        'cixpewwlo0006ypny715zlxi4'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7001i6yny3497zkmx",
+      "cixv2izc700236yny8kltx0zg",
+      "cixv2izc600176ynytmd3yhnk",
+      "cixv2izc7002l6yny327dr4ue",
+      "cixv2izc400086ynyj1nlqwva",
+      "cixv2izc5000s6yny7dtesl4s",
+      "cixv2izc4000h6ynyeolx6zmo",
+      "cixv2izc700266ynyaa2b62h1",
+      "cixv2izc7002h6yny0qc6gsv0",
+      "cixv2izc6001a6ynyft5zpawo"
     ],
-    'start_date': '2017-03-19T01: 31: 15.089Z',
-    'cycle_period': 'monthly',
-    'participant_count': 10
+    "start_date": "2017-03-14T00:31:07.113Z",
+    "cycle_period": "bi-weekly",
+    "participant_count": 10
   },
-  'cixpewwlt004nypnyxii4lyfz': {
-    'circle_name': 'apparent-forts-89',
-    'created_by': 'cixpewwls002hypnyn2z1rrk7',
-    'withdrawal_amount': 360,
-    'contribution_amount': 36,
-    'last_modified': '2017-01-09T01: 31: 15.187Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-01-12T01: 31: 15.089Z',
-            '_id': 'cixpewwoj00erypnyi45bqkll'
-        },
-        {
-            'date': '2017-01-26T01: 31: 15.089Z',
-            '_id': 'cixpewwoj00esypnya8hyj7yq'
-        },
-        {
-            'date': '2017-02-09T01: 31: 15.089Z',
-            '_id': 'cixpewwoj00etypnyo6f2dwsi'
-        },
-        {
-            'date': '2017-02-23T01: 31: 15.089Z',
-            '_id': 'cixpewwoj00euypnykyz2a2w6'
-        },
-        {
-            'date': '2017-03-09T01: 31: 15.089Z',
-            '_id': 'cixpewwok00evypnyv4lwiv61'
-        },
-        {
-            'date': '2017-03-23T01: 31: 15.089Z',
-            '_id': 'cixpewwok00ewypnyz2hxum2e'
-        },
-        {
-            'date': '2017-04-06T01: 31: 15.089Z',
-            '_id': 'cixpewwok00exypnycs6mw0kr'
-        },
-        {
-            'date': '2017-04-20T01: 31: 15.089Z',
-            '_id': 'cixpewwok00eyypnyhz6e1sqh'
-        },
-        {
-            'date': '2017-05-04T01: 31: 15.089Z',
-            '_id': 'cixpewwok00ezypnydhvogseg'
-        },
-        {
-            'date': '2017-05-18T01: 31: 15.089Z',
-            '_id': 'cixpewwok00f0ypnyjohwdu81'
-        }
+  "cixv2izc9004c6ynymcpnej3s": {
+    "id": "cixv2izc9004c6ynymcpnej3s",
+    "last_modified": "2017-01-13T00:31:07.203Z",
+    "circle_name": "active-injector-113",
+    "created_by": "cixv2izc7002j6yny25527wf7",
+    "withdrawal_amount": 390,
+    "contribution_amount": 48.75,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.132Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-04-20T00:31:07.113Z",
+        "_id": "cixv2izer00e96ynyvkz46mn3"
+      },
+      {
+        "date": "2017-05-04T00:31:07.113Z",
+        "_id": "cixv2izer00ea6ynykk044pm5"
+      },
+      {
+        "date": "2017-05-18T00:31:07.113Z",
+        "_id": "cixv2izer00eb6yny6fhnb9ex"
+      },
+      {
+        "date": "2017-06-01T00:31:07.113Z",
+        "_id": "cixv2izer00ec6ynyv0et2awn"
+      },
+      {
+        "date": "2017-06-15T00:31:07.113Z",
+        "_id": "cixv2izes00ed6ynyjgaphhtw"
+      },
+      {
+        "date": "2017-06-29T00:31:07.113Z",
+        "_id": "cixv2izes00ee6ynygawpbewh"
+      },
+      {
+        "date": "2017-07-13T00:31:07.113Z",
+        "_id": "cixv2izes00ef6ynybhyl94bm"
+      },
+      {
+        "date": "2017-07-27T00:31:07.113Z",
+        "_id": "cixv2izes00eg6ynyvcij4klb"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwls002hypnyn2z1rrk7',
-        'cixpewwls002qypny3tuwlhoc',
-        'cixpewwlr0016ypnyf6tfkluz',
-        'cixpewwlp000hypnyduigewq1',
-        'cixpewwlr001hypnywtcf7jqy',
-        'cixpewwlp000oypnywxqgse7u',
-        'cixpewwlr001typnyeic8ag41'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7002j6yny25527wf7",
+      "cixv2izc7002o6ynyi29mybha",
+      "cixv2izc7001i6yny3497zkmx"
     ],
-    'start_date': '2017-01-12T01: 31: 15.089Z',
-    'cycle_period': 'bi-weekly',
-    'participant_count': 10
+    "start_date": "2017-04-20T00:31:07.113Z",
+    "cycle_period": "bi-weekly",
+    "participant_count": 8
   },
-  'cixpewwlt004yypnyegte6syj': {
-    'circle_name': 'stable-replacements-89',
-    'created_by': 'cixpewwls0023ypnyqzp65agw',
-    'withdrawal_amount': 480,
-    'contribution_amount': 40,
-    'last_modified': '2017-01-09T01: 31: 15.197Z',
-    '__v': 0,
-    'created': '2017-01-09T01: 31: 15.089Z',
-    'savings_goals': [],
-    'payout_events': [
-        {
-            'date': '2017-04-18T01: 31: 15.089Z',
-            '_id': 'cixpewwot00f1ypnyfm8srn1l'
-        },
-        {
-            'date': '2017-04-25T01: 31: 15.089Z',
-            '_id': 'cixpewwot00f2ypnyejompqr6'
-        },
-        {
-            'date': '2017-05-02T01: 31: 15.089Z',
-            '_id': 'cixpewwot00f3ypnykf0nivg4'
-        },
-        {
-            'date': '2017-05-09T01: 31: 15.089Z',
-            '_id': 'cixpewwot00f4ypnysf9langz'
-        },
-        {
-            'date': '2017-05-16T01: 31: 15.089Z',
-            '_id': 'cixpewwou00f5ypnycw5ab91u'
-        },
-        {
-            'date': '2017-05-23T01: 31: 15.089Z',
-            '_id': 'cixpewwou00f6ypnyezukdll2'
-        },
-        {
-            'date': '2017-05-30T01: 31: 15.089Z',
-            '_id': 'cixpewwou00f7ypny0gx6xyc9'
-        },
-        {
-            'date': '2017-06-06T01: 31: 15.089Z',
-            '_id': 'cixpewwou00f8ypnyfgmn2nrl'
-        },
-        {
-            'date': '2017-06-13T01: 31: 15.089Z',
-            '_id': 'cixpewwou00f9ypnywil253vk'
-        },
-        {
-            'date': '2017-06-20T01: 31: 15.089Z',
-            '_id': 'cixpewwou00faypnyq720scv3'
-        },
-        {
-            'date': '2017-06-27T01: 31: 15.089Z',
-            '_id': 'cixpewwou00fbypnyzr2v1v5m'
-        },
-        {
-            'date': '2017-07-04T01: 31: 15.089Z',
-            '_id': 'cixpewwou00fcypny8bebvkop'
-        }
+  "cixv2izc9004i6ynyfj3x50uy": {
+    "id": "cixv2izc9004i6ynyfj3x50uy",
+    "last_modified": "2017-01-13T00:31:07.205Z",
+    "circle_name": "fine-performance-113",
+    "created_by": "cixv2izc7001r6ynyzoyup48g",
+    "withdrawal_amount": 330,
+    "contribution_amount": 41.25,
+    "__v": 0,
+    "created": "2017-01-13T00:31:07.133Z",
+    "savings_goals": [],
+    "payout_events": [
+      {
+        "date": "2017-03-07T00:31:07.113Z",
+        "_id": "cixv2izet00eh6ynyr621nsxm"
+      },
+      {
+        "date": "2017-03-14T00:31:07.113Z",
+        "_id": "cixv2izeu00ei6yny9z2yc5g3"
+      },
+      {
+        "date": "2017-03-21T00:31:07.113Z",
+        "_id": "cixv2izeu00ej6ynyj26n55od"
+      },
+      {
+        "date": "2017-03-28T00:31:07.113Z",
+        "_id": "cixv2izeu00ek6ynyyq3dzcru"
+      },
+      {
+        "date": "2017-04-04T00:31:07.113Z",
+        "_id": "cixv2izeu00el6ynyyrxvcqrk"
+      },
+      {
+        "date": "2017-04-11T00:31:07.113Z",
+        "_id": "cixv2izeu00em6ynyru67s7ae"
+      },
+      {
+        "date": "2017-04-18T00:31:07.113Z",
+        "_id": "cixv2izeu00en6ynyuv74aub4"
+      },
+      {
+        "date": "2017-04-25T00:31:07.113Z",
+        "_id": "cixv2izeu00eo6ynysa0duex3"
+      }
     ],
-    'activity': [],
-    'is_public': true,
-    'members': [
-        'cixpewwlq0012ypnyy6xbayqn',
-        'cixpewwlr001sypnyt85buq0l',
-        'cixpewwlo0009ypnymkj37c9i',
-        'cixpewwlq000typnyoshj9nb5',
-        'cixpewwlo0008ypnyjjzqmy13',
-        'cixpewwls0023ypnyqzp65agw',
-        'cixpewwlp000nypnye3sh98yv',
-        'cixpewwlq000wypnytqewjovy',
-        'cixpewwlp000eypnysvvlgp7z',
-        'cixpewwlo0002ypnyutuw0ka4'
+    "activity": [],
+    "is_public": true,
+    "members": [
+      "cixv2izc7002c6ynyzm7znzv9",
+      "cixv2izc7002f6ynyvtucvbh1",
+      "cixv2izc7001l6ynymx0dwzvw",
+      "cixv2izc5000k6ynyf6e0jgnu",
+      "cixv2izc7001r6ynyzoyup48g"
     ],
-    'start_date': '2017-04-18T01: 31: 15.089Z',
-    'cycle_period': 'weekly',
-    'participant_count': 12
+    "start_date": "2017-03-07T00:31:07.113Z",
+    "cycle_period": "weekly",
+    "participant_count": 8
   }
 });
 
