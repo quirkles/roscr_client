@@ -1,0 +1,16 @@
+.circles-component {
+    .circle-card {
+        .box {
+            box-shadow: 2px 2px 2px #aaaaaa;
+            .box-body {
+                transition: all 0.3s;
+            }
+        }
+        &:hover {
+            .box-body{
+                color: white;
+                background-color: #16202f;
+            }
+        }
+    }
+}
