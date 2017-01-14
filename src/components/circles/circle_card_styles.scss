@@ -14,15 +14,35 @@
     }
     .circle-card {
         .box {
-            transition: all 0.3s;
+            transition: all 0.3s ease-in-out 0s;
             box-shadow: 2px 2px 2px #aaaaaa;
+            .box-header{
+              overflow: hidden;
+              &:before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #000;
+                //visibility: hidden;
+                transform: translateX(-105%);
+                overflow: hidden;
+                transition: all 0.3s ease-in-out 0s;
+              }
+            }
             .box-body {
-              transition: all 0.3s;
+              transition: all 0.3s ease-in-out 0s;
             }
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1.075);
                 box-shadow: none;
                 z-index: 10;
+              .box-header:before{
+                  visibility: visible;
+                  transform: translateX(0);
+              }
             }
         }
         &:hover {
