@@ -1,13 +1,26 @@
 .circles-component {
+    .circles_filter_component {
+      text-align: center;
+      .searchbox {
+        span,input{
+          border:none;
+          background: white;
+          height: 4rem;
+        }
+        input {
+          line-height: 4rem;
+        }
+      }
+    }
     .circle-card {
         .box {
+            transition: all 0.3s;
             box-shadow: 2px 2px 2px #aaaaaa;
             .box-body {
-                transition: all 0.3s;
+              transition: all 0.3s;
             }
             &:hover {
-                transition: all 0.3s;
-                transform: scale(1.2);
+                transform: scale(1.1);
                 box-shadow: none;
                 z-index: 10;
             }

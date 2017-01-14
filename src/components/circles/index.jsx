@@ -5,9 +5,13 @@ import {connect} from 'react-redux';
 import './circle_card_styles.scss';
 
 import CircleCard from './circle_card';
+import CirclesFilter from './circles_filter'
 
 const unconnected_circles_component = ({circles}) =>
 <div className='padding circles-component'>
+  <div className='row'>
+    <CirclesFilter/>
+  </div>
   <div className='row'>
     {circles.map((circle, circle_id) => circle.set('id', circle_id)).toList().map(circle =>
       <CircleCard
