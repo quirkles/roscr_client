@@ -5,11 +5,17 @@
             .box-body {
                 transition: all 0.3s;
             }
+            &:hover {
+                transition: all 0.3s;
+                transform: scale(1.2);
+                box-shadow: none;
+                z-index: 10;
+            }
         }
         &:hover {
             .box-body{
-                color: white;
-                background-color: #16202f;
+                color: black;
+                background-color: white;
             }
         }
     }

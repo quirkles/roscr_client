@@ -6,13 +6,13 @@ import {Link} from 'react-router';
 import {get_random_element_from_array} from '../../utils/array';
 import {capitalize} from '../../utils/string';
 
-const body_colors = ['dark', 'brown', 'deep-purple', 'blue-grey', 'primary', 'warning', 'danger'];
+const body_colors = ['dark', 'danger', 'deep-purple', 'blue-grey', 'primary', 'warning', 'danger'];
 
 const circle_component = ({circle}) =>
   <div
-    className='col-sm-4 circle-card'
+    className='col-sm-6 col-md-4 circle-card'
   >
-    <div className='box'>
+    <div className='box indigo'>
       <div className={classnames('box-header', get_random_element_from_array(body_colors))}>
         <div className='padding-half'>
             <h4 className='bold'>
@@ -24,20 +24,22 @@ const circle_component = ({circle}) =>
             </h4>
         </div>
     </div>
-    <div className={classnames('box-body')}>
+    <div className='box-body'>
         <div>
           <div className="row">
             <div className="col-sm-6 padding-quarter">
               <i className="fa fa-dollar padding-right-quarter"></i>
-              {circle.get('withdrawal_amount')} payout
+              {circle.get('withdrawal_amount')}
+              <span className='margin-left-quarter text-sm'>payout</span>
             </div>
             <div className="col-sm-6 padding-quarter">
               <i className="fa fa-user padding-right-quarter"></i>
-              {circle.get('members').size}/{circle.get('participant_count')} members
+              {circle.get('members').size}/{circle.get('participant_count')}
+              <span className='margin-left-quarter text-sm'>members</span>
             </div>
             <div className="col-sm-6 padding-quarter">
               <i className="fa fa-calendar padding-right-quarter"></i>
-              starts {format('MMM DD', new Date(circle.get('created')))}
+              <span className='margin-left-quarter text-sm'>{format('MMM DD', new Date(circle.get('created')))}</span>
             </div>
           </div>
         </div>
