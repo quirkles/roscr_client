@@ -13,7 +13,7 @@ const circle_component = ({circle}) =>
     className='col-xl-4 col-md-6 col-sm-12 circle-card'
   >
     <div className='box'>
-      <div className={classnames('box-header', get_random_element_from_array(header_colors))}>
+      <div className={classnames('box-header', header_colors[circle.get('circle_name').length * circle.get('participant_count') % header_colors.length])}>
         <div className='padding-half'>
             <h4 className='bold'>
                 <Link
