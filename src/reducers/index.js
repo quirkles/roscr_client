@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import {routerReducer as routing} from 'react-router-redux';
 
 import circles from './circles_reducer';
+import circle_pagination from './circle_pagination_reducer';
 import new_circle from './new_circle_reducer';
 import users from './users_reducer';
 import ui_state from './ui_state_reducer';
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   routing,
   users,
   circles,
+  circle_pagination,
   new_circle,
   ui_state,
   session_user_id,

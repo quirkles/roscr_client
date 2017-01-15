@@ -1,6 +1,6 @@
 import React from 'react';
 
-const circles_filter_component = () =>
+const circles_filter_component = ({circle_pagination_filter, update_circle_pagination_query}) =>
 <div className='col-md-12 padding-two circles_filter_component'>
   <h3 className='serif b-b margin-bottom-one padding-bottom-one'>
     Dive into ROSCr by browsing the available circles on this screen.
@@ -14,6 +14,8 @@ const circles_filter_component = () =>
         <div className='searchbox input-group'>
           <input
             type='text'
+            value={circle_pagination_filter.get('query', '')}
+            onChange = {update_circle_pagination_query}
             className="circle-filter-field"
             placeholder='Circle Search Query'
           >
