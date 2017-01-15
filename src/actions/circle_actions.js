@@ -8,7 +8,8 @@ import {
 import {
   do_find_circle_by_id,
   do_create_circle,
-  do_find_many_circles_by_ids
+  do_find_many_circles_by_ids,
+  do_find_many_circles_with_params
 } from '../utils/requests/circle';
 
 export const edit_circle = ({circle_id, circle_data}) => ({
@@ -66,6 +67,20 @@ export const find_many_circles_by_ids = circle_id_array =>
             });
         dispatch(add_circles(circles));
     });
+
+export const find_many_circles_with_params = params =>
+  dispatch =>
+    do_find_many_circles_with_params(params)
+      .then(response_array => {
+        const circles = response_array
+          .map(resp => resp.data.success ?
+            resp.data.circle :
+            {
+              id: resp.data.missing_circle_id,
+              circle_not_found_in_db: true
+            });
+        dispatch(add_circles(circles));
+      });
 
 export const attempt_create_circle = circle_data =>
   dispatch =>
