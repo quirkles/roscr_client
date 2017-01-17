@@ -3,10 +3,10 @@ import {fromJS} from 'immutable';
 import {UPDATE_FILTER} from '../constants/circle_pagination_constants';
 
 const default_state = fromJS({
-	circles_ids: [],
+	circle_ids: [],
 	filter: {
 		limit: 10,
-		skip:0,
+		skip: 0,
 		sort_by: null,
 		query: ''
 	}
