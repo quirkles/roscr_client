@@ -3,7 +3,8 @@ import {Map, fromJS} from 'immutable';
 import {
   EDIT_CIRCLE,
   ADD_CIRCLE,
-  ADD_CIRCLES
+  ADD_CIRCLES,
+  HANDLE_FIND_CIRCLES_SUCCESS
 } from '../constants/circle_constants';
 
 import circle_reducer from './circle_reducer';
@@ -21,6 +22,7 @@ export default (state = default_state, action) => {
         state.set(action.circle_data.id, fromJS(action.circle_data).delete('id')) :
         state;
     case ADD_CIRCLES:
+    case HANDLE_FIND_CIRCLES_SUCCESS:
       return action.circle_list.reduce((new_state, circle) => new_state.set(circle.id, fromJS(circle).delete('id')), state);
     default:
       return state;
