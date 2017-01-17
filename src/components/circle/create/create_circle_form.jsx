@@ -136,7 +136,7 @@ const create_circle_form = ({
               onMouseEnter={set_hover_hint_to_section('start_date')}
               onMouseLeave={set_hover_hint_to_section(null)}
             >
-              <label className='control-label'>Start date</label>
+              <label className='control-label'>Start date: dd-mm-yyyy</label>
               <input
                 type='date'
                 className='form-control'
