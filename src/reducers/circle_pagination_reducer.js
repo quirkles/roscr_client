@@ -17,7 +17,7 @@ const default_state = fromJS({
 export default (state = default_state, action) => {
   switch (action.type) {
     case UPDATE_FILTER:
-      return state.mergeIn(['filter'], action.new_filter_attrs);
+      return state.mergeIn(['filter'], action.new_filter_attrs).set('fetch_state', 'unfetched');
     case HANDLE_FIND_CIRCLES_SUCCESS:
       return state.set('circle_ids', List(action.circle_list.map(c => c.id))).set('fetch_state', 'fetched');
     default:
