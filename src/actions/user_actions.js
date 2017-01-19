@@ -84,7 +84,7 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
         dispatch(push(`/user/${resp.data.user.id}`));
       },
       ({response}) => {
-        if (response.data && response.data.error_code === 'EMAIL_ALREADY_EXISTS') {
+        if (response && response.data && response.data.error_code === 'EMAIL_ALREADY_EXISTS') {
           dispatch(add_known_taken_email_address(response.data.taken_email_address));
         }
       }

@@ -9,3 +9,5 @@ export const is_required = value => value.length ? null : 'This field is require
 export const is_valid_email = value => email_regex.test(value) ? null : 'Must be a valid email address.';
 
 export const must_match = target_value => value => value === target_value ? null : 'Value does not match target.';
+
+export const is_not_in_taken_emails = taken_emails => value => taken_emails && taken_emails.includes(value) ? 'This email is already associated with a ROSCr user.' : null;
