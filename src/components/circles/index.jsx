@@ -7,7 +7,7 @@ import './circle_card_styles.scss';
 import {update_filter} from '../../actions/circle_pagination_actions';
 
 import CircleCard from './circle_card';
-import CirclesFilter from './circles_filter'
+import CirclesFilter from './circles_filter';
 
 const unconnected_circles_component = ({circles, circle_pagination, update_circle_pagination_filter}) =>
 <div className='padding circles-component'>
@@ -31,6 +31,6 @@ const map_state_to_props = ({circles, circle_pagination}) => ({circles, circle_p
 
 const map_dispatch_to_props = dispatch => ({
   update_circle_pagination_filter: bindActionCreators(update_filter, dispatch)
-})
+});
 
 export default connect(map_state_to_props, map_dispatch_to_props)(unconnected_circles_component);

@@ -47,7 +47,12 @@ const get_sidebar_items = () =>
     text: '404',
     link: '/asdfasdf',
     icon_class: 'fa fa-exclamation-circle'
-  }
+},
+{
+  text: 'View Users',
+  link: '/users',
+  icon_class: 'fa fa-users'
+}
 ];
 
 export default ({active_route}) =>
