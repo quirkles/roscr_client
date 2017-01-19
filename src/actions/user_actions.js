@@ -8,7 +8,8 @@ import {
   LOG_IN_USER,
   LOG_OUT_USER,
   SET_SESSION_DATA,
-  ADD_USER
+  ADD_USER,
+  ADD_KNOWN_TAKEN_EMAIL_ADDRESS
 } from '../constants/user_constants';
 
 import {
@@ -50,6 +51,11 @@ export const update_sign_in_up_credentials = user_data => ({
   user_data
 });
 
+const add_known_taken_email_address = taken_email_address => ({
+  type: ADD_KNOWN_TAKEN_EMAIL_ADDRESS,
+  taken_email_address
+});
+
 export const log_in_user = user_data => ({
   type: LOG_IN_USER,
   user_data
@@ -77,7 +83,11 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
         dispatch(log_in_user(resp.data.user));
         dispatch(push(`/user/${resp.data.user.id}`));
       },
-      error => console.error(error)
+      ({response}) => {
+        if (response.data && response.data.error_code === 'EMAIL_ALREADY_EXISTS') {
+          dispatch(add_known_taken_email_address(response.data.taken_email_address));
+        }
+      }
     );
 
 export const attempt_log_in_with_credentials = ({email_address, password}) =>
