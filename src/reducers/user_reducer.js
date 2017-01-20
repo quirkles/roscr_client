@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {fromJS, Map} from 'immutable';
 
 import {
   OPEN_EDIT_USER_PANEL,

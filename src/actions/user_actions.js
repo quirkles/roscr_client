@@ -9,7 +9,8 @@ import {
   LOG_OUT_USER,
   SET_SESSION_DATA,
   ADD_USER,
-  ADD_KNOWN_TAKEN_EMAIL_ADDRESS
+  ADD_KNOWN_TAKEN_EMAIL_ADDRESS,
+  HANDLE_FIND_USERS_SUCCESS
 } from '../constants/user_constants';
 
 import {
@@ -20,7 +21,8 @@ import {
 
 import {
   do_find_user_by_id,
-  do_save_user_data
+  do_save_user_data,
+  do_find_many_users_with_params,
 } from '../utils/requests/user';
 
 export const open_editing_panel_for_user = user_id => ({
@@ -90,6 +92,11 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
       }
     );
 
+  const handle_find_users_success = user_list => ({
+    type: HANDLE_FIND_USERS_SUCCESS,
+    user_list
+  });
+
 export const attempt_log_in_with_credentials = ({email_address, password}) =>
   dispatch =>
     do_request_log_in({email_address, password})
@@ -132,11 +139,17 @@ export const find_user_by_id = target_user_id =>
       }
     );
 
-  export const save_user_changes = ({user_id, new_user_data}) =>
+  export const find_many_users_with_params = params =>
     dispatch =>
+      do_find_many_users_with_params(params)
+        .then(({data}) => {
+          dispatch(handle_find_users_success(data.users));
+        });
+
+  export const save_user_changes = ({user_id, new_user_data}) =>
+    () =>
       do_save_user_data({user_id, new_user_data})
       .then(
         ({data}) => console.log(data),
         error => console.log(error)
       );
-

@@ -1,10 +1,10 @@
 import {fromJS, List} from 'immutable';
 
-import {HANDLE_FIND_CIRCLES_SUCCESS} from '../constants/circle_constants';
-import {UPDATE_CIRCLE_PAGINATION_FILTER} from '../constants/circle_pagination_constants';
+import {HANDLE_FIND_USERS_SUCCESS} from '../constants/user_constants';
+import {UPDATE_USER_PAGINATION_FILTER} from '../constants/user_pagination_constants';
 
 const default_state = fromJS({
-	circle_ids: [],
+	user_ids: [],
   fetch_state: 'unfetched',
 	filter: {
 		limit: 10,
@@ -16,10 +16,10 @@ const default_state = fromJS({
 
 export default (state = default_state, action) => {
   switch (action.type) {
-    case UPDATE_CIRCLE_PAGINATION_FILTER:
+    case UPDATE_USER_PAGINATION_FILTER:
       return state.mergeIn(['filter'], action.new_filter_attrs).set('fetch_state', 'unfetched');
-    case HANDLE_FIND_CIRCLES_SUCCESS:
-      return state.set('circle_ids', List(action.circle_list.map(c => c.id))).set('fetch_state', 'fetched');
+    case HANDLE_FIND_USERS_SUCCESS:
+      return state.set('user_ids', List(action.user_list.map(user => user.id))).set('fetch_state', 'fetched');
     default:
       return state;
   }
