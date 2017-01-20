@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import classnames from 'classnames';
 import {pick, values, mapObjIndexed} from 'ramda';
 
-import {is_required, is_valid_email, must_match, has_min_length} from '../../utils/validators';
+import {is_required, is_valid_email, must_match, has_min_length, is_not_in_taken_emails} from '../../utils/validators';
 
 import {update_sign_in_up_credentials, attempt_sign_up_with_credentials} from '../../actions/user_actions';
 
@@ -16,7 +16,7 @@ const get_credential_validation_errors = credentials =>
   mapObjIndexed(
     do_validations_on_credentials(credentials),
     {
-      email_address: [is_required, is_valid_email],
+      email_address: [is_required, is_valid_email, is_not_in_taken_emails(credentials.get('known_taken_email_addresses'))],
       password: [is_required, has_min_length(4)],
       confirm_password: [must_match(credentials.get('password', ''))]
     }

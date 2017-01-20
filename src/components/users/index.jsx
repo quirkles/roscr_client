@@ -1,10 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {connect} from 'react-dedux';
 
 export const unconnected_users_component = () =>
-<div>
-Members
-</div>;
+<div>Member list</div>;
 
 const connected_users_component = connect()(unconnected_users_component);
 
