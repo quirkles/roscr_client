@@ -7,6 +7,9 @@ import {update_user_pagination_filter} from '../../actions/user_pagination_actio
 import {find_many_users_with_params} from '../../actions/user_actions';
 
 import UserItem from './user_item';
+import UsersHeader from './users_header';
+
+import './users_styles.scss';
 
 export const unconnected_users_component = ({
   users,
@@ -17,14 +20,17 @@ export const unconnected_users_component = ({
     fetch_users(user_pagination.get('filter').toJS());
   }
   return (
-    <div className="padding">
-      <div className='row'>
+    <div className="users-component">
+      <UsersHeader/>
+      <div className="padding">
+        <div className='row'>
         {users.map(user=>
           <UserItem
           key={user.get('id')}
           user={user}
           />
         )}
+        </div>
       </div>
     </div>
   );
