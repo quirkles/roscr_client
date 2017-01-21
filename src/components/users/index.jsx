@@ -6,6 +6,8 @@ import {Map, List} from 'immutable';
 import {update_user_pagination_filter} from '../../actions/user_pagination_actions';
 import {find_many_users_with_params} from '../../actions/user_actions';
 
+import UserItem from './user_item';
+
 export const unconnected_users_component = ({
   users,
   user_pagination,
@@ -15,11 +17,16 @@ export const unconnected_users_component = ({
     fetch_users(user_pagination.get('filter').toJS());
   }
   return (
-    <ul>
-      {users.map(user=>
-        <li key={user.get('id')}>{user.get('firstname')}</li>
-      )}
-    </ul>
+    <div className="padding">
+      <div className='row'>
+        {users.map(user=>
+          <UserItem
+          key={user.get('id')}
+          user={user}
+          />
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -30,7 +37,7 @@ const map_state_to_props = ({users, user_pagination}) => ({
       .get(user_id, Map({
         needs_to_be_fetched: true,
         id: user_id
-      }))
+      })).set('id', user_id)
     ),
   user_pagination
 });
