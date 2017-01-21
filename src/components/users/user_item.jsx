@@ -18,13 +18,16 @@ const get_footer_color = user => {
 const user_item_component = ({user}) =>
 <div className='col-xs-6 col-sm-12 col-md-6 user-item-component'>
   <div className='box text-center'>
+    <div className={classnames('header-container', get_footer_color(user))}></div>
     <div className='p-a-md'>
       <p>
-        <img src={get_avatar_url(user)} alt="." className='img-circle w-56'/>
+        <Link to={`user/${user.get('id')}`}>
+          <img src={get_avatar_url(user)} alt="." className='img-circle w-56'/>
+        </Link>
       </p>
       <Link
         to={`user/${user.get('id')}`}
-        className='text-md block'>
+        className='text-md block b-b padding-bottom-quarter margin-bottom-quarter'>
           {`${user.get('firstname')} ${user.get('lastname')}`}
       </Link>
       <p>
