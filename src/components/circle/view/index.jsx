@@ -43,7 +43,6 @@ export const unconnected_create_circle_component = ({
   } else if (circle_to_display.get('circle_not_found_in_db')) {
     return <NotFound message="Sorry, we couldn't find that circle." />;
   } else {
-    debugger;
     if (user_ids_to_fetch.length) {
       do_find_many_users_by_ids(user_ids_to_fetch);
     }
