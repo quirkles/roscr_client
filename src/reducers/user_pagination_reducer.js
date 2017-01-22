@@ -10,7 +10,8 @@ const default_state = fromJS({
 		limit: 10,
 		skip: 0,
 		sort_by: null,
-		query: ''
+		query: '',
+    min_trust_score: null,
 	}
 });
 

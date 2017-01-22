@@ -8,12 +8,14 @@ import {find_many_users_with_params} from '../../actions/user_actions';
 
 import UserItem from './user_item';
 import UsersHeader from './users_header';
+import UsersFilter from './users_filter';
 
 import './users_styles.scss';
 
 export const unconnected_users_component = ({
   users,
   user_pagination,
+  update_user_pagination_filter_action,
   fetch_users
 }) => {
   if (user_pagination.get('fetch_state') === 'unfetched') {
@@ -22,6 +24,15 @@ export const unconnected_users_component = ({
   return (
     <div className="users-component">
       <UsersHeader/>
+      <div className="padding">
+        <div className="row">
+          <UsersFilter
+            user_pagination_filter={user_pagination.get('filter')}
+            update_user_pagination_query={e => update_user_pagination_filter_action({query: e.target.value})}
+            update_user_pagination_min_trust={e => update_user_pagination_filter_action({min_trust_score: e.target.value})}
+          />
+        </div>
+      </div>
       <div className="padding">
         <div className='row'>
         {users.map(user=>

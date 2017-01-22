@@ -29,6 +29,8 @@ const user_item_component = ({user}) =>
         to={`user/${user.get('id')}`}
         className='text-md block b-b padding-bottom-quarter margin-bottom-quarter'>
           {`${user.get('firstname')} ${user.get('lastname')}`}
+          <br/>
+          <small className='text-muted text-sm italic'>{user.get('email_address')}</small>
       </Link>
       <p>
         <small>London, UK</small>
