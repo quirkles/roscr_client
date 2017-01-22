@@ -1,7 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Map} from 'immutable';
+import {Map, List} from 'immutable';
 
 import {pick} from '../../../utils/immutable';
 
@@ -28,7 +28,14 @@ export const unconnected_create_circle_component = ({
   const user_ids_to_fetch = circle_members
     .filter(member => member.get('needs_to_be_fetched'))
     .map(member => member.get('id'))
-    .toJS();
+    .concat(
+      circle_to_display
+        .get('activity', List([]))
+        .filter(ai => ai.getIn(['origiinator', 'needs_to_be_fetched']))
+        .map(originator => originator.get('id'))
+    )
+    .toSet()
+    .toArray();
 
   if (circle_to_display.get('needs_to_be_fetched')) {
     do_find_circle_by_id(circle_to_display.get('id'));
@@ -36,6 +43,7 @@ export const unconnected_create_circle_component = ({
   } else if (circle_to_display.get('circle_not_found_in_db')) {
     return <NotFound message="Sorry, we couldn't find that circle." />;
   } else {
+    debugger;
     if (user_ids_to_fetch.length) {
       do_find_many_users_by_ids(user_ids_to_fetch);
     }
@@ -62,12 +70,23 @@ const populate_payout_events_with_users = users => payout_events =>
     )
   );
 
+const populate_activity_items_with_users = users => activity_items =>
+  activity_items.map(ai => ai.set(
+    'originator',
+    pick(
+      ['firstname', 'lastname', 'needs_to_be_fetched'],
+      users.get(ai.get('originator'), Map({needs_to_be_fetched: true}))
+    ).set('id', ai.get('originator'))
+  ));
+
 // state -> pick circles -> get 'new_circle'
 const map_state_to_props = ({circles, users, session_user_id}, own_props) => {
+
   const circle_to_display = circles
     .get(own_props.params.circle_id, Map({needs_to_be_fetched: true}))
     .set('id', own_props.params.circle_id)
-    .update('payout_events', Map({}), populate_payout_events_with_users(users));
+    .update('payout_events', Map({}), populate_payout_events_with_users(users))
+    .update('activity', List([]), populate_activity_items_with_users(users));
 
   const circle_members = circle_to_display
     .get('members', Map({}))

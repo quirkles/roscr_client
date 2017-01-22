@@ -1,6 +1,8 @@
 import {format} from 'date-fp';
 
 const get_originator_name = originator =>
+  typeof originator === 'string' ?
+  `User: ${originator}` :
   originator.get('firstname') && originator.get('lastname') ?
     `${originator.get('firstname')} ${originator.get('lastname')}` :
     originator.get('email_address');
