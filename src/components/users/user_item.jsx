@@ -21,12 +21,12 @@ const user_item_component = ({user}) =>
     <div className={classnames('header-container', get_footer_color(user))}></div>
     <div className='p-a-md'>
       <p>
-        <Link to={`user/${user.get('id')}`}>
+        <Link to={`users/${user.get('id')}`}>
           <img src={get_avatar_url(user)} alt="." className='img-circle w-56'/>
         </Link>
       </p>
       <Link
-        to={`user/${user.get('id')}`}
+        to={`users/${user.get('id')}`}
         className='text-md block b-b padding-bottom-quarter margin-bottom-quarter'>
           {`${user.get('firstname')} ${user.get('lastname')}`}
           <br/>

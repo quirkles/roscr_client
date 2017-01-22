@@ -67,14 +67,36 @@ const unconnected_view_user_component = ({
         <div className="padding">
           <div className='row margin-top-two'>
             <div className='col-lg-12 col-xl-6'>
-              <CircleList
-                panel_title='Circles As Member'
-                circles={circles_as_member}
-              />
-              <CircleList
-                panel_title='Circles As Creator'
-                circles={circles_created}
-              />
+              {circles_as_member.size ?
+                <CircleList
+                  panel_title='Circles As Member'
+                  circles={circles_as_member}
+                /> :
+                <div className='box'>
+                  <div className='box-body text-center padding-two'>
+                    <h4 className='serif'>This user hasn't yet joined any circles.</h4>
+                    <br/>
+                    <p>Do you think they might be a good fit for a circle you are in?</p>
+                    <br />
+                    <div className='btn btn-outline rounded b-success text-success'>Invite User to Circle</div>
+                  </div>
+                </div>
+              }
+              {circles_created.size ?
+                <CircleList
+                  panel_title='Circles As Creator'
+                  circles={circles_created}
+                /> :
+                <div className='box'>
+                  <div className='box-body text-center padding-two'>
+                    <h4 className='serif'>This user hasn't yet created any circles.</h4>
+                    <br/>
+                    <p>Do you think they might be a good fit for a circle you are in?</p>
+                    <br />
+                    <div className='btn btn-outline rounded b-success text-success'>Invite User to Circle</div>
+                  </div>
+                </div>
+              }
             </div>
             <div className='col-lg-12 col-xl-6'>
               <div className='box'>

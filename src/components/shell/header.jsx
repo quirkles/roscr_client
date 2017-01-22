@@ -42,7 +42,7 @@ export default ({
           <div className='dropdown-menu w dropdown-menu-scale pull-right'>
             <Link
               className='dropdown-item'
-              to={`/user/${session_user.get('id')}`}
+              to={`/users/${session_user.get('id')}`}
               onClick={close_header_dropdown}
             >
               <span>Profile</span>

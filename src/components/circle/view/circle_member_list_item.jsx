@@ -32,7 +32,7 @@ const circle_member_list_item_component = ({
     </div>
   </div>
   <Link
-    to = {`/user/${circle_member.get('id')}`}
+    to = {`/users/${circle_member.get('id')}`}
     className='list-left'
   >
     <img
@@ -44,7 +44,7 @@ const circle_member_list_item_component = ({
   <div className='list-body'>
     <div>
       <Link
-        to = {`/user/${circle_member.get('id')}`}
+        to = {`/users/${circle_member.get('id')}`}
       >
         {circle_member.get('firstname')} {circle_member.get('lastname')}
       </Link>

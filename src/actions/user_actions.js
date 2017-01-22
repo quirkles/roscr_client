@@ -90,7 +90,7 @@ export const attempt_sign_up_with_credentials = ({email_address, password}) =>
     .then(
       resp => {
         dispatch(log_in_user(resp.data.user));
-        dispatch(push(`/user/${resp.data.user.id}`));
+        dispatch(push(`/users/${resp.data.user.id}`));
       },
       ({response}) => {
         if (response && response.data && response.data.error_code === 'EMAIL_ALREADY_EXISTS') {
@@ -110,7 +110,7 @@ export const attempt_log_in_with_credentials = ({email_address, password}) =>
     .then(
       resp => {
         dispatch(log_in_user(resp.data.user));
-        dispatch(push(`/user/${resp.data.user.id}`));
+        dispatch(push(`/users/${resp.data.user.id}`));
       },
       error => console.error(error)
     );

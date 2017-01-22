@@ -20,7 +20,7 @@ const get_name_content = recipient =>
     <small className='block text-muted'>Fetching user information.</small> :
     <small className='block text-muted'>
       <Link
-        to={`/user/${recipient.get('id')}`}
+        to={`/users/${recipient.get('id')}`}
       >
         {capitalize(recipient.get('firstname'))} {capitalize(recipient.get('lastname'))}
       </Link>
