@@ -18,9 +18,9 @@ const routes =
       <Route path='/login' component={Login}></Route>
       <Route path='/signup' component={Signup}></Route>
       <Route path='/circles' component={ListCircles}></Route>
-      <Route path='/circle/create' component={CreateCircle}></Route>
-      <Route path='/circle/:circle_id' component={ViewCircle}></Route>
-      <Route path='/user/:user_id' component={ViewUser}></Route>
+      <Route path='/circles/create' component={CreateCircle}></Route>
+      <Route path='/circles/:circle_id' component={ViewCircle}></Route>
+      <Route path='/users/:user_id' component={ViewUser}></Route>
       <Route path='/users' component={ListUsers}></Route>
       <Route path='/' component={About}></Route>
       <Route path='*' component={NotFound}/>

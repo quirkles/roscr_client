@@ -6,6 +6,7 @@ import {pick, values, mapObjIndexed} from 'ramda';
 import classnames from 'classnames';
 
 import {is_required, is_valid_email, has_min_length} from '../../utils/validators';
+import {facebook_auth_url} from '../../utils/requests/auth';
 
 import {update_sign_in_up_credentials, attempt_log_in_with_credentials} from '../../actions/user_actions';
 
@@ -51,6 +52,16 @@ export const unconnected_login_component = ({
       <div className="b-t">
         <div className="center-block w-xxl w-auto-xs p-y-md text-center">
           <div className="p-a-md">
+            <a
+                href={facebook_auth_url}
+                className="btn btn-block indigo text-white m-b-sm"
+            >
+              <i className="fa fa-facebook pull-left"></i>
+              Sign in with Facebook
+            </a>
+            <div className="m-y text-sm">
+              OR
+            </div>
             <form name='form' className={classnames({
               'show-form-validation-hints': sign_in_up_credentials.get('has_attempted_form_submit')
             })}>

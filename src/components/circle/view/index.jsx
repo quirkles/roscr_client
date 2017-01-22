@@ -7,6 +7,7 @@ import {pick} from '../../../utils/immutable';
 
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
 import {claim_payout_spot_on_circle, find_circle_by_id} from '../../../actions/circle_actions';
+import {find_many_users_by_ids} from '../../../actions/user_actions';
 
 import CircleComponent from './circle_component';
 import Loader from '../../loader';
@@ -21,14 +22,23 @@ export const unconnected_create_circle_component = ({
   show_tooltip_with_data,
   destroy_tooltip_with_id,
   claim_payout_event_for_user,
-  do_find_circle_by_id
+  do_find_circle_by_id,
+  do_find_many_users_by_ids
 }) => {
+  const user_ids_to_fetch = circle_members
+    .filter(member => member.get('needs_to_be_fetched'))
+    .map(member => member.get('id'))
+    .toJS();
+
   if (circle_to_display.get('needs_to_be_fetched')) {
     do_find_circle_by_id(circle_to_display.get('id'));
     return <Loader title='Fetching circle information...' />;
   } else if (circle_to_display.get('circle_not_found_in_db')) {
     return <NotFound message="Sorry, we couldn't find that circle." />;
   } else {
+    if (user_ids_to_fetch.length) {
+      do_find_many_users_by_ids(user_ids_to_fetch);
+    }
     return (
       <CircleComponent
         circle_to_display={circle_to_display}
@@ -63,6 +73,7 @@ const map_state_to_props = ({circles, users, session_user_id}, own_props) => {
     .get('members', Map({}))
     .map(m => users.get(m, Map({needs_to_be_fetched: true}))
       .set('id', m));
+
   return {
     circle_to_display,
     circle_members,
@@ -86,11 +97,14 @@ const map_dispatch_to_props = dispatch => {
 
   const do_find_circle_by_id = bindActionCreators(find_circle_by_id, dispatch);
 
+  const do_find_many_users_by_ids = bindActionCreators(find_many_users_by_ids, dispatch);
+
   return {
     show_tooltip_with_data,
     destroy_tooltip_with_id,
     claim_payout_event_for_user,
-    do_find_circle_by_id
+    do_find_circle_by_id,
+    do_find_many_users_by_ids
   };
 };
 

@@ -9,6 +9,7 @@ import {
   LOG_OUT_USER,
   SET_SESSION_DATA,
   ADD_USER,
+  ADD_USERS,
   ADD_KNOWN_TAKEN_EMAIL_ADDRESS,
   HANDLE_FIND_USERS_SUCCESS
 } from '../constants/user_constants';
@@ -21,6 +22,7 @@ import {
 
 import {
   do_find_user_by_id,
+  do_find_many_users_by_ids,
   do_save_user_data,
   do_find_many_users_with_params,
 } from '../utils/requests/user';
@@ -45,6 +47,11 @@ export const edit_user = ({user_id, user_data}) => ({
   type: EDIT_USER,
   user_id,
   user_data
+});
+
+export const add_users = user_list => ({
+  type: ADD_USERS,
+  user_list
 });
 
 export const update_sign_in_up_credentials = user_data => ({
@@ -138,6 +145,20 @@ export const find_user_by_id = target_user_id =>
         }
       }
     );
+
+  export const find_many_users_by_ids = user_id_array =>
+    dispatch =>
+      do_find_many_users_by_ids(user_id_array)
+      .then(response_array => {
+        const users = response_array
+          .map(resp => resp.data.success ?
+              resp.data.user :
+              {
+                id: resp.data.missing_user_id,
+                user_not_found_in_db: true
+              });
+          dispatch(add_users(users));
+      });
 
   export const find_many_users_with_params = params =>
     dispatch =>

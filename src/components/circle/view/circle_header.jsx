@@ -5,7 +5,8 @@ import {Link} from 'react-router';
 import {capitalize} from '../../../utils/string';
 
 const circle_header_component = ({
-  circle_to_display
+  circle_to_display,
+  circle_creator
 }) =>
 <div className='item bg-tile-swirl circle-header'>
   <div className="p-a-md">
@@ -20,9 +21,9 @@ const circle_header_component = ({
             <span className="m-r">Created by:</span>
             <small>
               <Link
-                to='/user/1'
+                to={`/users/${circle_creator.get('id')}`}
               >
-                Peter Jones
+                {`${circle_creator.get('firstname')} ${circle_creator.get('lastname')}`}
               </Link>
             </small>
           </p>
@@ -31,8 +32,8 @@ const circle_header_component = ({
           </a>
         </div>
       </div>
-      <div className="col-sm-5">
-        <p>Circle created: {D.format('MMMM D YYYY', new Date(circle_to_display.get('date_created')))}</p>
+      <div className="col-sm-5 serif bold text-md">
+        <p>Circle created: {D.format('MMMM D YYYY', new Date(circle_to_display.get('created')))}</p>
         <p>Circle starts: {D.format('MMMM D YYYY', new Date(circle_to_display.get('start_date')))}</p>
         <p>Pays out: {capitalize(circle_to_display.get('cycle_period'))}</p>
       </div>

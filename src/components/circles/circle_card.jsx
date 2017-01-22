@@ -20,7 +20,7 @@ const circle_component = ({circle}) =>
           <div className='padding-half'>
               <h4 className='bold'>
                   <Link
-                      to={`circle/${circle.get('id')}`}
+                      to={`circles/${circle.get('id')}`}
                   >
                       {capitalize(circle.get('circle_name'))}
                   </Link>

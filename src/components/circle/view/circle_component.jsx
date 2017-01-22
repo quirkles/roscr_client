@@ -16,17 +16,17 @@ const circle_component = ({
   <div className="view-circle-component">
     <CircleHeader
       circle_to_display={circle_to_display}
-      open_editing_panel_for_circle_with_id={() => () => true}
+      circle_creator={circle_members.find(member => member.get('id') === circle_to_display.get('created_by'))}
     />
     <div className="padding">
       <div className='row margin-top-two'>
-        <div className='col-lg-12 col-xl-5'>
+        <div className='col-lg-12 col-xl-6'>
           <CircleInformation
             circle_to_display = {circle_to_display}
             claim_payout_event_on_circle = {claim_payout_event_for_user(session_user_id)}
           />
         </div>
-        <div className='col-lg-12 col-xl-5'>
+        <div className='col-lg-12 col-xl-6'>
           <CircleMemberList
             circle_members = {circle_members}
             circle_id = {circle_to_display.get('id')}

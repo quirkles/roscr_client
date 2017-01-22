@@ -37,7 +37,7 @@ const unconnected_circles_component = ({
         <div className='row'>
           {circle_pagination.get('fetch_state') === 'unfetched' ?
           <FetchingCircles/> :
-            circles.map((circle, circle_id) => circle.set('id', circle_id)).toList().map(circle =>
+            circles.map(circle =>
               <CircleCard
                 key={circle.get('id')}
                 circle={circle}
@@ -55,9 +55,9 @@ const map_state_to_props = ({circles, circle_pagination}) => ({
     .get('circle_ids', List([]))
     .map(circle_id => circles
       .get(circle_id, Map({
-        needs_to_be_fetched: true,
-        id: circle_id
+        needs_to_be_fetched: true
       }))
+      .set('id', circle_id)
     ),
   circle_pagination
 });

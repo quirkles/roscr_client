@@ -5,6 +5,7 @@ export const EDIT_USER = 'EDIT_USER';
 export const LOG_IN_USER = 'LOG_IN_USER';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const ADD_USER = 'ADD_USER';
+export const ADD_USERS = 'ADD_USERS';
 export const SAVE_USER_CHANGES = 'SAVE_USER_CHANGES';
 export const SET_SESSION_DATA = 'SET_SESSION_DATA';
 export const ADD_KNOWN_TAKEN_EMAIL_ADDRESS = 'ADD_KNOWN_TAKEN_EMAIL_ADDRESS';

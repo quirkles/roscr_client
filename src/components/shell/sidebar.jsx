@@ -21,20 +21,8 @@ const get_sidebar_items = () =>
   },
   {
     text: 'Create Circle',
-    link: '/circle/create',
+    link: '/circles/create',
     icon_class: 'fa fa-plus-circle'
-
-  },
-  {
-    text: 'View a Circle',
-    link: '/circle/test-circle-id',
-    icon_class: 'fa fa-circle'
-
-  },
-  {
-    text: 'View a User',
-    link: '/user/1',
-    icon_class: 'fa fa-user'
 
   },
   {

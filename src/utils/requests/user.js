@@ -1,8 +1,12 @@
-import {get, post} from 'axios';
+import {get, post, all} from 'axios';
 
 import {BASE_URL} from './constants';
 
 export const do_find_user_by_id = user_id => get(`${BASE_URL}/api/users/${user_id}`);
+
+export const do_find_many_users_by_ids = user_ids =>
+  all(user_ids.map(user_id => do_find_user_by_id(user_id)));
+
 
 export const do_find_many_users_with_params = params =>
   get(`${BASE_URL}/api/users`, {params});

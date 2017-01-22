@@ -11,6 +11,7 @@ import {
   LOG_IN_USER,
   SET_SESSION_DATA,
   ADD_USER,
+  ADD_USERS,
   HANDLE_FIND_USERS_SUCCESS
 } from '../constants/user_constants';
 
@@ -43,6 +44,7 @@ const member_reducer = (state = default_state, action) => {
                 state.update(action.user_id, user => user_reducer(user, action)) :
                 state;
         case HANDLE_FIND_USERS_SUCCESS:
+        case ADD_USERS:
           return action.user_list.reduce((new_state, user) => new_state.set(user.id, fromJS(user).delete('id')), state);
         default:
             return state;
