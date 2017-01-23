@@ -10,7 +10,7 @@ const user_profile_header_component = ({
 <div className='item'>
   <div className="item-bg bg-tile-ignasi"></div>
   <div className="p-a-md">
-    <div className="row m-t">
+    <div className="row m-t serif">
       <div className="col-sm-7">
         <a href="#" className="pull-left m-r-md">
           <span className="avatar w-96">
@@ -32,10 +32,16 @@ const user_profile_header_component = ({
           <a href="#" className="btn btn-sm warn rounded info active m-b" data-ui-toggle-className="success">
             <span className="none">Add Buddy</span>
           </a>
+          <div>
+            <span className='bold text-md margin-right-one'>User Trust Score:</span>
+            <span className="label rounded label-lg info">
+              {user_to_display.get('trust_score')}
+            </span>
+          </div>
         </div>
       </div>
       <div className="col-sm-5">
-        <p className="text-md profile-status">{user_to_display.get('about_me')}</p>
+        <p className="text-md profile-status">{user_to_display.get('about_me', 'User hasn\'t filled in their about me.')}</p>
         <p>Trusted user since {D.format('MMMM D YYYY', new Date(user_to_display.get('created')))}</p>
         <button
           className="btn rounded warning"
