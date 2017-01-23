@@ -2,9 +2,6 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Map, List} from 'immutable';
-import D from 'date-fp';
-
-import {get_activity_description_from_type} from '../../../utils/activity_helpers';
 
 import {
   open_editing_panel_for_user,
@@ -17,9 +14,9 @@ import {
 
 import {find_many_circles_by_ids} from '../../../actions/circle_actions';
 
-import UserProfileHeader from './user_profile_header';
-import UserEditPanel from './user_edit_panel';
-import CircleList from './circle_list';
+import ViewUserComponent from './view_user_component';
+import MissingSessionUser from './missing_session_user';
+
 import Loader from '../../loader';
 import NotFound from '../../not_found';
 
@@ -46,6 +43,8 @@ const unconnected_view_user_component = ({
     );
   } else if (user_to_display.get('user_not_found_in_db')) {
     return <NotFound message="Sorry, we couldn't find that user"/>;
+  } else if (user_to_display.get('missing_session_user')) {
+    return <MissingSessionUser/>;
   } else {
     const circle_ids_to_be_fetched =
       circles_as_member
@@ -59,95 +58,30 @@ const unconnected_view_user_component = ({
     }
 
     return (
-      <div className="view-user-component">
-        <UserProfileHeader
-          user_to_display={user_to_display}
-          open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
-        />
-        <div className="padding">
-          <div className='row margin-top-two'>
-            <div className='col-lg-12 col-xl-6'>
-              {circles_as_member.size ?
-                <CircleList
-                  panel_title='Circles As Member'
-                  circles={circles_as_member}
-                /> :
-                <div className='box'>
-                  <div className='box-body text-center padding-two'>
-                    <h4 className='serif'>This user hasn't yet joined any circles.</h4>
-                    <br/>
-                    <p>Do you think they might be a good fit for a circle you are in?</p>
-                    <br />
-                    <div className='btn btn-outline rounded b-success text-success'>Invite User to Circle</div>
-                  </div>
-                </div>
-              }
-              {circles_created.size ?
-                <CircleList
-                  panel_title='Circles As Creator'
-                  circles={circles_created}
-                /> :
-                <div className='box'>
-                  <div className='box-body text-center padding-two'>
-                    <h4 className='serif'>This user hasn't yet created any circles.</h4>
-                    <br/>
-                    <p>Do you think they might be a good fit for a circle you are in?</p>
-                    <br />
-                    <div className='btn btn-outline rounded b-success text-success'>Invite User to Circle</div>
-                  </div>
-                </div>
-              }
-            </div>
-            <div className='col-lg-12 col-xl-6'>
-              <div className='box'>
-                <div className='box-header warn'>
-                  <h2 className='padding-half'>
-                    <i className='fa fa-history padding-right-one'/>
-                    Activity History
-                  </h2>
-                </div>
-                <div className='box-body'>
-                  <div>
-                    <div className='streamline m-b'>
-                      {
-                        user_to_display.get('activity').map(activity_item =>
-                          <div
-                            key={activity_item.get('id')}
-                            className='sl-item'
-                          >
-                            <div className='sl-content'>
-                              <div className='sl-date text-muted'>{D.format('MMMM D YYYY', new Date(activity_item.get('date')))}</div>
-                              <p>{get_activity_description_from_type(activity_item.get('activity_type'))}</p>
-                            </div>
-                          </div>
-                        )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <UserEditPanel
-          user_to_display={user_to_display}
-          close_editing_panel_for_user_with_id={close_editing_panel_for_user_with_id}
-          start_editing_attr_for_user_with_id={start_editing_attr_for_user_with_id(user_to_display.get('id'))}
-          edit_user_attr_with_id={edit_user_attr_with_id(user_to_display.get('id'))}
-          stop_editing_and_do_update_attr={stop_editing_and_do_update_attr_for_user(user_to_display.get('id'))}
-        />
-        <div
-          className="user-edit-panel-overlay"
-          onClick={close_editing_panel_for_user_with_id(user_to_display.get('id'))}
-        ></div>
-      </div>
+      <ViewUserComponent
+        user_to_display = {user_to_display}
+        open_editing_panel_for_user_with_id = {open_editing_panel_for_user_with_id}
+        close_editing_panel_for_user_with_id = {close_editing_panel_for_user_with_id}
+        start_editing_attr_for_user_with_id = {start_editing_attr_for_user_with_id}
+        stop_editing_and_do_update_attr_for_user = {stop_editing_and_do_update_attr_for_user}
+        edit_user_attr_with_id = {edit_user_attr_with_id}
+        circles_as_member = {circles_as_member}
+        circles_created = {circles_created}
+      />
     );
   }
 };
 
-const map_state_to_props = ({users, circles}, own_props) => {
-  const user_to_display = users
-    .get(own_props.params.user_id, Map({needs_to_be_fetched: true}))
-    .set('id', own_props.params.user_id);
+const map_state_to_props = ({users, circles, session_user_id}, own_props) => {
+  const user_to_show_id = own_props.params.user_id === 'me' ?
+    session_user_id :
+    own_props.params.user_id;
+
+  const user_to_display = user_to_show_id === null ?
+    Map({'missing_session_user': true}) :
+    users
+      .get(user_to_show_id, Map({needs_to_be_fetched: true}))
+      .set('id', own_props.params.user_id);
 
   const circles_as_member = user_to_display.get('needs_to_be_fetched', false) ?
     List([]) :

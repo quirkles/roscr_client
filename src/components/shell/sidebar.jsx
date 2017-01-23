@@ -40,6 +40,11 @@ const get_sidebar_items = () =>
   text: 'View Users',
   link: '/users',
   icon_class: 'fa fa-users'
+},
+{
+  text: 'View My Profile',
+  link: '/users/me',
+  icon_class: 'fa fa-user'
 }
 ];
 
