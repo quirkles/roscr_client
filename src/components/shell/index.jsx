@@ -39,7 +39,7 @@ export const unconnected_shell_component = ({
 <div>
   <Sidebar active_route = {active_route} />
   <div
-    id="content"
+    id='content'
     className='app-content'
   >
     <Header
@@ -51,7 +51,7 @@ export const unconnected_shell_component = ({
       do_show_add_user_modal={do_show_add_user_modal}
     />
     <div
-      className="app-body"
+      className='app-body'
     >
       <div>
         {React.cloneElement(children)}
