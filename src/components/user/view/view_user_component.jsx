@@ -59,7 +59,7 @@ const view_user_component = ({
       <div className='col-lg-12 col-xl-6'>
         <div className='box'>
           <div className='box-header warn'>
-            <h2 className='padding-half'>
+            <h2 className='padding-half serif bold'>
               <i className='fa fa-history padding-right-one'/>
               Activity History
             </h2>

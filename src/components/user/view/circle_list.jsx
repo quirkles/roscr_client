@@ -7,7 +7,7 @@ const circle_list_component = ({
 }) =>
 <div className='box'>
   <div className='box-header info'>
-    <h2 className='padding-half'>
+    <h2 className='padding-half serif bold'>
       <i className='fa fa-circle-o padding-right-one'></i>
       {panel_title}
     </h2>
@@ -37,7 +37,7 @@ const circle_list_component = ({
           >
             <td>
               <Link
-                to={`/circle/${circle.get('id')}`}
+                to={`/circles/${circle.get('id')}`}
               >
                 {circle.get('circle_name', 'Circle name not set.')}
               </Link>

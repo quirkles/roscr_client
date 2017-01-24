@@ -3,7 +3,8 @@ import {
   DESTROY_TOOLTIP,
   DESTROY_ALL_TOOLTIPS,
   OPEN_HEADER_DROPDOWN,
-  CLOSE_HEADER_DROPDOWN
+  CLOSE_HEADER_DROPDOWN,
+  TOGGLE_NOTIFICATION_DROPDOWN
 } from '../constants/ui_state_constants';
 import cuid from 'cuid';
 import {Map} from 'immutable';
@@ -39,3 +40,5 @@ export const open_header_dropdown = () => ({
 export const close_header_dropdown = () => ({
   type: CLOSE_HEADER_DROPDOWN
 });
+
+export const toggle_notification_dropdown = () => ({type: TOGGLE_NOTIFICATION_DROPDOWN});

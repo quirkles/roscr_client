@@ -11,7 +11,8 @@ import Tooltips from '../tooltips';
 
 import {
   open_header_dropdown as open_header_dropdown_action,
-  close_header_dropdown as close_header_dropdown_action
+  close_header_dropdown as close_header_dropdown_action,
+  toggle_notification_dropdown
 } from '../../actions/ui_state_actions';
 
 
@@ -29,6 +30,8 @@ export const unconnected_shell_component = ({
   tooltips,
   session_user,
   header_dropdown_open,
+  notification_dropdown_open,
+  toggle_notification_dropdown_action,
   open_header_dropdown,
   close_header_dropdown,
   modal_props,
@@ -45,10 +48,12 @@ export const unconnected_shell_component = ({
     <Header
       session_user={session_user}
       header_dropdown_open={header_dropdown_open}
+      notification_dropdown_open={notification_dropdown_open}
       open_header_dropdown={open_header_dropdown}
       close_header_dropdown={close_header_dropdown}
       log_out_user={log_out_user}
       do_show_add_user_modal={do_show_add_user_modal}
+      toggle_notification_dropdown_action = {toggle_notification_dropdown_action}
     />
     <div
       className='app-body'
@@ -69,6 +74,7 @@ export const unconnected_shell_component = ({
 const map_state_to_props = ({routing, ui_state, users, session_user_id, modal}) => ({
   active_route: routing.locationBeforeTransitions && routing.locationBeforeTransitions.pathname,
   session_user: users.get(session_user_id, Map({})).set('id', session_user_id),
+  notification_dropdown_open: ui_state.get('notification_dropdown_open', false),
   header_dropdown_open: ui_state.get('header_dropdown_open'),
   modal_props: modal,
   tooltips: ui_state.get('tooltips', Map({}))
@@ -82,7 +88,8 @@ const map_dispatch_to_props = dispatch => {
     open_header_dropdown: bindActionCreators(open_header_dropdown_action, dispatch),
     close_header_dropdown: bindActionCreators(close_header_dropdown_action, dispatch),
     log_out_user: bindActionCreators(attempt_log_out, dispatch),
-    do_close_modal: bindActionCreators(close_modal, dispatch)
+    do_close_modal: bindActionCreators(close_modal, dispatch),
+    toggle_notification_dropdown_action: bindActionCreators(toggle_notification_dropdown, dispatch)
   };
 };
 
