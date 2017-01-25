@@ -44,7 +44,7 @@ const circle_component = ({circle}) =>
             <div className="row">
               <div className="col-sm-6">
                 <i className="fa fa-calendar padding-right-quarter"></i>
-                {format('MMM DD', new Date(circle.get('created')))}
+                {format('MMM DD', new Date(circle.get('start_date')))}
                 <small className='text-sm text-muted'>: Starts</small>
               </div>
               <div className="col-sm-6">

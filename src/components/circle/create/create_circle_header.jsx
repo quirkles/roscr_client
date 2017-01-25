@@ -11,7 +11,7 @@ const circle_header_component = () =>
             <i className ='fa fa-4x fa-plus-circle'></i>
           </div>
           <div className="clear m-b">
-            <h1 className="m-a-0 m-b-sm text-capitalize">Create Circle</h1>
+            <h1 className="m-a-0 m-b-sm text-capitalize serif bold">Create Circle</h1>
           </div>
         </div>
         <div className="col-sm-5">

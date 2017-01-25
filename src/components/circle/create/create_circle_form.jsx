@@ -52,7 +52,7 @@ const create_circle_form = ({
     >
         <div className='box'>
           <div className='box-header pink'>
-            <h2 className='padding-half'>
+            <h2 className='padding-half serif bold'>
               <i className='fa fa-plus-circle padding-right-one'></i>
               Create Circle
             </h2>
@@ -136,7 +136,7 @@ const create_circle_form = ({
               onMouseEnter={set_hover_hint_to_section('start_date')}
               onMouseLeave={set_hover_hint_to_section(null)}
             >
-              <label className='control-label'>Start date: dd-mm-yyyy</label>
+              <label className='control-label'>Start date</label>
               <input
                 type='date'
                 className='form-control'
