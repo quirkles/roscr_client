@@ -5,11 +5,11 @@ import classnames from 'classnames';
 
 export default ({
   session_user,
-  header_dropdown_open,
-  notification_dropdown_open,
-  toggle_notification_dropdown_action,
+  is_header_dropdown_open,
+  is_notification_dropdown_open,
+  open_notification_dropdown,
   open_header_dropdown,
-  close_header_dropdown,
+  close_all_nav_dropdowns,
   do_show_add_user_modal,
   log_out_user
 }) =>
@@ -24,12 +24,12 @@ export default ({
               className='btn btn-sm primary'
               onClick={do_show_add_user_modal}
             >
-              <i className='fa fa-fw fa-user-plus margin-right-half'></i>
+              <i className='fa fa-fw fa-user-plus margin-right-half'/>
               <span className='hidden-sm-down'>Add User</span>
             </span>
           </a>
         </li>
-        <li className={classnames('nav-item', 'dropdown', {open: header_dropdown_open})}>
+        <li className={classnames('nav-item', 'dropdown', {open: is_header_dropdown_open})}>
           <a
             className='nav-link clear'
             onClick={open_header_dropdown}
@@ -45,7 +45,7 @@ export default ({
             <Link
               className='dropdown-item'
               to={`/users/${session_user.get('id')}`}
-              onClick={close_header_dropdown}
+              onClick={close_all_nav_dropdowns}
             >
               <span>Profile</span>
             </Link>
@@ -59,53 +59,40 @@ export default ({
           </div>
         </li>
         <li
-          onClick= {toggle_notification_dropdown_action}
-          className={classnames("nav-item dropdown pos-stc-xs", {open: notification_dropdown_open})}>
+          onClick= {open_notification_dropdown}
+          className={classnames('nav-item dropdown pos-stc-xs', {open: is_notification_dropdown_open})}>
           <a className="nav-link clear">
             <i className="ion-android-notifications-none w-24"/>
-            <span className="label up p-a-0 danger"/>
+            {session_user.get('notifications').size ?
+              <span className="label up p-a-0 danger"/> :
+              null
+            }
           </a>
-          <div className='dropdown-menu pull-right w-xl animated no-bg no-border no-shadow'>
+          <div className='dropdown-menu dropdown-menu-scale pull-right w-xl no-bg no-border no-shadow'>
             <div className="scrollable">
               <ul className="list-group list-group-gap m-a-0">
-                <li className="list-group-item dark-white box-shadow-z0 b">
-                  <span className="pull-left m-r">
-                    <img src="images/a0.jpg" alt="..." className="w-40 img-circle" />
-                  </span>
-                  <span className="clear block">
-                    Use awesome <a href="#" className="text-primary">animate.css</a>
-                    <br/>
-                    <small className="text-muted">10 minutes ago</small>
-                  </span>
-                </li>
-                <li className="list-group-item dark-white box-shadow-z0 b">
-                  <span className="pull-left m-r">
-                    <img src="images/a1.jpg" alt="..." className="w-40 img-circle"/>
-                  </span>
-                  <span className="clear block">
-                    <a href="#" className="text-primary">Joe</a>
-                    Added you as friend
-                    <br/>
-                    <small className="text-muted">2 hours ago</small>
-                  </span>
-                </li>
-                <li className="list-group-item dark-white text-color box-shadow-z0 b">
-                  <span className="pull-left m-r">
-                    <img src="images/a2.jpg" alt="..." className="w-40 img-circle"/>
-                  </span>
-                  <span className="clear block">
-                    <a href="#" className="text-primary">Danie</a> sent you a message
-                    <br/>
-                    <small className="text-muted">1 day ago</small>
-                  </span>
-                </li>
+                {session_user.get('notifications').map(notification =>
+                  <li
+                      className="list-group-item dark-white box-shadow-z0 b"
+                      onClick={e => e.preventDefault()}
+                  >
+                    <span className="pull-left m-r">
+                      <img src="images/a0.jpg" alt="..." className="w-40 img-circle" />
+                    </span>
+                    <span className="clear block">
+                      -- Notification text to go here --
+                      <br/>
+                      <small className="text-muted"> -- Timestamp -- </small>
+                    </span>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
         </li>
         <div
-          className='header-dropdown-overlay'
-          onClick={close_header_dropdown}
+          className={classnames('navbar-dropdown-overlay', {visible: is_notification_dropdown_open || is_header_dropdown_open})}
+          onClick={close_all_nav_dropdowns}
         ></div>
       </ul> :
       <Link

@@ -6,7 +6,8 @@ import {
   DESTROY_ALL_TOOLTIPS,
   OPEN_HEADER_DROPDOWN,
   CLOSE_HEADER_DROPDOWN,
-  TOGGLE_NOTIFICATION_DROPDOWN
+  OPEN_NOTIFICATION_DROPDOWN,
+  CLOSE_ALL_NAV_DROPDOWNS
 } from '../constants/ui_state_constants';
 
 import { LOG_OUT_USER } from '../constants/user_constants';
@@ -22,12 +23,17 @@ const ui_state_reducer = (state = default_state, action) => {
     case DESTROY_ALL_TOOLTIPS:
       return default_state;
     case OPEN_HEADER_DROPDOWN:
-      return state.set('header_dropdown_open', true);
+      return state.set('is_header_dropdown_open', true);
+    case OPEN_NOTIFICATION_DROPDOWN:
+      return state.set('is_notification_dropdown_open', true);
     case LOG_OUT_USER:
     case CLOSE_HEADER_DROPDOWN:
-      return state.set('header_dropdown_open', false);
-    case TOGGLE_NOTIFICATION_DROPDOWN:
-      return state.set('notification_dropdown_open', !state.get('notification_dropdown_open', false));
+      return state.set('is_header_dropdown_open', false);
+    case CLOSE_ALL_NAV_DROPDOWNS:
+      return state.merge({
+        is_header_dropdown_open: false,
+        is_notification_dropdown_open: false
+      });
     default:
       return state;
   }

@@ -72,9 +72,9 @@ const unconnected_view_user_component = ({
   }
 };
 
-const map_state_to_props = ({users, circles, session_user_id}, own_props) => {
+const map_state_to_props = ({users, circles, session_user}, own_props) => {
   const user_to_show_id = own_props.params.user_id === 'me' ?
-    session_user_id :
+    session_user.get('id') :
     own_props.params.user_id;
 
   const user_to_display = user_to_show_id === null ?

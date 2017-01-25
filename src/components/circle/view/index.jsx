@@ -79,7 +79,9 @@ const populate_activity_items_with_users = users => activity_items =>
   ));
 
 // state -> pick circles -> get 'new_circle'
-const map_state_to_props = ({circles, users, session_user_id}, own_props) => {
+const map_state_to_props = ({circles, users, session_user}, own_props) => {
+
+  const session_user_id = session_user.get('id');
 
   const circle_to_display = circles
     .get(own_props.params.circle_id, Map({needs_to_be_fetched: true}))
