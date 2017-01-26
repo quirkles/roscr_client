@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {capitalize} from '../../../utils/string';
-
 const circle_header_component = () =>
   <div className='item bg-tile-swirl circle-header'>
     <div className="p-a-md">

@@ -19,7 +19,7 @@ const session_user_id_reducer = (state = default_state, action) => {
     case LOG_OUT_USER:
       return Map({});
     case SET_SESSION_DATA:
-      return action.session_data && action.session_data.session_user ? fromJS(pick(['id'], action.session_data.session_user)) : state;
+      return action.session_data && action.session_data.session_user ? fromJS(pick(['id', 'notifications'], action.session_data.session_user)) : state;
     default:
       return state;
   }

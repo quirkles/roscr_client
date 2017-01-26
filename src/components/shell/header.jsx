@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 
 import classnames from 'classnames';
 
+import {get_notification} from './notifications';
+
 export default ({
   session_user,
   is_header_dropdown_open,
@@ -71,21 +73,13 @@ export default ({
           <div className='dropdown-menu dropdown-menu-scale pull-right w-xl no-bg no-border no-shadow'>
             <div className="scrollable">
               <ul className="list-group list-group-gap m-a-0">
-                {session_user.get('notifications').map(notification =>
-                  <li
-                      className="list-group-item dark-white box-shadow-z0 b"
-                      onClick={e => e.preventDefault()}
-                  >
-                    <span className="pull-left m-r">
-                      <img src="images/a0.jpg" alt="..." className="w-40 img-circle" />
-                    </span>
-                    <span className="clear block">
-                      -- Notification text to go here --
-                      <br/>
-                      <small className="text-muted"> -- Timestamp -- </small>
-                    </span>
-                  </li>
-                )}
+                {session_user.get('notifications', []).map(notification => {
+                  const Notification = get_notification(notification);
+                  return <Notification
+                    key={notification.get('id')}
+                    notification={notification}
+                  />;
+                })}
               </ul>
             </div>
           </div>
