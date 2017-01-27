@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 
 import configureStore from './store/configure_store';
 import Root from './containers/root';
@@ -31,8 +31,6 @@ import './styles/main.scss';
 //   reduction[key] = js_val;
 //   return reduction;
 // }, {});
-
-//const store = configureStore(get_state_from_local_storage());
 
 // store.subscribe(() => {
 //   localStorage.setItem('stringified_state', JSON.stringify(get_json_state_from_state(store.getState())));
