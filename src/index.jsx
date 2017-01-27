@@ -40,7 +40,7 @@ import './styles/main.scss';
 
 // TODO and do this if dev
 
-const socket = io(`${process.env.ROSCR_API_ENDPOINT || 'http://localhost'}:8090');
+const socket = io(`${process.env.ROSCR_API_ENDPOINT || 'http://localhost'}:8090`);
 
 
 const store = configureStore();
