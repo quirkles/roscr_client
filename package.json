@@ -37,7 +37,6 @@
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.1",
     "raw-loader": "^0.5.1",
-    "react-hot-loader": "^3.0.0-beta.6",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.1.1",
@@ -50,6 +49,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-core": "^6.18.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "babel-loader": "^6.2.7",
     "classnames": "^2.2.5",
     "copy": "^0.3.0",
