@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-// import io from 'socket.io-client';
 
 import configureStore from './store/configure_store';
 import Root from './containers/root';
@@ -37,8 +36,6 @@ import './styles/main.scss';
 // });
 
 // TODO and do this if dev
-
-// const socket = io(process.env.ROSCR_API_ENDPOINT || 'http://localhost:8090');
 
 
 const store = configureStore();
