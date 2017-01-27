@@ -13,31 +13,6 @@ import {set_session_data} from './actions/user_actions';
  */
 import './styles/main.scss';
 
-// TODO detect env and do this if prod
-
-// const get_state_from_local_storage = () => {
-//   const json_state = JSON.parse(localStorage.getItem('stringified_state'));
-//   return Object.keys(json_state || {})
-//     .filter(key => key !== 'routing')
-//     .reduce((reduction, key) => {
-//       reduction[key] = fromJS(json_state[key]);
-//       return reduction;
-//     }, {});
-// };
-
-// const get_json_state_from_state = state => Object.keys(state).reduce((reduction, key) => {
-//   const js_val = state[key].toJS ? state[key].toJS() : state[key];
-//   reduction[key] = js_val;
-//   return reduction;
-// }, {});
-
-// store.subscribe(() => {
-//   localStorage.setItem('stringified_state', JSON.stringify(get_json_state_from_state(store.getState())));
-// });
-
-// TODO and do this if dev
-
-
 const store = configureStore();
 
 
