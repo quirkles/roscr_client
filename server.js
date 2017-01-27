@@ -42,7 +42,7 @@ app.get('*', (req, res) => {
 });
 
 // Set up the application port (or from environment if hosted).
-let appHttpPort = process.env.PORT || 3000;
+const appHttpPort = process.env.PORT || 3000;
 
 // Start web server.
 app.listen(appHttpPort, '0.0.0.0', (err) => {
