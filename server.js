@@ -1,8 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
-var devMiddleware = require('webpack-dev-middleware');
-var hotMiddleware = require('webpack-hot-middleware');
+
+if (process.env['NODE_ENV'] !== 'production') {
+  var devMiddleware = require('webpack-dev-middleware');
+  var hotMiddleware = require('webpack-hot-middleware');
+}
 
 const app = express();
 
