@@ -15,7 +15,7 @@ import {
 const session_user_id_reducer = (state = default_state, action) => {
     switch (action.type) {
     case LOG_IN_USER:
-      return action.user_data && action.user_data.id ? state.set('id', action.user_data.id) : state;
+      return action.user_data && action.user_data.id ? state.merge(pick(['id', 'notifications'], action.user_data)) : state;
     case LOG_OUT_USER:
       return Map({});
     case SET_SESSION_DATA:
