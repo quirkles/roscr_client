@@ -21,7 +21,7 @@ const circle_component = ({circle}) =>
       <div className='box'>
         <div className={classnames('box-header', get_circle_color(circle))}>
           <div className='padding-half'>
-              <h4 className='bold'>
+              <h4 className='bold serif'>
                   <Link
                       to={`circles/${circle.get('id')}`}
                   >
@@ -40,7 +40,7 @@ const circle_component = ({circle}) =>
                       Fetching circle creator information...
                   </div> :
                   <div>
-                    <span className="margin-right-half">Circle Creator:</span>
+                    <span className="margin-right-half">Creator:</span>
                     <span className='margin-right-half'>
                       <img src={get_avatar_url(circle.get('created_by'))} alt="." className='img-circle w-32'/>
                     </span>
@@ -49,7 +49,7 @@ const circle_component = ({circle}) =>
                     >
                       {`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}
                     </Link>
-                    <span className={classnames("margin-left-half bold inline-block padding-half", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
+                    <span className={classnames("margin-left-half bold inline-block padding-quarter", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
                       {circle.getIn(['created_by', 'trust_score'])}
                     </span>
                   </div>

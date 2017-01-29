@@ -59,7 +59,7 @@
                 height: 2px;
                 bottom: 0;
                 left: 0;
-                background-color: #f44336;
+                background-color: #000;
                 transform: translateX(-105%);
                 overflow: hidden;
                 transition: all 0.3s ease-in-out 0s;
@@ -70,7 +70,6 @@
             }
             &:hover {
                 transform: scale(1.075);
-                box-shadow: none;
                 z-index: 10;
               .box-header:before{
                   transform: translateX(0);
