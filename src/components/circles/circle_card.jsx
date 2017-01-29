@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import {format} from 'date-fp';
 import {Link} from 'react-router';
 
-import {get_trust_score_font_class} from '../../utils/user_immutable';
+import {get_trust_score_font_class, get_avatar_url} from '../../utils/user_immutable';
 
 import {capitalize} from '../../utils/string';
 import FetchingCircle from './fetching_circle';
@@ -40,8 +40,15 @@ const circle_component = ({circle}) =>
                       Fetching circle creator information...
                   </div> :
                   <div>
-                    <span className="margin-right-quarter">Circle Creator:</span>
-                    <Link to={`/users/${circle.getIn(['created_by', 'id'])}`}>{`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}</Link>
+                    <span className="margin-right-half">Circle Creator:</span>
+                    <span className='margin-right-half'>
+                      <img src={get_avatar_url(circle.get('created_by'))} alt="." className='img-circle w-32'/>
+                    </span>
+                    <Link
+                      to={`/users/${circle.getIn(['created_by', 'id'])}`}
+                    >
+                      {`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}
+                    </Link>
                     <span className={classnames("margin-left-half bold inline-block padding-half", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
                       {circle.getIn(['created_by', 'trust_score'])}
                     </span>
