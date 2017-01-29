@@ -30,6 +30,14 @@ const circle_component = ({circle}) =>
       <div className='box-body grey-300'>
           <div className="text-md">
             <div className="row padding-bottom-one">
+              <div className="col col-sm-12">
+                {circle.getIn(['created_by', 'needs_to_be_fetched']) ?
+                  <div>Fetching circle creator information</div> :
+                  <div>Circle creator information here</div>
+                }
+              </div>
+            </div>
+            <div className="row padding-bottom-one">
               <div className="col-sm-6">
                 <i className="fa fa-dollar padding-right-quarter"></i>
                 {circle.get('withdrawal_amount')}

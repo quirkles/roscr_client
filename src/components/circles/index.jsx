@@ -50,14 +50,20 @@ const unconnected_circles_component = ({
   );
 };
 
-const map_state_to_props = ({circles, circle_pagination}) => ({
+const map_state_to_props = ({circles, users, circle_pagination}) => ({
   circles: circle_pagination
     .get('circle_ids', List([]))
-    .map(circle_id => circles
-      .get(circle_id, Map({
-        needs_to_be_fetched: true
-      }))
-      .set('id', circle_id)
+    .map(circle_id => circles.get(circle_id, null) ?
+      circles.get(circle_id)
+        .set('id', circle_id)
+        .update('created_by', id => users.get(id, Map({
+          needs_to_be_fetched: true,
+          id
+        }))) :
+      Map({
+        needs_to_be_fetched: true,
+        id: circle_id
+      })
     ),
   circle_pagination
 });
