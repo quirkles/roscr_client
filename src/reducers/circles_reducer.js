@@ -23,7 +23,15 @@ export default (state = default_state, action) => {
         state;
     case ADD_CIRCLES:
     case HANDLE_FIND_CIRCLES_SUCCESS:
-      return action.circle_list.reduce((new_state, circle) => new_state.set(circle.id, fromJS(circle).delete('id')), state);
+      return state.merge(action
+        .circle_list.reduce(
+          (new_state, circle) => new_state
+            .set(circle.id, fromJS(circle)
+                .delete('id')
+                .update('created_by', creator => creator.get && creator.get('id') || creator)
+            ),
+          state
+        ));
     default:
       return state;
   }

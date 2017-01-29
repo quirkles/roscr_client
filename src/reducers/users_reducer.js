@@ -15,7 +15,10 @@ import {
   HANDLE_FIND_USERS_SUCCESS
 } from '../constants/user_constants';
 
-import {ADD_CIRCLE} from '../constants/circle_constants';
+import {
+  ADD_CIRCLE,
+  HANDLE_FIND_CIRCLES_SUCCESS
+} from '../constants/circle_constants';
 
 const default_state = Map({});
 
@@ -46,8 +49,16 @@ const member_reducer = (state = default_state, action) => {
         case HANDLE_FIND_USERS_SUCCESS:
         case ADD_USERS:
           return action.user_list.reduce((new_state, user) => new_state.set(user.id, fromJS(user).delete('id')), state);
-        default:
-            return state;
+        case HANDLE_FIND_CIRCLES_SUCCESS:
+          return state.merge(
+            action.circle_list.reduce((user_map, circle) => fromJS(circle).getIn(['created_by', 'id'], false) ?
+              user_map.set(circle.created_by.id, fromJS(circle.created_by)) :
+              user_map,
+              Map({})
+            )
+          );
+      default:
+          return state;
     }
 };
 
