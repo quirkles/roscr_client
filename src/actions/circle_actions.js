@@ -1,3 +1,5 @@
+import {push} from 'react-router-redux';
+
 import {
   EDIT_CIRCLE,
   ADD_CIRCLE,
@@ -85,6 +87,9 @@ export const attempt_create_circle = circle_data =>
   dispatch =>
     do_create_circle(circle_data)
       .then(
-        ({data}) => dispatch(add_circle(data.circle)),
+        ({data}) => {
+          dispatch(add_circle(data.circle))
+          dispatch(push(`/circles/${data.circle.id}`));
+        },
         error => console.log(error)
       );

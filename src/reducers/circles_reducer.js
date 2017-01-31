@@ -19,7 +19,11 @@ export default (state = default_state, action) => {
         state;
     case ADD_CIRCLE:
       return action.circle_data && action.circle_data.id ?
-        state.set(action.circle_data.id, fromJS(action.circle_data).delete('id')) :
+        state.set(
+          action.circle_data.id,
+          fromJS(action.circle_data).delete('id')
+            .update('created_by', creator => creator.get && creator.get('id') || creator)
+        ) :
         state;
     case ADD_CIRCLES:
     case HANDLE_FIND_CIRCLES_SUCCESS:
