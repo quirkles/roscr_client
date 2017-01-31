@@ -3,7 +3,6 @@ import {format} from 'date-fp';
 import classnames from 'classnames';
 import {Link} from 'react-router';
 
-import {get_random_element_from_array} from '../../../utils/array';
 import {capitalize} from '../../../utils/string';
 
 const get_badge_content = recipient =>
@@ -26,9 +25,17 @@ const get_name_content = recipient =>
       </Link>
     </small>;
 
-const get_random_bg_color = () => get_random_element_from_array([
-  'yellow', 'info', 'success', 'danger'
-]);
+const bg_colors = ['blue-500', 'green-500', 'pink-500', 'red-500', 'amber-500', 'purple-500'];
+
+const get_poe_bg_color = payout_event => {
+  const unique_int = payout_event
+  .get('id', '')
+  .split('')
+  .map(c => parseInt(c, 10))
+  .filter(c => !isNaN(c))
+  .reduce((sum, int) => sum + int, 0);
+  return bg_colors[unique_int % bg_colors.length];
+};
 
 const payout_event_list_component = ({
   payout_events,
@@ -46,7 +53,7 @@ const payout_event_list_component = ({
         </div>
       }
       <div className='list-left'>
-        <div className={classnames('w-40', 'circle', get_random_bg_color())}>
+        <div className={classnames('w-40', 'circle', get_poe_bg_color(payout_event))}>
           {get_badge_content(payout_event.get('recipient', 'NONE'))}
         </div>
       </div>

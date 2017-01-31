@@ -40,18 +40,18 @@ const circle_component = ({circle}) =>
                       Fetching circle creator information...
                   </div> :
                   <div>
-                    <span className="margin-right-half">Creator:</span>
-                    <span className='margin-right-half'>
-                      <img src={get_avatar_url(circle.get('created_by'))} alt="." className='img-circle w-32'/>
-                    </span>
-                    <Link
-                      to={`/users/${circle.getIn(['created_by', 'id'])}`}
-                    >
-                      {`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}
-                    </Link>
-                    <span className={classnames("margin-left-half bold inline-block padding-quarter", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
-                      {circle.getIn(['created_by', 'trust_score'])}
-                    </span>
+                    <div className="text-center padding-bottom-half b-b">Created By</div>
+                    <div className="text-center margin-top-quarter margin-bottom-quarter">
+                      <span className='margin-right-two'>
+                        <img src={get_avatar_url(circle.get('created_by'))} alt="." className='img-circle w-24'/>
+                      </span>
+                      <Link to={`/users/${circle.getIn(['created_by', 'id'])}`}>
+                        {`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}
+                      </Link>
+                      <span className={classnames("label margin-left-two", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
+                        {circle.getIn(['created_by', 'trust_score'])}
+                      </span>
+                    </div>
                   </div>
                 }
               </div>

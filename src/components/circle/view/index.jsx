@@ -91,8 +91,22 @@ const map_state_to_props = ({circles, users, session_user}, own_props) => {
 
   const circle_members = circle_to_display
     .get('members', Map({}))
-    .map(m => users.get(m, Map({needs_to_be_fetched: true}))
-      .set('id', m));
+    .map(member_id => users.get(member_id, false) ?
+      users.get(member_id)
+      .set('id', member_id)
+      .set(
+        'savings_goal',
+        circle_to_display.get('savings_goals', List([])).find(savings_goal => savings_goal.get('circle_member_id') === member_id) || Map({
+          member_id,
+          savings_goal: 'No savings goal entered for this user.',
+          can_edit: member_id === session_user_id
+        })
+      ) :
+      Map({
+        id: member_id,
+        needs_to_be_fetched: true
+      })
+    );
 
   return {
     circle_to_display,

@@ -38,17 +38,16 @@ const circle_member_list_item_component = ({
   </Link>
   <div className='list-body'>
     <div>
-      <Link
-        to = {`/users/${circle_member.get('id')}`}
-      >
+      <Link to = {`/users/${circle_member.get('id')}`}>
         {circle_member.get('firstname')} {circle_member.get('lastname')}
       </Link>
     </div>
-    <small
-      className='text-muted text-ellipsis'
-    >
+    <small className='text-muted text-ellipsis'>
       {circle_member.get('about_me', 'This user hasnt filled in their \'about me\' section :(')}
     </small>
+    <div
+      className={classnames('serif text-muted italic user-savings-goal', {'can-edit-savings-goal': circle_member.getIn(['savings_goal', 'can_edit'])})}
+    >{circle_member.getIn(['savings_goal', 'savings_goal'])}</div>
   </div>
 </li>;
 

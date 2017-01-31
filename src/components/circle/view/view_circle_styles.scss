@@ -39,5 +39,12 @@
       font-weight: bold;
       padding: 5px;
     }
+    .user-savings-goal {
+      display: inline-block;
+      &.can-edit-savings-goal {
+        border-bottom: 2px dashed #dedede;
+        cursor: pointer;
+      }
+    }
   }
 }
