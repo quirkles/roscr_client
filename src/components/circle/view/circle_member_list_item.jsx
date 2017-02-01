@@ -10,7 +10,8 @@ const circle_member_list_item_component = ({
   show_tooltip_with_data,
   destroy_tooltip_with_id,
   is_session_user,
-  begin_editing_savings_goal
+  begin_editing_savings_goal,
+  edit_savings_goal
 }) =>
 <li className='list-item'>
   <div className='list-right'>
@@ -48,13 +49,20 @@ const circle_member_list_item_component = ({
       {circle_member.get('about_me', 'This user hasnt filled in their \'about me\' section :(')}
     </small>
     {circle_member.getIn(['savings_goal', 'is_editing']) ?
-      <div>Editing savings goal</div> :
+      <div>
+        <input
+          type='text'
+          placeholder='Enter your savings goal for this circle'
+          value={circle_member.getIn(['savings_goal', 'savings_goal'])}
+          onChange={edit_savings_goal}
+        />
+      </div> :
       <div
         onClick={is_session_user && begin_editing_savings_goal}
         className={classnames('serif text-muted italic user-savings-goal', {
           'can-edit-savings-goal': is_session_user
         })}
-      >{circle_member.getIn(['savings_goal', 'savings_goal'])}</div>
+      >{circle_member.getIn(['savings_goal', 'savings_goal'], 'No savings goal entered for this user.')}</div>
     }
     </div>
 </li>;
