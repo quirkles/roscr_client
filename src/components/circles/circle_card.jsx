@@ -48,7 +48,7 @@ const circle_component = ({circle}) =>
                       <Link to={`/users/${circle.getIn(['created_by', 'id'])}`}>
                         {`${circle.getIn(['created_by', 'firstname'])} ${circle.getIn(['created_by', 'lastname'])}`}
                       </Link>
-                      <span className={classnames("label margin-left-two", get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
+                      <span className={classnames('label margin-left-two', get_trust_score_font_class(circle.getIn(['created_by', 'trust_score'])))}>
                         {circle.getIn(['created_by', 'trust_score'])}
                       </span>
                     </div>

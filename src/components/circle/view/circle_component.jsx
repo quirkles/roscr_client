@@ -11,7 +11,8 @@ const circle_component = ({
   session_user_id,
   show_tooltip_with_data,
   destroy_tooltip_with_id,
-  claim_payout_event_for_user
+  claim_payout_event_for_user,
+  begin_editing_savings_goal_for_user
 }) =>
   <div className="view-circle-component">
     <CircleHeader
@@ -28,10 +29,12 @@ const circle_component = ({
         </div>
         <div className='col-lg-12 col-xl-6'>
           <CircleMemberList
+            session_user_id={session_user_id}
             circle_members = {circle_members}
             circle_id = {circle_to_display.get('id')}
             show_tooltip_with_data = {show_tooltip_with_data}
             destroy_tooltip_with_id = {destroy_tooltip_with_id}
+            begin_editing_savings_goal_for_user={begin_editing_savings_goal_for_user}
           />
           <h1 className='text-center serif margin-bottom-one'>Circle Activity Timeline</h1>
           <Timeline

@@ -6,7 +6,9 @@ const circle_member_list_component = ({
   circle_members,
   circle_id,
   show_tooltip_with_data,
-  destroy_tooltip_with_id
+  destroy_tooltip_with_id,
+  session_user_id,
+  begin_editing_savings_goal_for_user
 }) =>
 <div className='box circle-member-list-pane'>
   <div className='box-header yellow'>
@@ -24,6 +26,8 @@ const circle_member_list_component = ({
           circle_id = {circle_id}
           show_tooltip_with_data = {show_tooltip_with_data}
           destroy_tooltip_with_id = {destroy_tooltip_with_id}
+          is_session_user={member.get('id') === session_user_id}
+          begin_editing_savings_goal={begin_editing_savings_goal_for_user(member.get('id'))}
         />
       )}
     </ul>

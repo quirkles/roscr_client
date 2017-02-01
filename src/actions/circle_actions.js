@@ -5,7 +5,8 @@ import {
   ADD_CIRCLE,
   ADD_CIRCLES,
   CLAIM_PAYOUT_SPOT_ON_CIRCLE,
-  HANDLE_FIND_CIRCLES_SUCCESS
+  HANDLE_FIND_CIRCLES_SUCCESS,
+  BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER
 } from '../constants/circle_constants';
 
 import {
@@ -36,6 +37,11 @@ export const add_circle = circle_data => ({
 export const add_circles = circle_list => ({
   type: ADD_CIRCLES,
   circle_list
+});
+
+export const begin_editing_circle_savings_goal_for_user = ({circle_id, user_id}) => ({
+  type: BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
+  circle_id, user_id
 });
 
 const handle_find_circles_success = circle_list => ({
@@ -88,7 +94,7 @@ export const attempt_create_circle = circle_data =>
     do_create_circle(circle_data)
       .then(
         ({data}) => {
-          dispatch(add_circle(data.circle))
+          dispatch(add_circle(data.circle));
           dispatch(push(`/circles/${data.circle.id}`));
         },
         error => console.log(error)

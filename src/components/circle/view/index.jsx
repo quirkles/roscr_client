@@ -6,7 +6,7 @@ import {Map, List} from 'immutable';
 import {pick} from '../../../utils/immutable';
 
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
-import {claim_payout_spot_on_circle, find_circle_by_id} from '../../../actions/circle_actions';
+import {claim_payout_spot_on_circle, find_circle_by_id, begin_editing_circle_savings_goal_for_user} from '../../../actions/circle_actions';
 import {find_many_users_by_ids} from '../../../actions/user_actions';
 
 import CircleComponent from './circle_component';
@@ -23,7 +23,8 @@ export const unconnected_create_circle_component = ({
   destroy_tooltip_with_id,
   claim_payout_event_for_user,
   do_find_circle_by_id,
-  do_find_many_users_by_ids
+  do_find_many_users_by_ids,
+  begin_editing_savings_goal_for_user_in_circle
 }) => {
   const user_ids_to_fetch = circle_members
     .filter(member => member.get('needs_to_be_fetched'))
@@ -54,6 +55,7 @@ export const unconnected_create_circle_component = ({
         show_tooltip_with_data={show_tooltip_with_data}
         destroy_tooltip_with_id={destroy_tooltip_with_id}
         claim_payout_event_for_user={claim_payout_event_for_user}
+        begin_editing_savings_goal_for_user = {begin_editing_savings_goal_for_user_in_circle(circle_to_display.get('id'))}
       />
     );
   }
@@ -96,10 +98,9 @@ const map_state_to_props = ({circles, users, session_user}, own_props) => {
       .set('id', member_id)
       .set(
         'savings_goal',
-        circle_to_display.get('savings_goals', List([])).find(savings_goal => savings_goal.get('circle_member_id') === member_id) || Map({
+        circle_to_display.get('savings_goals', List([])).find(savings_goal => savings_goal.get('member_id') === member_id) || Map({
           member_id,
-          savings_goal: 'No savings goal entered for this user.',
-          can_edit: member_id === session_user_id
+          savings_goal: 'No savings goal entered for this user.'
         })
       ) :
       Map({
@@ -133,12 +134,20 @@ const map_dispatch_to_props = dispatch => {
 
   const do_find_many_users_by_ids = bindActionCreators(find_many_users_by_ids, dispatch);
 
+  const begin_editing_circle_savings_goal_action = bindActionCreators(begin_editing_circle_savings_goal_for_user, dispatch);
+  const begin_editing_savings_goal_for_user_in_circle =
+    circle_id =>
+      user_id =>
+        () =>
+          begin_editing_circle_savings_goal_action({circle_id, user_id});
+
   return {
     show_tooltip_with_data,
     destroy_tooltip_with_id,
     claim_payout_event_for_user,
     do_find_circle_by_id,
-    do_find_many_users_by_ids
+    do_find_many_users_by_ids,
+    begin_editing_savings_goal_for_user_in_circle
   };
 };
 
