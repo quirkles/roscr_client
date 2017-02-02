@@ -13,6 +13,7 @@ const circle_component = ({
   destroy_tooltip_with_id,
   claim_payout_event_for_user,
   begin_editing_savings_goal_for_user,
+  stop_editing_savings_goal_for_user,
   edit_savings_goal_for_user
 }) =>
   <div className="view-circle-component">
@@ -36,6 +37,7 @@ const circle_component = ({
             show_tooltip_with_data = {show_tooltip_with_data}
             destroy_tooltip_with_id = {destroy_tooltip_with_id}
             begin_editing_savings_goal_for_user={begin_editing_savings_goal_for_user}
+            stop_editing_savings_goal_for_user={stop_editing_savings_goal_for_user}
             edit_savings_goal_for_user={edit_savings_goal_for_user}
           />
           <h1 className='text-center serif margin-bottom-one'>Circle Activity Timeline</h1>
@@ -47,4 +49,4 @@ const circle_component = ({
     </div>
   </div>;
 
-export default circle_component
+export default circle_component;

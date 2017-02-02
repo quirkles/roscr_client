@@ -5,7 +5,9 @@ import {
   ADD_CIRCLE,
   ADD_CIRCLES,
   HANDLE_FIND_CIRCLES_SUCCESS,
-  BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER
+  BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
+  STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
+  EDIT_CIRCLE_SAVINGS_GOAL_FOR_USER
 } from '../constants/circle_constants';
 
 import circle_reducer from './circle_reducer';
@@ -16,6 +18,8 @@ export default (state = default_state, action) => {
   switch (action.type) {
     case EDIT_CIRCLE:
     case BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER:
+    case STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER:
+    case EDIT_CIRCLE_SAVINGS_GOAL_FOR_USER:
       return action.circle_id && state.get(action.circle_id) ?
         state.update(action.circle_id, c => circle_reducer(c, action)) :
         state;

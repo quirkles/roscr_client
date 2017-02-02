@@ -7,6 +7,7 @@ import {
   CLAIM_PAYOUT_SPOT_ON_CIRCLE,
   HANDLE_FIND_CIRCLES_SUCCESS,
   BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
+  STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
   EDIT_CIRCLE_SAVINGS_GOAL_FOR_USER
 } from '../constants/circle_constants';
 
@@ -45,9 +46,14 @@ export const begin_editing_circle_savings_goal_for_user = ({circle_id, user_id})
   circle_id, user_id
 });
 
+export const stop_editing_circle_savings_goal_for_user = ({circle_id, user_id}) => ({
+  type: STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
+  circle_id, user_id
+});
+
 export const edit_circle_savings_goal_for_user = ({circle_id, user_id, savings_goal}) => ({
   type: EDIT_CIRCLE_SAVINGS_GOAL_FOR_USER,
-  savings_goal
+  circle_id, user_id, savings_goal
 });
 
 const handle_find_circles_success = circle_list => ({

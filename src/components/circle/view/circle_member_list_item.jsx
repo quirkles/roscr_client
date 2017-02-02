@@ -11,6 +11,7 @@ const circle_member_list_item_component = ({
   destroy_tooltip_with_id,
   is_session_user,
   begin_editing_savings_goal,
+  stop_editing_savings_goal,
   edit_savings_goal
 }) =>
 <li className='list-item'>
@@ -48,22 +49,26 @@ const circle_member_list_item_component = ({
     <small className='text-muted text-ellipsis'>
       {circle_member.get('about_me', 'This user hasnt filled in their \'about me\' section :(')}
     </small>
-    {circle_member.getIn(['savings_goal', 'is_editing']) ?
-      <div>
+    <div className='savings-goal'>
+      {circle_member.getIn(['savings_goal', 'is_editing']) ?
         <input
           type='text'
           placeholder='Enter your savings goal for this circle'
           value={circle_member.getIn(['savings_goal', 'savings_goal'])}
+          onBlur={stop_editing_savings_goal}
           onChange={edit_savings_goal}
-        />
-      </div> :
+          ref={i => i && i.focus()}
+        /> :
       <div
         onClick={is_session_user && begin_editing_savings_goal}
-        className={classnames('serif text-muted italic user-savings-goal', {
+        className={classnames('serif text-muted italic', {
           'can-edit-savings-goal': is_session_user
         })}
-      >{circle_member.getIn(['savings_goal', 'savings_goal'], 'No savings goal entered for this user.')}</div>
-    }
+      >
+        {circle_member.getIn(['savings_goal', 'savings_goal'], 'No savings goal entered for this user.')}
+      </div>
+      }
+    </div>
     </div>
 </li>;
 

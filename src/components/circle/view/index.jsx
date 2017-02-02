@@ -6,7 +6,13 @@ import {Map, List} from 'immutable';
 import {pick} from '../../../utils/immutable';
 
 import {show_tooltip, destroy_tooltip} from '../../../actions/ui_state_actions';
-import {claim_payout_spot_on_circle, find_circle_by_id, begin_editing_circle_savings_goal_for_user, edit_circle_savings_goal_for_user} from '../../../actions/circle_actions';
+import {
+  claim_payout_spot_on_circle,
+  find_circle_by_id,
+  begin_editing_circle_savings_goal_for_user,
+  stop_editing_circle_savings_goal_for_user,
+  edit_circle_savings_goal_for_user
+} from '../../../actions/circle_actions';
 import {find_many_users_by_ids} from '../../../actions/user_actions';
 
 import CircleComponent from './circle_component';
@@ -25,6 +31,7 @@ export const unconnected_view_circle_component = ({
   do_find_circle_by_id,
   do_find_many_users_by_ids,
   begin_editing_savings_goal_for_user_in_circle,
+  stop_editing_savings_goal_for_user_in_circle,
   edit_savings_goal_for_user_in_circle
 }) => {
   const user_ids_to_fetch = circle_members
@@ -57,6 +64,7 @@ export const unconnected_view_circle_component = ({
         destroy_tooltip_with_id={destroy_tooltip_with_id}
         claim_payout_event_for_user={claim_payout_event_for_user}
         begin_editing_savings_goal_for_user = {begin_editing_savings_goal_for_user_in_circle(circle_to_display.get('id'))}
+        stop_editing_savings_goal_for_user = {stop_editing_savings_goal_for_user_in_circle(circle_to_display.get('id'))}
         edit_savings_goal_for_user = {edit_savings_goal_for_user_in_circle(circle_to_display.get('id'))}
       />
     );
@@ -142,6 +150,13 @@ const map_dispatch_to_props = dispatch => {
         () =>
           begin_editing_circle_savings_goal_action({circle_id, user_id});
 
+  const stop_editing_circle_savings_goal_action = bindActionCreators(stop_editing_circle_savings_goal_for_user, dispatch);
+  const stop_editing_savings_goal_for_user_in_circle =
+    circle_id =>
+      user_id =>
+        () =>
+          stop_editing_circle_savings_goal_action({circle_id, user_id});
+
   const edit_circle_savings_goal_action = bindActionCreators(edit_circle_savings_goal_for_user, dispatch);
   const edit_savings_goal_for_user_in_circle =
     circle_id =>
@@ -156,6 +171,7 @@ const map_dispatch_to_props = dispatch => {
     do_find_circle_by_id,
     do_find_many_users_by_ids,
     begin_editing_savings_goal_for_user_in_circle,
+    stop_editing_savings_goal_for_user_in_circle,
     edit_savings_goal_for_user_in_circle
   };
 };
