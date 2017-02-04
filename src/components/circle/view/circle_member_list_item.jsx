@@ -54,7 +54,7 @@ const circle_member_list_item_component = ({
         <input
           type='text'
           placeholder='Enter your savings goal for this circle'
-          value={circle_member.getIn(['savings_goal', 'savings_goal'])}
+          value={circle_member.getIn(['savings_goal', 'savings_goal'], '')}
           onBlur={stop_editing_savings_goal}
           onChange={edit_savings_goal}
           ref={i => i && i.focus()}

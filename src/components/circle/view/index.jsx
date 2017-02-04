@@ -10,7 +10,7 @@ import {
   claim_payout_spot_on_circle,
   find_circle_by_id,
   begin_editing_circle_savings_goal_for_user,
-  stop_editing_circle_savings_goal_for_user,
+  attempt_save_circle_savings_goal_for_user,
   edit_circle_savings_goal_for_user
 } from '../../../actions/circle_actions';
 import {find_many_users_by_ids} from '../../../actions/user_actions';
@@ -103,17 +103,17 @@ const map_state_to_props = ({circles, users, session_user}, own_props) => {
 
   const circle_members = circle_to_display
     .get('members', Map({}))
-    .map(member_id => users.get(member_id, false) ?
-      users.get(member_id)
-      .set('id', member_id)
+    .map(user_id => users.get(user_id, false) ?
+      users.get(user_id)
+      .set('id', user_id)
       .set(
         'savings_goal',
-        circle_to_display.get('savings_goals', List([])).find(savings_goal => savings_goal.get('member_id') === member_id) || Map({
-          member_id
+        circle_to_display.get('savings_goals', List([])).find(savings_goal => savings_goal.get('user_id') === user_id) || Map({
+          user_id
         })
       ) :
       Map({
-        id: member_id,
+        id: user_id,
         needs_to_be_fetched: true
       })
     );
@@ -150,12 +150,12 @@ const map_dispatch_to_props = dispatch => {
         () =>
           begin_editing_circle_savings_goal_action({circle_id, user_id});
 
-  const stop_editing_circle_savings_goal_action = bindActionCreators(stop_editing_circle_savings_goal_for_user, dispatch);
+  const stop_editing_circle_savings_goal_action = bindActionCreators(attempt_save_circle_savings_goal_for_user, dispatch);
   const stop_editing_savings_goal_for_user_in_circle =
     circle_id =>
       user_id =>
-        () =>
-          stop_editing_circle_savings_goal_action({circle_id, user_id});
+        e =>
+          stop_editing_circle_savings_goal_action({circle_id, user_id, savings_goal: e.target.value});
 
   const edit_circle_savings_goal_action = bindActionCreators(edit_circle_savings_goal_for_user, dispatch);
   const edit_savings_goal_for_user_in_circle =

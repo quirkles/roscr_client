@@ -15,7 +15,8 @@ import {
   do_find_circle_by_id,
   do_create_circle,
   do_find_many_circles_by_ids,
-  do_find_many_circles_with_params
+  do_find_many_circles_with_params,
+  do_update_savings_goal_in_circle_for_user
 } from '../utils/requests/circle';
 
 export const edit_circle = ({circle_id, circle_data}) => ({
@@ -111,3 +112,13 @@ export const attempt_create_circle = circle_data =>
         },
         error => console.log(error)
       );
+
+export const attempt_save_circle_savings_goal_for_user = ({circle_id, user_id, savings_goal}) =>
+  dispatch => {
+    dispatch(stop_editing_circle_savings_goal_for_user({circle_id, user_id}));
+    do_update_savings_goal_in_circle_for_user({circle_id, user_id, savings_goal})
+      .then(
+        () => console.log('Success!'),
+        () => console.log('failure!')
+      );
+  }
