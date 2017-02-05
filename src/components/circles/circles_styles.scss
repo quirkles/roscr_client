@@ -1,3 +1,6 @@
+$track-color-1: #03a9f4;
+$track-color-2: #ff5722;
+
 .circles-component {
   .circles_filter_component {
     text-align: center;
@@ -44,6 +47,34 @@
           }
         }
       }
+    }
+    .member-slider {
+      h4 {
+        color: $track-color-1;
+      }
+      .input-range {
+        .input-range__track--active {
+          background: $track-color-1;
+        }
+        .input-range__slider {
+          background: $track-color-1;
+          border-color: $track-color-1;
+        }
+      }
+    }
+    .amount-slider {
+      h4 {
+        color: $track-color-2;
+      }
+      .input-range {
+        .input-range__track--active {
+          background: $track-color-2;
+        }
+        .input-range__slider {
+          background: $track-color-2;
+          border-color: $track-color-2;
+        }
+      } 
     }
   }
   .circle-card {

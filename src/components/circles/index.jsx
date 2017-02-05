@@ -31,7 +31,7 @@ const unconnected_circles_component = ({
             circle_pagination_filter={circle_pagination.get('filter')}
             update_circle_pagination_query={e => update_circle_pagination_filter_action({query: e.target.value})}
             update_circle_pagination_cycle_period={e => update_circle_pagination_filter_action({cycle_period: e.target.value})}
-            update_circle_pagination_participant_count={e => update_circle_pagination_filter_action({participant_count: e.target.value})}
+            update_circle_pagination_participant_count={participant_count => update_circle_pagination_filter_action({participant_count})}
           />
         </div>
         <div className='row'>
