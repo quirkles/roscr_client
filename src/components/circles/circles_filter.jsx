@@ -1,4 +1,8 @@
 import React from 'react';
+import InputRange from 'react-input-range';
+import { Calendar } from 'react-date-range';
+
+import 'react-input-range/lib/css/index.css';
 
 const circles_filter_component = ({
   circle_pagination_filter,
@@ -14,8 +18,8 @@ const circles_filter_component = ({
     Use the filter to tailor your results.
   </h3>
   <form className='b-b padding-bottom-one margin-bottom-one'>
-    <div className="row">
-      <div className="col-sm-6">
+    <div className="row padding-bottom-one">
+      <div className="col-sm-9">
         <div className='searchbox input-group'>
           <input
             type='text'
@@ -41,22 +45,29 @@ const circles_filter_component = ({
           <option value="monthly">Monthly</option>
         </select>
       </div>
-      <div className='col-sm-3'>
-        <select
-          name="member-count"
-          className="circle-filter-field"
-          defaultValue={circle_pagination_filter.get('participant_count', '')}
-          onChange={(update_circle_pagination_participant_count)}
-        >
-          <option value=''>Member Count</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+    </div>
+    <div className='row'>
+      <div className='col-sm-4'>
+        <InputRange
+           minValue={0}
+           maxValue={100}
+           value={{min: 10, max: 90}}
+           onChange={value => console.log(value)}
+        />
+      </div>
+      <div className='col-sm-4'>
+        <InputRange
+           minValue={100}
+           maxValue={1000}
+           value={{min: 400, max: 500}}
+           onChange={value => console.log(value)}
+        />
+      </div>
+      <div className='col-sm-4'>
+        <Calendar
+          onInit={() => {}}
+          onChange={() => {}}
+        />
       </div>
     </div>
   </form>
