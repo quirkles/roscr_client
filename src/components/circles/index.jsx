@@ -12,6 +12,7 @@ import CircleCard from './circle_card';
 import CirclesFilter from './circles_filter';
 import CirclesHeader from './circles_header';
 import FetchingCircles from './fetching_circles';
+import NoCircles from '../not_found';
 
 const unconnected_circles_component = ({
   circles,
@@ -32,11 +33,14 @@ const unconnected_circles_component = ({
             update_circle_pagination_query={e => update_circle_pagination_filter_action({query: e.target.value})}
             update_circle_pagination_cycle_period={e => update_circle_pagination_filter_action({cycle_period: e.target.value})}
             update_circle_pagination_participant_count={participant_count => update_circle_pagination_filter_action({participant_count})}
+            update_circle_pagination_withdrawal_amount={withdrawal_amount => update_circle_pagination_filter_action({withdrawal_amount})}
           />
         </div>
         <div className='row'>
           {circle_pagination.get('fetch_state') === 'unfetched' ?
-          <FetchingCircles/> :
+            <FetchingCircles/> :
+            circles.size === 0 ?
+            <NoCircles message='Sorry! No circles match that search.'/> :
             circles.map(circle =>
               <CircleCard
                 key={circle.get('id')}
