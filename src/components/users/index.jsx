@@ -19,7 +19,7 @@ export const unconnected_users_component = ({
   update_user_pagination_filter_action,
   fetch_users
 }) => {
-  if (user_pagination.get('fetch_state') === 'unfetched') {
+  if (user_pagination.get('fetch_state') === 'unfetched' || user_pagination.get('fetch_state') === 'never_fetched') {
     fetch_users(user_pagination.get('filter').toJS());
   }
   return (
@@ -31,10 +31,11 @@ export const unconnected_users_component = ({
             user_pagination_filter={user_pagination.get('filter')}
             update_user_pagination_query={e => update_user_pagination_filter_action({query: e.target.value})}
             update_user_pagination_min_trust={e => update_user_pagination_filter_action({min_trust_score: e.target.value})}
+            update_user_pagination_sort_by={sort_by => () => update_user_pagination_filter_action({sort_by})}
           />
         </div>
         <div className='row'>
-          {user_pagination.get('fetch_state') === 'unfetched' ?
+          {user_pagination.get('fetch_state') === 'never_fetched' ?
             <FetchingUsers/> :
             users.map(user=>
             <UserItem

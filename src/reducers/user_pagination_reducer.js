@@ -5,11 +5,11 @@ import {UPDATE_USER_PAGINATION_FILTER} from '../constants/user_pagination_consta
 
 const default_state = fromJS({
 	user_ids: [],
-  fetch_state: 'unfetched',
+  fetch_state: 'never_fetched',
 	filter: {
-		limit: 10,
+		limit: 25,
 		skip: 0,
-		sort_by: null,
+		sort_by: '-trust_score',
 		query: '',
     min_trust_score: null,
 	}

@@ -20,7 +20,7 @@ const unconnected_circles_component = ({
   update_circle_pagination_filter_action,
   fetch_circles
 }) => {
-  if (circle_pagination.get('fetch_state') === 'unfetched') {
+  if (circle_pagination.get('fetch_state') === 'unfetched' || circle_pagination.get('fetch_state') === 'never_fetched') {
     fetch_circles(circle_pagination.get('filter').toJS());
   }
   return (
@@ -37,7 +37,7 @@ const unconnected_circles_component = ({
           />
         </div>
         <div className='row'>
-          {circle_pagination.get('fetch_state') === 'unfetched' ?
+          {circle_pagination.get('fetch_state') === 'never_fetched' ?
             <FetchingCircles/> :
             circles.size === 0 ?
             <NoCircles message='Sorry! No circles match that search.'/> :

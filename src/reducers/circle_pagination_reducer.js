@@ -5,7 +5,7 @@ import {UPDATE_CIRCLE_PAGINATION_FILTER} from '../constants/circle_pagination_co
 
 const default_state = fromJS({
 	circle_ids: [],
-  fetch_state: 'unfetched',
+  fetch_state: 'never_fetched',
 	filter: {
 		limit: 25,
 		skip: 0,
