@@ -7,7 +7,7 @@ const default_state = fromJS({
 	circle_ids: [],
   fetch_state: 'unfetched',
 	filter: {
-		limit: 10,
+		limit: 25,
 		skip: 0,
 		sort_by: null,
 		query: ''
