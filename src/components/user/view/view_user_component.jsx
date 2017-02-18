@@ -11,6 +11,7 @@ const view_user_component = ({
   user_to_display,
   circles_user_can_be_invited_to,
   open_editing_panel_for_user_with_id,
+  open_add_user_to_circle_dropdown,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
   stop_editing_and_do_update_attr_for_user,
@@ -23,6 +24,7 @@ const view_user_component = ({
     circles_user_can_be_invited_to={circles_user_can_be_invited_to}
     user_to_display={user_to_display}
     open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
+    open_add_user_to_circle_dropdown={() => open_add_user_to_circle_dropdown(user_to_display.get('id'))}
   />
   <div className="padding">
     <div className='row margin-top-two'>

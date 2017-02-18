@@ -6,7 +6,8 @@ import {get_display_name} from '../../../utils/user_immutable';
 const user_profile_header_component = ({
   user_to_display,
   circles_user_can_be_invited_to,
-  open_editing_panel_for_user_with_id
+  open_editing_panel_for_user_with_id,
+  open_add_user_to_circle_dropdown
 }) =>
 <div className='item'>
   <div className="item-bg bg-tile-ignasi"></div>
@@ -35,7 +36,11 @@ const user_profile_header_component = ({
             <i className="fa fa-plus margin-left-half"></i>
           </a>
           {circles_user_can_be_invited_to.size ?
-            <a href="#" className="btn btn-sm margin-left-one rounded success active m-b" data-ui-toggle-className="success">
+            <a
+              href="#"
+              className="btn btn-sm margin-left-one rounded success active m-b"
+              onClick={open_add_user_to_circle_dropdown}
+            >
               <span className="none">Invite user to circle</span>
               <i className="fa fa-caret-down margin-left-half"></i>
             </a> : null

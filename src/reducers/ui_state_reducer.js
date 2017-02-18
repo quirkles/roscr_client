@@ -1,4 +1,4 @@
-import {fromJS as from_js} from 'immutable';
+import {Map} from 'immutable';
 
 import {
   SHOW_TOOLTIP_AT_ELEMENT,
@@ -7,12 +7,13 @@ import {
   OPEN_HEADER_DROPDOWN,
   CLOSE_HEADER_DROPDOWN,
   OPEN_NOTIFICATION_DROPDOWN,
-  CLOSE_ALL_NAV_DROPDOWNS
+  CLOSE_ALL_NAV_DROPDOWNS,
+  OPEN_ADD_USER_TO_CIRCLE_DROPDOWN
 } from '../constants/ui_state_constants';
 
 import { LOG_OUT_USER } from '../constants/user_constants';
 
-const default_state = from_js({});
+const default_state = Map({});
 
 const ui_state_reducer = (state = default_state, action) => {
   switch (action.type) {
@@ -34,6 +35,8 @@ const ui_state_reducer = (state = default_state, action) => {
         is_header_dropdown_open: false,
         is_notification_dropdown_open: false
       });
+    case OPEN_ADD_USER_TO_CIRCLE_DROPDOWN:
+      return state.setIn(['add_user_to_cricle_dropdowns', action.user_id], true);
     default:
       return state;
   }
