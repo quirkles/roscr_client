@@ -5,6 +5,7 @@ import {get_display_name} from '../../../utils/user_immutable';
 
 const user_profile_header_component = ({
   user_to_display,
+  circles_user_can_be_invited_to,
   open_editing_panel_for_user_with_id
 }) =>
 <div className='item'>
@@ -29,9 +30,16 @@ const user_profile_header_component = ({
               {user_to_display.get('city', 'No known city')}, {user_to_display.get('country', 'No known country')}
             </small>
           </p>
-          <a href="#" className="btn btn-sm warn rounded info active m-b" data-ui-toggle-className="success">
+          <a href="#" className="btn btn-sm warn rounded active m-b" data-ui-toggle-className="success">
             <span className="none">Add Buddy</span>
+            <i className="fa fa-plus margin-left-half"></i>
           </a>
+          {circles_user_can_be_invited_to.size ?
+            <a href="#" className="btn btn-sm margin-left-one rounded success active m-b" data-ui-toggle-className="success">
+              <span className="none">Invite user to circle</span>
+              <i className="fa fa-caret-down margin-left-half"></i>
+            </a> : null
+          }
           <div>
             <span className='bold text-md margin-right-one'>User Trust Score:</span>
             <span className="label rounded label-lg info">

@@ -9,6 +9,7 @@ import CircleList from './circle_list';
 
 const view_user_component = ({
   user_to_display,
+  circles_user_can_be_invited_to,
   open_editing_panel_for_user_with_id,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
@@ -19,6 +20,7 @@ const view_user_component = ({
 }) =>
 <div className="view-user-component">
   <UserProfileHeader
+    circles_user_can_be_invited_to={circles_user_can_be_invited_to}
     user_to_display={user_to_display}
     open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
   />
