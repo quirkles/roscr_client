@@ -1,9 +1,12 @@
 import React from 'react';
 import D from 'date-fp';
+import {Map} from 'immutable';
 import {mapObjIndexed, values, omit} from 'ramda';
 import classnames from 'classnames';
 
 import {is_required} from '../../../utils/validators';
+
+import {noop} from '../../../utils/func';
 
 const do_validations_on_circle = circle => (validators, attr) =>
   validators.map(validator => validator(circle.get(attr, ''))).filter(r => !!r);
@@ -28,12 +31,12 @@ const get_contribution_value = (withdrawal_value, participant_count) => {
 };
 
 const create_circle_form = ({
-  new_circle,
-  edit_circle,
-  edit_circle_attr,
-  set_hover_hint_to_section,
-  mark_new_circle_as_submitted,
-  do_attempt_create_circle
+  new_circle = Map({}),
+  edit_circle = noop,
+  edit_circle_attr = noop,
+  set_hover_hint_to_section = noop,
+  mark_new_circle_as_submitted = noop,
+  do_attempt_create_circle = noop
 }) => {
   const validation_errors = get_circle_validation_errors(new_circle);
 

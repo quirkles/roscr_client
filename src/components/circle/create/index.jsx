@@ -2,17 +2,19 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
+import {Map} from 'immutable';
+
 import './create_circle_styles.scss';
 
 import CreateCircleForm from './create_circle_form';
 import CreateCircleInfoPanel from './create_circle_info_panel';
-import CreateHircleHeader from './create_circle_header';
+import CreateCircleHeader from './create_circle_header';
 
 import {edit_circle as edit_circle_action, attempt_create_circle} from '../../../actions/circle_actions';
 import {set_hover_hint as set_hover_hint_action} from '../../../actions/new_circle_actions.js';
 
 export const unconnected_create_circle_component = ({
-  new_circle,
+  new_circle = Map({}),
   edit_circle,
   edit_circle_attr,
   set_hover_hint_to_section,
@@ -20,7 +22,7 @@ export const unconnected_create_circle_component = ({
   do_attempt_create_circle
 }) =>
 <div className='create-circle-component'>
-  <CreateHircleHeader/>
+  <CreateCircleHeader/>
   <div className="padding">
     <div className='row margin-top-two'>
       <div className='col-lg-12 col-xl-6'>
@@ -35,7 +37,7 @@ export const unconnected_create_circle_component = ({
       </div>
       <div className='col-lg-12 col-xl-6'>
         <CreateCircleInfoPanel
-          hover_hint ={new_circle.get('hover_hint')}
+          hover_hint ={new_circle.get('hover_hint', null)}
         />
       </div>
     </div>
