@@ -4,6 +4,7 @@ import {
   EDIT_CIRCLE,
   ADD_CIRCLE,
   ADD_CIRCLES,
+  SET_SESSION_DATA,
   HANDLE_FIND_CIRCLES_SUCCESS,
   BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
   STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER,
@@ -16,6 +17,15 @@ const default_state = Map({});
 
 export default (state = default_state, action) => {
   switch (action.type) {
+    case SET_SESSION_DATA:
+      return state.merge((action.session_data && action.session_data.circles || []).reduce(
+        (new_state, circle) => new_state
+        .set(circle.id, fromJS(circle)
+          .delete('id')
+          .update('created_by', creator => creator.get && creator.get('id') || creator)
+        ),
+        state
+      ));
     case EDIT_CIRCLE:
     case BEGIN_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER:
     case STOP_EDITING_CIRCLE_SAVINGS_GOAL_FOR_USER:

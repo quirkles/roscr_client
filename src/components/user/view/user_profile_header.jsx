@@ -50,7 +50,7 @@ const user_profile_header_component = ({
               </button>
               <div className="dropdown-menu pull-right">
                 {circles_user_can_be_invited_to.map(c =>
-                  <a className='dropdown-item' key={c.get('id')}>{capitalize(c.get('name'))}</a>
+                  <a className='dropdown-item' key={c.get('id')}>{capitalize(c.get('circle_name'))}</a>
                 )}
               </div>
               <div

@@ -86,14 +86,14 @@ const unconnected_view_user_component = ({
 };
 
 const map_state_to_props = ({users, circles, session_user, ui_state}, own_props) => {
-  const user_to_show_id = own_props.params.user_id === 'me' ?
+  const user_to_display_id = own_props.params.user_id === 'me' ?
     session_user.get('id') :
     own_props.params.user_id;
 
-  const user_to_display = user_to_show_id === null ?
+  const user_to_display = user_to_display_id === null ?
     Map({'missing_session_user': true}) :
     users
-      .get(user_to_show_id, Map({needs_to_be_fetched: true}))
+      .get(user_to_display_id, Map({needs_to_be_fetched: true}))
       .set('id', own_props.params.user_id);
 
   const circles_as_member = user_to_display.get('needs_to_be_fetched', false) ?
@@ -110,18 +110,12 @@ const map_state_to_props = ({users, circles, session_user, ui_state}, own_props)
       .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
         .set('id', c_id));
 
-  const is_invite_member_to_circles_dropdown_open = ui_state.getIn(['add_user_to_circle_dropdowns', user_to_show_id], false);
+  const is_invite_member_to_circles_dropdown_open = ui_state.getIn(['add_user_to_circle_dropdowns', user_to_display_id], false);
 
-  const circles_user_can_be_invited_to = Map({
-    '1': Map({
-      name: 'test'
-    }),
-    '2': Map({
-      name: 'another'
-    })
-  })
-  .map((c, id) => c.set('id', id))
-  .toList();
+  const circles_user_can_be_invited_to = circles
+    .filter(circle => circle.get('members').includes(session_user.get('id')) && !circle.get('members').includes(user_to_display_id))
+    .map((c, id) => c.set('id', id))
+    .toList();
 
   return {
     user_to_display,
