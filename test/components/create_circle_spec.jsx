@@ -55,5 +55,7 @@ describe('CreateCircle Component', () => {
       expect(spied_edit_circle_attr.callCount).to.equal(5);
       expect(spied_edit_circle_attr.returnValues[0]()).to.equal('circle_name');
     });
+    // mark_new_circle_as_submitted
+    // do_attempt_create_circle
   });
 });

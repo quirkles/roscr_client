@@ -10,8 +10,10 @@ import CircleList from './circle_list';
 const view_user_component = ({
   user_to_display,
   circles_user_can_be_invited_to,
+  is_invite_member_to_circles_dropdown_open,
   open_editing_panel_for_user_with_id,
   open_add_user_to_circle_dropdown,
+  close_add_user_to_circle_dropdown,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
   stop_editing_and_do_update_attr_for_user,
@@ -22,9 +24,11 @@ const view_user_component = ({
 <div className="view-user-component">
   <UserProfileHeader
     circles_user_can_be_invited_to={circles_user_can_be_invited_to}
+    is_invite_member_to_circles_dropdown_open={is_invite_member_to_circles_dropdown_open}
     user_to_display={user_to_display}
     open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
     open_add_user_to_circle_dropdown={() => open_add_user_to_circle_dropdown(user_to_display.get('id'))}
+    close_add_user_to_circle_dropdown={() => close_add_user_to_circle_dropdown(user_to_display.get('id'))}
   />
   <div className="padding">
     <div className='row margin-top-two'>

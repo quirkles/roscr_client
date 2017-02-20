@@ -7,7 +7,8 @@ import {
   OPEN_NOTIFICATION_DROPDOWN,
   CLOSE_NOTIFICATION_DROPDOWN,
   CLOSE_ALL_NAV_DROPDOWNS,
-  OPEN_ADD_USER_TO_CIRCLE_DROPDOWN
+  OPEN_ADD_USER_TO_CIRCLE_DROPDOWN,
+  CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN
 } from '../constants/ui_state_constants';
 
 import cuid from 'cuid';
@@ -48,5 +49,10 @@ export const close_all_nav_dropdowns = () => ({ type: CLOSE_ALL_NAV_DROPDOWNS});
 
 export const open_add_user_to_circle_dropdown = user_id => ({
   type: OPEN_ADD_USER_TO_CIRCLE_DROPDOWN,
+  user_id
+});
+
+export const close_add_user_to_circle_dropdown = user_id => ({
+  type: CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN,
   user_id
 });

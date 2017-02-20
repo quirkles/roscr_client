@@ -121,4 +121,4 @@ export const attempt_save_circle_savings_goal_for_user = ({circle_id, user_id, s
         () => console.log('Success!'),
         () => console.log('failure!')
       );
-  }
+  };

@@ -8,7 +8,8 @@ import {
   CLOSE_HEADER_DROPDOWN,
   OPEN_NOTIFICATION_DROPDOWN,
   CLOSE_ALL_NAV_DROPDOWNS,
-  OPEN_ADD_USER_TO_CIRCLE_DROPDOWN
+  OPEN_ADD_USER_TO_CIRCLE_DROPDOWN,
+  CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN
 } from '../constants/ui_state_constants';
 
 import { LOG_OUT_USER } from '../constants/user_constants';
@@ -36,7 +37,9 @@ const ui_state_reducer = (state = default_state, action) => {
         is_notification_dropdown_open: false
       });
     case OPEN_ADD_USER_TO_CIRCLE_DROPDOWN:
-      return state.setIn(['add_user_to_cricle_dropdowns', action.user_id], true);
+      return state.setIn(['add_user_to_circle_dropdowns', action.user_id], true);
+    case CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN:
+      return state.setIn(['add_user_to_circle_dropdowns', action.user_id], false);
     default:
       return state;
   }

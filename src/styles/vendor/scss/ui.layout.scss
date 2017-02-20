@@ -42,7 +42,7 @@ body{
 	left: 0;
 	right: 0;
 	margin: inherit;
-	z-index: 1020;
+	// z-index: 1020;
  	&:not(.hide) ~ .app-body{
 		padding-top: $navbar-height;
 	}

@@ -14,7 +14,10 @@ import {
 
 import {find_many_circles_by_ids} from '../../../actions/circle_actions';
 
-import {open_add_user_to_circle_dropdown} from '../../../actions/ui_state_actions';
+import {
+  open_add_user_to_circle_dropdown as open_add_user_to_circle_dropdown_action,
+  close_add_user_to_circle_dropdown as close_add_user_to_circle_dropdown_action
+} from '../../../actions/ui_state_actions';
 
 import ViewUserComponent from './view_user_component';
 import MissingSessionUser from './missing_session_user';
@@ -29,8 +32,10 @@ const unconnected_view_user_component = ({
   circles_as_member,
   circles_created,
   circles_user_can_be_invited_to,
+  is_invite_member_to_circles_dropdown_open,
   open_editing_panel_for_user_with_id,
   open_add_user_to_circle_dropdown,
+  close_add_user_to_circle_dropdown,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
   edit_user_attr_with_id,
@@ -65,8 +70,10 @@ const unconnected_view_user_component = ({
       <ViewUserComponent
         user_to_display = {user_to_display}
         circles_user_can_be_invited_to={circles_user_can_be_invited_to}
+        is_invite_member_to_circles_dropdown_open={is_invite_member_to_circles_dropdown_open}
         open_editing_panel_for_user_with_id = {open_editing_panel_for_user_with_id}
         open_add_user_to_circle_dropdown={open_add_user_to_circle_dropdown}
+        close_add_user_to_circle_dropdown={close_add_user_to_circle_dropdown}
         close_editing_panel_for_user_with_id = {close_editing_panel_for_user_with_id}
         start_editing_attr_for_user_with_id = {start_editing_attr_for_user_with_id}
         stop_editing_and_do_update_attr_for_user = {stop_editing_and_do_update_attr_for_user}
@@ -78,7 +85,7 @@ const unconnected_view_user_component = ({
   }
 };
 
-const map_state_to_props = ({users, circles, session_user}, own_props) => {
+const map_state_to_props = ({users, circles, session_user, ui_state}, own_props) => {
   const user_to_show_id = own_props.params.user_id === 'me' ?
     session_user.get('id') :
     own_props.params.user_id;
@@ -103,20 +110,25 @@ const map_state_to_props = ({users, circles, session_user}, own_props) => {
       .map(c_id => circles.get(c_id, Map({'needs_to_be_fetched': true}))
         .set('id', c_id));
 
+  const is_invite_member_to_circles_dropdown_open = ui_state.getIn(['add_user_to_circle_dropdowns', user_to_show_id], false);
+
   const circles_user_can_be_invited_to = Map({
-    '1': {
+    '1': Map({
       name: 'test'
-    },
-    '2': {
+    }),
+    '2': Map({
       name: 'another'
-    }
-  });
+    })
+  })
+  .map((c, id) => c.set('id', id))
+  .toList();
 
   return {
     user_to_display,
     circles_as_member,
     circles_created,
-    circles_user_can_be_invited_to
+    circles_user_can_be_invited_to,
+    is_invite_member_to_circles_dropdown_open
   };
 };
 
@@ -159,7 +171,8 @@ const map_dispatch_to_props = dispatch => {
   const do_find_many_circles_by_ids = bindActionCreators(find_many_circles_by_ids, dispatch);
 
   return {
-    open_add_user_to_circle_dropdown: bindActionCreators(open_add_user_to_circle_dropdown, dispatch),
+    open_add_user_to_circle_dropdown: bindActionCreators(open_add_user_to_circle_dropdown_action, dispatch),
+    close_add_user_to_circle_dropdown: bindActionCreators(close_add_user_to_circle_dropdown_action, dispatch),
     open_editing_panel_for_user_with_id,
     close_editing_panel_for_user_with_id,
     start_editing_attr_for_user_with_id,
