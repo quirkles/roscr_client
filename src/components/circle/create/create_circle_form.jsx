@@ -70,6 +70,7 @@ const create_circle_form = ({
               <label>Circle Name</label>
               <input
                 type = 'text'
+                name='circle_name'
                 className={classnames('form-control', {
                   'form-error': validation_errors.circle_name && validation_errors.circle_name.length
                 })}
@@ -88,6 +89,7 @@ const create_circle_form = ({
             >
               <label>Particpant Count</label>
               <select
+                name='participant_count'
                 className='form-control'
                 value={new_circle.get('participant_count', 12)}
                 onChange = {edit_circle_attr('participant_count')}
@@ -109,6 +111,7 @@ const create_circle_form = ({
             >
               <label className='control-label'>Desired Withdrawal Value</label>
               <input
+                name='withdrawal_amount'
                 type = 'number'
                 className = 'form-control'
                 placeholder = '$100'
@@ -124,6 +127,7 @@ const create_circle_form = ({
             >
               <label className='control-label'>Savings Cycle Length</label>
               <select
+                name='cycle_period'
                 className='form-control'
                 value = {new_circle.get('cycle_period', 'monthly')}
                 onChange = {edit_circle_attr('cycle_period')}
@@ -141,6 +145,7 @@ const create_circle_form = ({
             >
               <label className='control-label'>Start date</label>
               <input
+                name='start_date'
                 type='date'
                 className='form-control'
                 value={D.format('YYYY-MM-DD', new_circle.get('start_date', new Date()))}
