@@ -11,7 +11,8 @@ import {
   ADD_USER,
   ADD_USERS,
   ADD_KNOWN_TAKEN_EMAIL_ADDRESS,
-  HANDLE_FIND_USERS_SUCCESS
+  HANDLE_FIND_USERS_SUCCESS,
+  OPEN_INVITE_USER_TO_CIRCLE_MODAL
 } from '../constants/user_constants';
 
 import {
@@ -82,6 +83,12 @@ export const add_user = user_data => ({
 export const set_session_data = session_data => ({
   type: SET_SESSION_DATA,
   session_data
+});
+
+export const open_invite_user_to_circle_modal = ({user_id, circle_id}) => ({
+  type: OPEN_INVITE_USER_TO_CIRCLE_MODAL,
+  user_id,
+  circle_id
 });
 
 export const attempt_sign_up_with_credentials = ({email_address, password}) =>

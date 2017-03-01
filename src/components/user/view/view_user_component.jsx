@@ -13,6 +13,7 @@ const view_user_component = ({
   is_invite_member_to_circles_dropdown_open,
   open_editing_panel_for_user_with_id,
   open_add_user_to_circle_dropdown,
+  open_invite_user_to_circle_modal,
   close_add_user_to_circle_dropdown,
   close_editing_panel_for_user_with_id,
   start_editing_attr_for_user_with_id,
@@ -29,6 +30,7 @@ const view_user_component = ({
     open_editing_panel_for_user_with_id={open_editing_panel_for_user_with_id}
     open_add_user_to_circle_dropdown={() => open_add_user_to_circle_dropdown(user_to_display.get('id'))}
     close_add_user_to_circle_dropdown={() => close_add_user_to_circle_dropdown(user_to_display.get('id'))}
+    open_invite_user_to_circle_modal={open_invite_user_to_circle_modal}
   />
   <div className="padding">
     <div className='row margin-top-two'>

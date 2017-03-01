@@ -12,6 +12,8 @@ import {
   CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN
 } from '../constants/ui_state_constants';
 
+import {OPEN_INVITE_USER_TO_CIRCLE_MODAL} from '../constants/user_constants'
+
 import { LOG_OUT_USER } from '../constants/user_constants';
 
 const default_state = Map({});
@@ -39,6 +41,7 @@ const ui_state_reducer = (state = default_state, action) => {
     case OPEN_ADD_USER_TO_CIRCLE_DROPDOWN:
       return state.setIn(['add_user_to_circle_dropdowns', action.user_id], true);
     case CLOSE_ADD_USER_TO_CIRCLE_DROPDOWN:
+    case OPEN_INVITE_USER_TO_CIRCLE_MODAL:
       return state.setIn(['add_user_to_circle_dropdowns', action.user_id], false);
     default:
       return state;

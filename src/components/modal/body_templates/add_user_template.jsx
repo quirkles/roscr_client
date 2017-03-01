@@ -8,12 +8,12 @@ const get_email_validation_errors = email_address =>
 
 
 const add_user_template = ({
-  invitee_email_address,
-  update_add_user_email_action,
-  submit_add_user_action,
-  do_request_add_user_action,
-  has_submitted_add_user
+  metadata,
+  actions
 }) => {
+  const {invitee_email_address, has_submitted_add_user} = metadata;
+  const {update_add_user_email_action, submit_add_user_action, do_request_add_user_action} = actions;
+
   const validation_errors = get_email_validation_errors(invitee_email_address);
 
   const process_submit_click = () => {

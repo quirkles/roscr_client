@@ -1,10 +1,35 @@
 import React from 'react';
+import {Map} from 'immutable';
+import {pick} from 'ramda';
 
 import Header from './header';
 import Body from './body';
 
+const get_metadata_from_modal_props = modal_props => {
+  switch (modal_props.get('content')) {
+    case 'add_user_template':
+      return modal_props.get('invite_user');
+    case 'invite_user_to_circle_template':
+      return modal_props.get('invite_user_to_circle_data');
+    default:
+      return Map({});
+  }
+};
+
+const get_actions_from_modal_props = (modal_props, actions) => {
+  switch (modal_props.get('content')) {
+    case 'add_user_template':
+      return pick(['update_add_user_email_action', 'submit_add_user_action', 'do_request_add_user_action'], actions);
+    case 'invite_user_to_circle_template':
+      return {};
+    default:
+      return {};
+  }
+};
+
 export default ({
   modal_props,
+  content,
   do_close_modal,
   update_add_user_email_action,
   submit_add_user_action,
@@ -15,11 +40,12 @@ export default ({
           do_close_modal={do_close_modal}
         />
         <Body
-          content={modal_props.get('content', 'Here is the modal content')}
-          invitee_email_address={modal_props.getIn(['invite_user', 'invitee_email_address'], '')}
-          has_submitted_add_user={modal_props.getIn(['invite_user', 'has_submitted_add_user'], false)}
-          update_add_user_email_action={update_add_user_email_action}
-          submit_add_user_action={submit_add_user_action}
-          do_request_add_user_action={do_request_add_user_action}
+          content={content}
+          metadata={get_metadata_from_modal_props(modal_props).toJS()}
+          actions={get_actions_from_modal_props(modal_props, {
+            update_add_user_email_action,
+            submit_add_user_action,
+            do_request_add_user_action
+          })}
         />
     </div>;

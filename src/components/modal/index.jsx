@@ -16,6 +16,8 @@ import {
 import './modal_styles.scss';
 
 const unconnected_modal_component = ({
+  is_shown,
+  content,
   modal,
   do_close_modal,
   update_add_user_email_action,
@@ -25,10 +27,11 @@ const unconnected_modal_component = ({
   return (
       <div
         className = {classnames('modal', {
-          'modal-show': modal.get('is_shown')
+          'modal-show': is_shown
         })}
       >
         <Content
+          content={content}
           modal_props = {modal}
           do_close_modal = {do_close_modal}
           update_add_user_email_action = {update_add_user_email_action}
@@ -39,7 +42,17 @@ const unconnected_modal_component = ({
   );
 };
 
-const map_state_to_props = ({modal}) => ({modal});
+const map_state_to_props = ({modal}) => {
+  const {
+    is_shown,
+    content = 'Here is the modal content'
+  } = modal.toJS();
+  return {
+    is_shown,
+    content,
+    modal
+  };
+}
 
 const map_dispatch_to_props = dispatch => {
   const update_add_user_email_action = e => bindActionCreators(update_add_user_email, dispatch)(e.target.value);

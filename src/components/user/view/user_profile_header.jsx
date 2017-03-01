@@ -11,6 +11,7 @@ const user_profile_header_component = ({
   is_invite_member_to_circles_dropdown_open,
   open_editing_panel_for_user_with_id,
   open_add_user_to_circle_dropdown,
+  open_invite_user_to_circle_modal,
   close_add_user_to_circle_dropdown
 }) =>
 <div className='item'>
@@ -50,7 +51,13 @@ const user_profile_header_component = ({
               </button>
               <div className="dropdown-menu pull-right">
                 {circles_user_can_be_invited_to.map(c =>
-                  <a className='dropdown-item' key={c.get('id')}>{capitalize(c.get('circle_name'))}</a>
+                  <a
+                    className='dropdown-item'
+                    key={c.get('id')}
+                    onClick={open_invite_user_to_circle_modal(c.get('id'))}
+                  >
+                    {capitalize(c.get('circle_name'))}
+                  </a>
                 )}
               </div>
               <div

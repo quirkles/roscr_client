@@ -9,7 +9,8 @@ import {
   start_editing_attr_for_user,
   find_user_by_id,
   edit_user,
-  save_user_changes
+  save_user_changes,
+  open_invite_user_to_circle_modal as open_invite_user_to_circle_modal_action
 } from '../../../actions/user_actions';
 
 import {find_many_circles_by_ids} from '../../../actions/circle_actions';
@@ -34,6 +35,7 @@ const unconnected_view_user_component = ({
   circles_user_can_be_invited_to,
   is_invite_member_to_circles_dropdown_open,
   open_editing_panel_for_user_with_id,
+  open_invite_user_to_circle_modal,
   open_add_user_to_circle_dropdown,
   close_add_user_to_circle_dropdown,
   close_editing_panel_for_user_with_id,
@@ -73,6 +75,7 @@ const unconnected_view_user_component = ({
         is_invite_member_to_circles_dropdown_open={is_invite_member_to_circles_dropdown_open}
         open_editing_panel_for_user_with_id = {open_editing_panel_for_user_with_id}
         open_add_user_to_circle_dropdown={open_add_user_to_circle_dropdown}
+        open_invite_user_to_circle_modal={circle_id => () => open_invite_user_to_circle_modal({user_id: user_to_display.get('id'), circle_id})}
         close_add_user_to_circle_dropdown={close_add_user_to_circle_dropdown}
         close_editing_panel_for_user_with_id = {close_editing_panel_for_user_with_id}
         start_editing_attr_for_user_with_id = {start_editing_attr_for_user_with_id}
@@ -167,6 +170,7 @@ const map_dispatch_to_props = dispatch => {
   return {
     open_add_user_to_circle_dropdown: bindActionCreators(open_add_user_to_circle_dropdown_action, dispatch),
     close_add_user_to_circle_dropdown: bindActionCreators(close_add_user_to_circle_dropdown_action, dispatch),
+    open_invite_user_to_circle_modal: bindActionCreators(open_invite_user_to_circle_modal_action, dispatch),
     open_editing_panel_for_user_with_id,
     close_editing_panel_for_user_with_id,
     start_editing_attr_for_user_with_id,
