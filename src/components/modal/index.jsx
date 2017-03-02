@@ -2,6 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
+import {Map} from 'immutable';
 
 import Content from './content';
 
@@ -19,10 +20,7 @@ const unconnected_modal_component = ({
   is_shown,
   content,
   modal,
-  do_close_modal,
-  update_add_user_email_action,
-  submit_add_user_action,
-  do_request_add_user_action
+  actions
 }) => {
   return (
       <div
@@ -31,37 +29,42 @@ const unconnected_modal_component = ({
         })}
       >
         <Content
-          content={content}
+          content = {content}
           modal_props = {modal}
-          do_close_modal = {do_close_modal}
-          update_add_user_email_action = {update_add_user_email_action}
-          submit_add_user_action = {submit_add_user_action}
-          do_request_add_user_action={do_request_add_user_action}
+          actions = {actions}
         />
     </div>
   );
 };
 
-const map_state_to_props = ({modal}) => {
+const map_state_to_props = ({modal, users, circles}) => {
   const {
     is_shown,
     content = 'Here is the modal content'
   } = modal.toJS();
+
+  const modal_with_user_and_circle = modal.update('invite_user_to_circle_data', data => Map({
+    circle: circles.get(data.get('circle_id', Map({id: data.get('circle_id'), to_be_fetched: true}))),
+    user: users.get(data.get('user_id', Map({id: data.get('user_id'), to_be_fetched: true})))
+  }));
+
   return {
     is_shown,
     content,
-    modal
+    modal: modal_with_user_and_circle
   };
-}
+};
 
 const map_dispatch_to_props = dispatch => {
   const update_add_user_email_action = e => bindActionCreators(update_add_user_email, dispatch)(e.target.value);
   return {
-    do_close_modal: bindActionCreators(close_modal, dispatch),
-    do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
-    submit_add_user_action: bindActionCreators(submit_add_user, dispatch),
-    do_request_add_user_action: bindActionCreators(do_request_submit_add_user, dispatch),
-    update_add_user_email_action
+    actions: {
+      do_close_modal: bindActionCreators(close_modal, dispatch),
+      do_show_add_user_modal: bindActionCreators(show_add_user_modal, dispatch),
+      submit_add_user_action: bindActionCreators(submit_add_user, dispatch),
+      do_request_add_user_action: bindActionCreators(do_request_submit_add_user, dispatch),
+      update_add_user_email_action
+    }
   };
 };
 

@@ -21,7 +21,7 @@ const get_actions_from_modal_props = (modal_props, actions) => {
     case 'add_user_template':
       return pick(['update_add_user_email_action', 'submit_add_user_action', 'do_request_add_user_action'], actions);
     case 'invite_user_to_circle_template':
-      return {};
+      return pick([], actions);
     default:
       return {};
   }
@@ -30,22 +30,15 @@ const get_actions_from_modal_props = (modal_props, actions) => {
 export default ({
   modal_props,
   content,
-  do_close_modal,
-  update_add_user_email_action,
-  submit_add_user_action,
-  do_request_add_user_action
+  actions
 }) =>
     <div className='modal-content'>
         <Header
-          do_close_modal={do_close_modal}
+          do_close_modal={actions.do_close_modal}
         />
         <Body
           content={content}
           metadata={get_metadata_from_modal_props(modal_props).toJS()}
-          actions={get_actions_from_modal_props(modal_props, {
-            update_add_user_email_action,
-            submit_add_user_action,
-            do_request_add_user_action
-          })}
+          actions={get_actions_from_modal_props(modal_props, actions)}
         />
     </div>;

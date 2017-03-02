@@ -9,6 +9,6 @@ export default createDevTools(
     changePositionKey='ctrl-q'
     defaultIsVisible={false}
   >
-    <LogMonitor />
+    <LogMonitor/>
   </DockMonitor>
 );

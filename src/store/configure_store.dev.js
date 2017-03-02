@@ -7,7 +7,13 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import DevTools from '../containers/dev_tools';
 
-const logger = createLogger();
+import {map} from 'ramda';
+
+const stateTransformer = state => map(state_component => state_component.toJS ? state_component.toJS() : state_component, state);
+
+const logger = createLogger({
+  stateTransformer
+});
 
 const router_history_middleware = routerMiddleware(browserHistory);
 
