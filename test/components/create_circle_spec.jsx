@@ -5,6 +5,8 @@ import { shallow } from 'enzyme';
 import {stub, spy} from 'sinon';
 import {Map} from 'immutable';
 
+import D from 'date-fp';
+
 import {unconnected_create_circle_component as CreateCircle} from '../../src/components/circle/create';
 import CreateCircleForm from '../../src/components/circle/create/create_circle_form';
 import CreateCircleInfoPanel from '../../src/components/circle/create/create_circle_info_panel';
@@ -33,8 +35,8 @@ describe('CreateCircle Component', () => {
       expect(wrapper.find('form')).to.have.length(1);
     });
 
-    it('correctly renders circle information', () => {
-      const now = Date.now;
+    describe('Given circle data as props', ()=> {
+      const now = new Date();
       const new_circle = Map({
         circle_name: 'test-circle-name',
         participant_count: 10,
@@ -43,11 +45,21 @@ describe('CreateCircle Component', () => {
         start_date: now
       });
       const wrapper = shallow(<CreateCircleForm new_circle={new_circle}/>);
-      expect(wrapper.find('input[name="circle_name"]').props().value).to.equal('test-circle-name');
-      expect(wrapper.find('input[name="participant_count"]').props().value).to.equal(10);
-      expect(wrapper.find('input[name="withdrawal_amount"]').props().value).to.equal(500);
-      expect(wrapper.find('input[name="cycle_period"]').props().value).to.equal('bi-weekly');
-      expect(wrapper.find('input[name="start_date"]').props().value).to.equal(now);
+      it('correctly renders circle name', () => {
+        expect(wrapper.find('input[name="circle_name"]').props().value).to.equal('test-circle-name');
+      });
+      it('correctly renders circle participant count', () => {
+        expect(wrapper.find('select[name="participant_count"]').props().value).to.equal(10);
+      });
+      it('correctly renders circle withdrawal amount', () => {
+        expect(wrapper.find('input[name="withdrawal_amount"]').props().value).to.equal(500);
+      });
+      it('correctly renders circle cycle period', () => {
+        expect(wrapper.find('select[name="cycle_period"]').props().value).to.equal('bi-weekly');
+      });
+      it('correctly renders circle start date', () => {
+        expect(wrapper.find('input[name="start_date"]').props().value).to.equal(D.format('YYYY-MM-DD', now));
+      });
     });
 
     it('Sets the hover hint on hover', () => {
@@ -74,7 +86,7 @@ describe('CreateCircle Component', () => {
       expect(spied_edit_circle_attr.returnValues[0]()).to.equal('circle_name');
     });
 
-    it('Fires both mark_as_submitted and do_attempt_create_circle prop funcson submission', () => {
+    it('Fires both mark_as_submitted and do_attempt_create_circle prop funcs on submission', () => {
       const mark_new_circle_as_submitted = spy();
       const do_attempt_create_circle = spy();
       const new_circle = Map({circle_name: 'Circle name'});
@@ -87,6 +99,66 @@ describe('CreateCircle Component', () => {
       wrapper.find('button').simulate('click', {preventDefault: () => {}});
       expect(mark_new_circle_as_submitted.calledOnce).to.be.true;
       expect(do_attempt_create_circle.calledOnce).to.be.true;
+    });
+  });
+
+  describe('CreateCircleHeader', () => {
+    it('renders without errors', () => {
+      const wrapper = shallow(<CreateCircleHeader/>);
+      expect(wrapper.find('.circle-header-component')).to.have.length(1);
+    });
+  });
+
+  describe('CreateCircleInfoPanel', () => {
+
+    it('renders without errors', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel/>);
+      expect(wrapper.find('.create-circle-info-panel-component')).to.have.length(1);
+    });
+
+    it('shows no hint if not given one', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(0);
+    });
+
+    it('shows no hint if given invalid hint', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='fdsfasdf'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(0);
+    });
+
+    it('shows the hint for circle name', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='circle_name'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for participant count', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='participant_count'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for withdrawal amount', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='withdrawal_amount'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for cycle period', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='cycle_period'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for start date', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='start_date'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for is public', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='is_public'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
+    });
+
+    it('shows the hint for contribution amount', () => {
+      const wrapper = shallow(<CreateCircleInfoPanel hover_hint='contribution_amount'/>);
+      expect(wrapper.find('.padding-half.indigo-50')).to.have.length(1);
     });
   });
 });

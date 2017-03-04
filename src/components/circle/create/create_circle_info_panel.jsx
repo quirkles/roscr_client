@@ -4,10 +4,10 @@ import classnames from 'classnames';
 export default ({
   hover_hint
 }) =>
-<div className='box create-circle-info-panel'>
+<div className='box create-circle-info-panel-component'>
   <div className='box-header pink'>
     <h2 className='panel-title padding-half serif bold'>
-      <i className='fa fa-info-circle padding-right-one'></i>
+      <i className='fa fa-info-circle padding-right-one'/>
       Creating A Circle
     </h2>
   </div>

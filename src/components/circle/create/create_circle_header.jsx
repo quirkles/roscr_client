@@ -1,7 +1,7 @@
 import React from 'react';
 
 const circle_header_component = () =>
-  <div className='item bg-tile-swirl circle-header'>
+  <div className='item bg-tile-swirl circle-header-component'>
     <div className="p-a-md">
       <div className="row m-t">
         <div className="col-sm-7">
