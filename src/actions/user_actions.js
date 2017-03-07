@@ -12,7 +12,8 @@ import {
   ADD_USERS,
   ADD_KNOWN_TAKEN_EMAIL_ADDRESS,
   HANDLE_FIND_USERS_SUCCESS,
-  OPEN_INVITE_USER_TO_CIRCLE_MODAL
+  OPEN_INVITE_USER_TO_CIRCLE_MODAL,
+  ADD_USER_TO_CIRCLE
 } from '../constants/user_constants';
 
 import {
@@ -90,6 +91,16 @@ export const open_invite_user_to_circle_modal = ({user_id, circle_id}) => ({
   user_id,
   circle_id
 });
+
+const add_user_to_circle = ({user_id, circle_id}) => ({
+  type: ADD_USER_TO_CIRCLE,
+  user_id,
+  circle_id
+});
+
+export const attempt_invite_user_to_circle = ({user_id, circle_id}) =>
+  dispatch =>
+    dispatch(add_user_to_circle({user_id, circle_id}));
 
 export const attempt_sign_up_with_credentials = ({email_address, password}) =>
   dispatch =>

@@ -21,7 +21,7 @@ const get_actions_from_modal_props = (modal_props, actions) => {
     case 'add_user_template':
       return pick(['update_add_user_email_action', 'submit_add_user_action', 'do_request_add_user_action'], actions);
     case 'invite_user_to_circle_template':
-      return pick([], actions);
+      return pick(['invite_user_to_circle'], actions);
     default:
       return {};
   }
